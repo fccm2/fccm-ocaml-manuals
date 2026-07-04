@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Lzma" rel="Chapter" href="Lzma.html"><link title="Integrity Check" rel="Section" href="#3_IntegrityCheck">
+<link title="Initialise for decoding" rel="Section" href="#3_Initialisefordecoding">
+<link title="Initialise for encoding" rel="Section" href="#3_Initialiseforencoding">
+<link title="Running encoding/decoding" rel="Section" href="#3_Runningencodingdecoding">
+<link title="Ending" rel="Section" href="#3_Ending">
+<link title="Single-call" rel="Section" href="#3_Singlecall">
+<link title="Memory Management" rel="Section" href="#3_MemoryManagement">
+<link title="Version" rel="Section" href="#3_Version">
+<title>Lzma</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Lzma.html">Lzma</a></h1>
+
+<pre><span id="MODULELzma"><span class="keyword">module</span> Lzma</span>: <code class="code"><span class="keyword">sig</span></code> <a href="Lzma.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+<div class="info-desc">
+<p>OCaml bindings to the lzma library</p>
+</div>
+</div>
+<hr width="100%">
+<p>You can get more documentation reading the comments in the files
+    /usr/include/lzma/*.h</p>
+
+<pre><span id="EXCEPTIONEOF"><span class="keyword">exception</span> EOF</span> <span class="keyword">of</span> <code class="type">int</code></pre>
+<p>end of file reached, but still <code class="code">n</code> chars available in the buffer</p>
+
+<pre><span id="EXCEPTIONMEM_LIMIT"><span class="keyword">exception</span> MEM_LIMIT</span> <span class="keyword">of</span> <code class="type">int64</code></pre>
+<p>memory usage limit was reached,
+    the minimum required mem-limit value is returned</p>
+
+<pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type">unit -> unit</code></pre>
+<pre><span id="TYPElzma_stream"><span class="keyword">type</span> <code class="type"></code>lzma_stream</span> </pre>
+
+
+<pre><span id="VALnew_lzma_stream"><span class="keyword">val</span> new_lzma_stream</span> : <code class="type">unit -> <a href="Lzma.html#TYPElzma_stream">lzma_stream</a></code></pre>
+<pre><span id="VALlzma_stream_total_in_out"><span class="keyword">val</span> lzma_stream_total_in_out</span> : <code class="type">strm:<a href="Lzma.html#TYPElzma_stream">lzma_stream</a> -> int64 * int64</code></pre><p>total number of bytes read/written by liblzma</p>
+<h4 id="3_IntegrityCheck">Integrity Check</h4>
+<pre><code><span id="TYPElzma_check"><span class="keyword">type</span> <code class="type"></code>lzma_check</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlzma_check.LZMA_CHECK_NONE"><span class="constructor">LZMA_CHECK_NONE</span></span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>No Check is calculated. (size of the Check field: 0 bytes)</p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlzma_check.LZMA_CHECK_CRC32"><span class="constructor">LZMA_CHECK_CRC32</span></span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>CRC32 using the polynomial from the IEEE 802.3 standard
+        (Size of the Check field: 4 bytes)</p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlzma_check.LZMA_CHECK_CRC64"><span class="constructor">LZMA_CHECK_CRC64</span></span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>CRC64 using the polynomial from the ECMA-182 standard
+        (Size of the Check field: 8 bytes)</p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlzma_check.LZMA_CHECK_SHA256"><span class="constructor">LZMA_CHECK_SHA256</span></span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>SHA-256 (Size of the Check field: 32 bytes)</p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+
+<div class="info ">
+<div class="info-desc">
+<p>Type of the integrity check (Check ID)</p>
+
+<p>The .xz format supports multiple types of checks that are calculated from
+    the uncompressed data. They vary in both speed and ability to detect errors.</p>
+</div>
+</div>
+
+
+<pre><span id="VALlzma_check_is_supported"><span class="keyword">val</span> lzma_check_is_supported</span> : <code class="type">check:<a href="Lzma.html#TYPElzma_check">lzma_check</a> -> bool</code></pre>
+<pre><span id="VALlzma_check_size"><span class="keyword">val</span> lzma_check_size</span> : <code class="type">check:<a href="Lzma.html#TYPElzma_check">lzma_check</a> -> int</code></pre>
+<pre><span id="VALlzma_check_size_max"><span class="keyword">val</span> lzma_check_size_max</span> : <code class="type">unit -> int</code></pre>
+<pre><span id="VALlzma_crc32"><span class="keyword">val</span> lzma_crc32</span> : <code class="type">?crc:int32 -> bytes -> int32</code></pre>
+<pre><span id="VALlzma_crc64"><span class="keyword">val</span> lzma_crc64</span> : <code class="type">?crc:int64 -> bytes -> int64</code></pre>
+<pre><span id="VALlzma_get_check"><span class="keyword">val</span> lzma_get_check</span> : <code class="type">strm:<a href="Lzma.html#TYPElzma_stream">lzma_stream</a> -> <a href="Lzma.html#TYPElzma_check">lzma_check</a></code></pre><h4 id="3_Initialisefordecoding">Initialise for decoding</h4>
+<pre><span id="VALlzma_auto_decoder"><span class="keyword">val</span> lzma_auto_decoder</span> : <code class="type">strm:<a href="Lzma.html#TYPElzma_stream">lzma_stream</a> -> memlimit:int64 -> check:<a href="Lzma.html#TYPElzma_check">lzma_check</a> -> unit</code></pre><p>decode .xz streams and .lzma streams with autodetection</p>
+<h4 id="3_Initialiseforencoding">Initialise for encoding</h4>
+<pre><code><span id="TYPElzma_preset"><span class="keyword">type</span> <code class="type"></code>lzma_preset</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlzma_preset.LZMA_PRESET_DEFAULT"><span class="constructor">LZMA_PRESET_DEFAULT</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlzma_preset.LZMA_PRESET_EXTREME"><span class="constructor">LZMA_PRESET_EXTREME</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlzma_preset.LZMA_PRESET_TEXT"><span class="constructor">LZMA_PRESET_TEXT</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="VALlzma_easy_encoder"><span class="keyword">val</span> lzma_easy_encoder</span> : <code class="type">strm:<a href="Lzma.html#TYPElzma_stream">lzma_stream</a> -><br>       level:int -> preset:<a href="Lzma.html#TYPElzma_preset">lzma_preset</a> list -> check:<a href="Lzma.html#TYPElzma_check">lzma_check</a> -> unit</code></pre><p>initialise .xz stream encoder</p>
+
+<pre><span id="TYPElzma_options"><span class="keyword">type</span> <code class="type"></code>lzma_options</span> </pre>
+
+
+<pre><span id="VALnew_lzma_options"><span class="keyword">val</span> new_lzma_options</span> : <code class="type">unit -> <a href="Lzma.html#TYPElzma_options">lzma_options</a></code></pre>
+<pre><span id="VALlzma_preset"><span class="keyword">val</span> lzma_preset</span> : <code class="type">options:<a href="Lzma.html#TYPElzma_options">lzma_options</a> -> level:int -> preset_extreme:bool -> unit</code></pre>
+<pre><span id="VALlzma_alone_encoder"><span class="keyword">val</span> lzma_alone_encoder</span> : <code class="type">strm:<a href="Lzma.html#TYPElzma_stream">lzma_stream</a> -> options:<a href="Lzma.html#TYPElzma_options">lzma_options</a> -> unit</code></pre><p>initialise .lzma stream encoder</p>
+<h4 id="3_Runningencodingdecoding">Running encoding/decoding</h4>
+<pre><code><span id="TYPElzma_action"><span class="keyword">type</span> <code class="type"></code>lzma_action</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlzma_action.LZMA_RUN"><span class="constructor">LZMA_RUN</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlzma_action.LZMA_SYNC_FLUSH"><span class="constructor">LZMA_SYNC_FLUSH</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlzma_action.LZMA_FULL_FLUSH"><span class="constructor">LZMA_FULL_FLUSH</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlzma_action.LZMA_FINISH"><span class="constructor">LZMA_FINISH</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="VALlzma_code"><span class="keyword">val</span> lzma_code</span> : <code class="type">strm:<a href="Lzma.html#TYPElzma_stream">lzma_stream</a> -><br>       action:<a href="Lzma.html#TYPElzma_action">lzma_action</a> -><br>       next_in:bytes -> next_out:bytes -> ofs_in:int -> ofs_out:int -> int * int</code></pre><p>returns (avail_in, avail_out)</p>
+<h4 id="3_Ending">Ending</h4>
+<pre><span id="VALlzma_end"><span class="keyword">val</span> lzma_end</span> : <code class="type">strm:<a href="Lzma.html#TYPElzma_stream">lzma_stream</a> -> unit</code></pre><h4 id="3_Singlecall">Single-call</h4>
+<pre><span id="VALlzma_stream_buffer_bound"><span class="keyword">val</span> lzma_stream_buffer_bound</span> : <code class="type">uncompressed_size:int -> int</code></pre><p>Calculate output buffer size for single-call Stream encoder</p>
+
+<pre><span id="VALlzma_easy_buffer_encode"><span class="keyword">val</span> lzma_easy_buffer_encode</span> : <code class="type">level:int -><br>       preset:<a href="Lzma.html#TYPElzma_preset">lzma_preset</a> list -><br>       check:<a href="Lzma.html#TYPElzma_check">lzma_check</a> -> data:bytes -> buf:bytes -> ofs:int -> int</code></pre><p>single-call .xz stream encoding</p>
+
+<pre><code><span id="TYPEdecoder_flags"><span class="keyword">type</span> <code class="type"></code>decoder_flags</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTdecoder_flags.LZMA_TELL_NO_CHECK"><span class="constructor">LZMA_TELL_NO_CHECK</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTdecoder_flags.LZMA_TELL_UNSUPPORTED_CHECK"><span class="constructor">LZMA_TELL_UNSUPPORTED_CHECK</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTdecoder_flags.LZMA_CONCATENATED"><span class="constructor">LZMA_CONCATENATED</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="VALlzma_stream_buffer_decode"><span class="keyword">val</span> lzma_stream_buffer_decode</span> : <code class="type">memlimit:int64 -><br>       flags:<a href="Lzma.html#TYPEdecoder_flags">decoder_flags</a> list -><br>       data:bytes -> data_ofs:int -> buf:bytes -> buf_ofs:int -> int * int</code></pre><p>single-call .xz stream decoder
+    returns (in_pos, out_pos)</p>
+<h4 id="3_MemoryManagement">Memory Management</h4>
+<pre><span id="VALlzma_memusage"><span class="keyword">val</span> lzma_memusage</span> : <code class="type">strm:<a href="Lzma.html#TYPElzma_stream">lzma_stream</a> -> int64</code></pre>
+<pre><span id="VALlzma_memlimit_get"><span class="keyword">val</span> lzma_memlimit_get</span> : <code class="type">strm:<a href="Lzma.html#TYPElzma_stream">lzma_stream</a> -> int64</code></pre>
+<pre><span id="VALlzma_memlimit_set"><span class="keyword">val</span> lzma_memlimit_set</span> : <code class="type">strm:<a href="Lzma.html#TYPElzma_stream">lzma_stream</a> -> memlimit:int64 -> unit</code></pre><h4 id="3_Version">Version</h4>
+<pre><code><span id="TYPEstability"><span class="keyword">type</span> <code class="type"></code>stability</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTstability.Alpha"><span class="constructor">Alpha</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTstability.Beta"><span class="constructor">Beta</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTstability.Stable"><span class="constructor">Stable</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEversion_kind"><span class="keyword">type</span> <code class="type"></code>version_kind</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTversion_kind.Run_time"><span class="constructor">Run_time</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTversion_kind.Compile_time"><span class="constructor">Compile_time</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="VALlzma_version_number"><span class="keyword">val</span> lzma_version_number</span> : <code class="type"><a href="Lzma.html#TYPEversion_kind">version_kind</a> -> int * int * int * <a href="Lzma.html#TYPEstability">stability</a></code></pre>
+<pre><span id="VALlzma_version_string"><span class="keyword">val</span> lzma_version_string</span> : <code class="type"><a href="Lzma.html#TYPEversion_kind">version_kind</a> -> string</code></pre></body></html>

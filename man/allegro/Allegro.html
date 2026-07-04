@@ -1,0 +1,2169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Allegro" rel="Chapter" href="Allegro.html"><link title="General Functions" rel="Section" href="#glf">
+<link title="Graphics Modes" rel="Section" href="#gfx">
+<link title="Truecolor Pixel Formats" rel="Section" href="#col">
+<link title="Palette Routines" rel="Section" href="#pal">
+<link title="Converting Between Color Formats" rel="Section" href="#colconv">
+<link title="Bitmap Objects" rel="Section" href="#bmp">
+<link title="Loading Image Files" rel="Section" href="#load">
+<link title="Keyboard Routines" rel="Section" href="#keyboard">
+<link title="Timer Routines" rel="Section" href="#timer">
+<link title="Mouse Routines" rel="Section" href="#mouse">
+<link title="Fixed Point Number" rel="Section" href="#fix">
+<link title="Drawing Primitives" rel="Section" href="#drawprim">
+<link title="Sprites" rel="Section" href="#sprites">
+<link title="RLE Sprites" rel="Section" href="#rle">
+<link title="Compiled Sprites" rel="Section" href="#comp">
+<link title="Text Output" rel="Section" href="#cout">
+<link title="Fonts" rel="Section" href="#fonts">
+<link title="Transparency and Patterned Drawing" rel="Section" href="#transp">
+<link title="Sound Init Routines" rel="Section" href="#sndini">
+<link title="Digital Sample Routines" rel="Section" href="#digispl">
+<link title="File and Compression Routines" rel="Section" href="#filefuns">
+<link title="Datafile Routines" rel="Section" href="#dat">
+<link title="GUI Routines" rel="Section" href="#gui">
+<link title="Polygon Rendering" rel="Section" href="#poly">
+<link title="3D Math Routines" rel="Section" href="#math3d">
+<link title="Quaternion Math Routines" rel="Section" href="#quater">
+<link title="Display Dependent Pixel Format" rel="Subsection" href="#4_DisplayDependentPixelFormat">
+<title>Allegro</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="index.html">Up</a>
+&nbsp;</div>
+<center><h1>Module <a href="type_Allegro.html">Allegro</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Allegro: <code class="code"><span class="keyword">sig</span></code> <a href="Allegro.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>This is an OCaml binding for Allegro.
+  Allegro is a cross-platform library intended for use in computer games
+  and other types of multimedia programming.<br>
+<hr width="100%">
+<br>
+<ul>
+<li><a href="#glf">General Functions</a></li>
+<li><a href="#gfx">Graphics modes</a></li>
+<li><a href="#col">Truecolor pixel formats</a></li>
+<li><a href="#pal">Palette routines</a></li>
+<li><a href="#colconv">Converting between color formats</a></li>
+<li><a href="#bmp">Bitmap objects</a></li>
+<li><a href="#load">Loading image files</a></li>
+<li><a href="#keyboard">Keyboard routines</a></li>
+<li><a href="#timer">Timer routines</a></li>
+<li><a href="#mouse">Mouse routines</a></li>
+<li><a href="#fix">Fixed point number</a></li>
+<li><a href="#drawprim">Drawing primitives</a></li>
+<li><a href="#sprites">Sprites</a></li>
+<li><a href="#rle">RLE Sprites</a></li>
+<li><a href="#comp">Compiled Sprites</a></li>
+<li><a href="#cout">Text output</a></li>
+<li><a href="#transp">Transparency and patterned drawing</a></li>
+<li><a href="#sndini">Sound init routines</a></li>
+<li><a href="#digispl">Digital sample routines</a></li>
+<li><a href="#filefuns">File and compression routines</a></li>
+<li><a href="#dat">Datafile routines</a></li>
+<li><a href="#poly">Polygon rendering</a></li>
+<li><a href="#math3d">3D math routines</a></li>
+<li><a href="#quater">Quaternion math routines</a></li>
+<li><a href="#gui">GUI routines</a></li>
+</ul>
+<br>
+<br>
+<a name="glf"></a>
+<h3>General Functions</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg000.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALallegro_init"></a>allegro_init : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALallegro_exit"></a>allegro_exit : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALallegro_message"></a>allegro_message : <code class="type">string -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_allegro_error"></a>get_allegro_error : <code class="type">unit -> string</code></pre><pre><span class="keyword">val</span> <a name="VALallegro_id"></a>allegro_id : <code class="type">unit -> string</code></pre><pre><span class="keyword">val</span> <a name="VALallegro_version"></a>allegro_version : <code class="type">unit -> int * int * int * string * int * int * int</code></pre><div class="info">
+The three first integers contain the major, middle and minor version numbers.
+  The text string contains all version numbers and maybe some additional text (for exemple "4.2.1 (SVN)").
+  And the release date of Allegro (year, month, day).<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALset_window_title"></a>set_window_title : <code class="type">name:string -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcpu_vendor"></a>cpu_vendor : <code class="type">unit -> string</code></pre><br><code><span class="keyword">type</span> <a name="TYPEcpu_family"></a><code class="type"></code>cpu_family = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CPU_FAMILY_UNKNOWN</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CPU_FAMILY_I386</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CPU_FAMILY_I486</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CPU_FAMILY_I586</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CPU_FAMILY_I686</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CPU_FAMILY_ITANIUM</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CPU_FAMILY_POWERPC</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CPU_FAMILY_EXTENDED</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CPU_FAMILY_NOT_FOUND</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALget_cpu_family"></a>get_cpu_family : <code class="type">unit -> <a href="Allegro.html#TYPEcpu_family">cpu_family</a></code></pre><pre><span class="keyword">val</span> <a name="VALos_version"></a>os_version : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALos_revision"></a>os_revision : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALos_multitasking"></a>os_multitasking : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALdesktop_color_depth"></a>desktop_color_depth : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_desktop_resolution"></a>get_desktop_resolution : <code class="type">unit -> int * int</code></pre><br>
+<a name="gfx"></a>
+<h3>Graphics Modes</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg008.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALset_color_depth"></a>set_color_depth : <code class="type">depth:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_color_depth"></a>get_color_depth : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_screen_width"></a>get_screen_width : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_screen_height"></a>get_screen_height : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_virtual_width"></a>get_virtual_width : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_virtual_height"></a>get_virtual_height : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALrequest_refresh_rate"></a>request_refresh_rate : <code class="type">rate:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_refresh_rate"></a>get_refresh_rate : <code class="type">unit -> int</code></pre><br><code><span class="keyword">type</span> <a name="TYPEgfx_driver"></a><code class="type"></code>gfx_driver = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_AUTODETECT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_AUTODETECT_FULLSCREEN</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_AUTODETECT_WINDOWED</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_SAFE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_TEXT</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALset_gfx_mode"></a>set_gfx_mode : <code class="type">gfx_driver:<a href="Allegro.html#TYPEgfx_driver">gfx_driver</a> -><br>       width:int -> height:int -> virtual_width:int -> virtual_height:int -> unit</code></pre><div class="info">
+raises Failure "set_gfx_mode" when it fails<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALget_gfx_driver_name"></a>get_gfx_driver_name : <code class="type">unit -> string</code></pre><pre><span class="keyword">val</span> <a name="VALenable_triple_buffer"></a>enable_triple_buffer : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALvsync"></a>vsync : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALscroll_screen"></a>scroll_screen : <code class="type">x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrequest_scroll"></a>request_scroll : <code class="type">x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALpoll_scroll"></a>poll_scroll : <code class="type">unit -> bool</code></pre><br><code><span class="keyword">type</span> <a name="TYPEgfx_capabilities"></a><code class="type"></code>gfx_capabilities = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_CAN_SCROLL</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_CAN_TRIPLE_BUFFER</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_CURSOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_SYSTEM_CURSOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_HLINE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_HLINE_XOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_HLINE_SOLID_PATTERN</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_HLINE_COPY_PATTERN</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_FILL</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_FILL_XOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_FILL_SOLID_PATTERN</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_FILL_COPY_PATTERN</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_LINE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_LINE_XOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_TRIANGLE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_TRIANGLE_XOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_GLYPH</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_VRAM_BLIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_VRAM_BLIT_MASKED</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_MEM_BLIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_MEM_BLIT_MASKED</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_SYS_TO_VRAM_BLIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_SYS_TO_VRAM_BLIT_MASKED</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_VRAM_STRETCH_BLIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_SYS_STRETCH_BLIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_VRAM_STRETCH_BLIT_MASKED</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GFX_HW_SYS_STRETCH_BLIT_MASKED</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALget_gfx_capabilities"></a>get_gfx_capabilities : <code class="type">unit -> <a href="Allegro.html#TYPEgfx_capabilities">gfx_capabilities</a> list</code></pre><br><code><span class="keyword">type</span> <a name="TYPEswitch_mode"></a><code class="type"></code>switch_mode = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SWITCH_NONE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SWITCH_PAUSE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SWITCH_AMNESIA</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SWITCH_BACKGROUND</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SWITCH_BACKAMNESIA</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALset_display_switch_mode"></a>set_display_switch_mode : <code class="type"><a href="Allegro.html#TYPEswitch_mode">switch_mode</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_display_switch_mode"></a>get_display_switch_mode : <code class="type">unit -> <a href="Allegro.html#TYPEswitch_mode">switch_mode</a></code></pre><pre><span class="keyword">val</span> <a name="VALis_windowed_mode"></a>is_windowed_mode : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALallegro_vram_single_surface"></a>allegro_vram_single_surface : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALallegro_dos"></a>allegro_dos : <code class="type">unit -> bool</code></pre><br>
+<a name="col"></a>
+<h3>Truecolor Pixel Formats</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg012.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">type</span> <a name="TYPEcolor"></a><code class="type"></code>color </pre>
+
+<pre><span class="keyword">val</span> <a name="VALmakecol"></a>makecol : <code class="type">r:int -> g:int -> b:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALmakecol_depth"></a>makecol_depth : <code class="type">depth:int -> r:int -> g:int -> b:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALtransparent"></a>transparent : <code class="type">unit -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALmakeacol"></a>makeacol : <code class="type">r:int -> g:int -> b:int -> a:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALmakeacol_depth"></a>makeacol_depth : <code class="type">depth:int -> r:int -> g:int -> b:int -> a:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALcolor_index"></a>color_index : <code class="type">int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALgetr"></a>getr : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetg"></a>getg : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetb"></a>getb : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgeta"></a>geta : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALpalette_color"></a>palette_color : <code class="type">int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><br>
+<a name="4_DisplayDependentPixelFormat"></a>
+<h4>Display Dependent Pixel Format</h4><br>
+<pre><span class="keyword">val</span> <a name="VALmakecol8"></a>makecol8 : <code class="type">r:int -> g:int -> b:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALmakecol15"></a>makecol15 : <code class="type">r:int -> g:int -> b:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALmakecol16"></a>makecol16 : <code class="type">r:int -> g:int -> b:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALmakecol24"></a>makecol24 : <code class="type">r:int -> g:int -> b:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALmakecol32"></a>makecol32 : <code class="type">r:int -> g:int -> b:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALmakeacol32"></a>makeacol32 : <code class="type">r:int -> g:int -> b:int -> a:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALmakecol15_dither"></a>makecol15_dither : <code class="type">r:int -> g:int -> b:int -> x:int -> y:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALmakecol16_dither"></a>makecol16_dither : <code class="type">r:int -> g:int -> b:int -> x:int -> y:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALgetr8"></a>getr8 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetg8"></a>getg8 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetb8"></a>getb8 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetr15"></a>getr15 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetg15"></a>getg15 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetb15"></a>getb15 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetr16"></a>getr16 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetg16"></a>getg16 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetb16"></a>getb16 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetr24"></a>getr24 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetg24"></a>getg24 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetb24"></a>getb24 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetr32"></a>getr32 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetg32"></a>getg32 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetb32"></a>getb32 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgeta32"></a>geta32 : <code class="type"><a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetr_depth"></a>getr_depth : <code class="type">depth:int -> <a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetg_depth"></a>getg_depth : <code class="type">depth:int -> <a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgetb_depth"></a>getb_depth : <code class="type">depth:int -> <a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALgeta_depth"></a>geta_depth : <code class="type">depth:int -> <a href="Allegro.html#TYPEcolor">color</a> -> int</code></pre><br>
+<a name="pal"></a>
+<h3>Palette Routines</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg011.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">type</span> <a name="TYPEpalette"></a><code class="type"></code>palette </pre>
+
+<pre><span class="keyword">val</span> <a name="VALnew_palette"></a>new_palette : <code class="type">unit -> <a href="Allegro.html#TYPEpalette">palette</a></code></pre><pre><span class="keyword">val</span> <a name="VALfree_palette"></a>free_palette : <code class="type">pal:<a href="Allegro.html#TYPEpalette">palette</a> -> unit</code></pre><div class="info">
+free palettes got from the new_palette function<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALset_palette"></a>set_palette : <code class="type">pal:<a href="Allegro.html#TYPEpalette">palette</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_palette"></a>get_palette : <code class="type">pal:<a href="Allegro.html#TYPEpalette">palette</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_color"></a>set_color : <code class="type">index:int -> r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_desktop_palette"></a>get_desktop_palette : <code class="type">unit -> <a href="Allegro.html#TYPEpalette">palette</a></code></pre><pre><span class="keyword">val</span> <a name="VALgenerate_332_palette"></a>generate_332_palette : <code class="type">pal:<a href="Allegro.html#TYPEpalette">palette</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALselect_palette"></a>select_palette : <code class="type">pal:<a href="Allegro.html#TYPEpalette">palette</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALunselect_palette"></a>unselect_palette : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALpalette_set_rgb"></a>palette_set_rgb : <code class="type">pal:<a href="Allegro.html#TYPEpalette">palette</a> -> i:int -> r:int -> g:int -> b:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALpalette_set_rgba"></a>palette_set_rgba : <code class="type">pal:<a href="Allegro.html#TYPEpalette">palette</a> -> i:int -> r:int -> g:int -> b:int -> a:int -> unit</code></pre><div class="info">
+sets the index <code class="code">i</code> of the palette<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALpalette_get_rgb"></a>palette_get_rgb : <code class="type">pal:<a href="Allegro.html#TYPEpalette">palette</a> -> i:int -> int * int * int</code></pre><pre><span class="keyword">val</span> <a name="VALpalette_get_rgba"></a>palette_get_rgba : <code class="type">pal:<a href="Allegro.html#TYPEpalette">palette</a> -> i:int -> int * int * int * int</code></pre><div class="info">
+gets the index <code class="code">i</code> of the palette<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALpalette_copy_index"></a>palette_copy_index : <code class="type">src:<a href="Allegro.html#TYPEpalette">palette</a> -> dst:<a href="Allegro.html#TYPEpalette">palette</a> -> i:int -> unit</code></pre><div class="info">
+copy an entry of a palette to another<br>
+</div>
+<br>
+<a name="colconv"></a>
+<h3>Converting Between Color Formats</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg021.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALhsv_to_rgb"></a>hsv_to_rgb : <code class="type">h:float -> s:float -> v:float -> int * int * int</code></pre><pre><span class="keyword">val</span> <a name="VALrgb_to_hsv"></a>rgb_to_hsv : <code class="type">r:int -> g:int -> b:int -> float * float * float</code></pre><br>
+<a name="bmp"></a>
+<h3>Bitmap Objects</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg009.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">type</span> <a name="TYPEbitmap"></a><code class="type"></code>bitmap </pre>
+
+<pre><span class="keyword">val</span> <a name="VALget_screen"></a>get_screen : <code class="type">unit -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALcreate_bitmap"></a>create_bitmap : <code class="type">width:int -> height:int -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALcreate_sub_bitmap"></a>create_sub_bitmap : <code class="type">parent:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -> y:int -> width:int -> height:int -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALcreate_video_bitmap"></a>create_video_bitmap : <code class="type">width:int -> height:int -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALcreate_system_bitmap"></a>create_system_bitmap : <code class="type">width:int -> height:int -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALcreate_bitmap_ex"></a>create_bitmap_ex : <code class="type">color_depth:int -> width:int -> height:int -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALbitmap_color_depth"></a>bitmap_color_depth : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALdestroy_bitmap"></a>destroy_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_bitmap_width"></a>get_bitmap_width : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_bitmap_height"></a>get_bitmap_height : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALacquire_bitmap"></a>acquire_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrelease_bitmap"></a>release_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALacquire_screen"></a>acquire_screen : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrelease_screen"></a>release_screen : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALbitmap_mask_color"></a>bitmap_mask_color : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALis_same_bitmap"></a>is_same_bitmap : <code class="type">bmp1:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> bmp2:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALshow_video_bitmap"></a>show_video_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrequest_video_bitmap"></a>request_video_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALclear_bitmap"></a>clear_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALclear_to_color"></a>clear_to_color : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALadd_clip_rect"></a>add_clip_rect : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x1:int -> y1:int -> x2:int -> y2:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_clip_rect"></a>set_clip_rect : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x1:int -> y1:int -> x2:int -> y2:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_clip_state"></a>set_clip_state : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> bool -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_clip_state"></a>get_clip_state : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_planar_bitmap"></a>is_planar_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_linear_bitmap"></a>is_linear_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_memory_bitmap"></a>is_memory_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_screen_bitmap"></a>is_screen_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_video_bitmap"></a>is_video_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_system_bitmap"></a>is_system_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_sub_bitmap"></a>is_sub_bitmap : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> bool</code></pre><br>
+<a name="load"></a>
+<h3>Loading Image Files</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg010.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALload_bitmap"></a>load_bitmap : <code class="type">string -> <a href="Allegro.html#TYPEpalette">palette</a> -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALload_bmp"></a>load_bmp : <code class="type">string -> <a href="Allegro.html#TYPEpalette">palette</a> -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALload_lbm"></a>load_lbm : <code class="type">string -> <a href="Allegro.html#TYPEpalette">palette</a> -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALload_pcx"></a>load_pcx : <code class="type">string -> <a href="Allegro.html#TYPEpalette">palette</a> -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALload_tga"></a>load_tga : <code class="type">string -> <a href="Allegro.html#TYPEpalette">palette</a> -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALblit"></a>blit : <code class="type">src:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       dest:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       src_x:int -><br>       src_y:int -> dest_x:int -> dest_y:int -> width:int -> height:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmasked_blit"></a>masked_blit : <code class="type">src:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       dest:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       src_x:int -><br>       src_y:int -> dest_x:int -> dest_y:int -> width:int -> height:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALstretch_blit"></a>stretch_blit : <code class="type">src:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       dest:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       src_x:int -><br>       src_y:int -><br>       src_width:int -><br>       src_height:int -><br>       dest_x:int -> dest_y:int -> dest_width:int -> dest_height:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmasked_stretch_blit"></a>masked_stretch_blit : <code class="type">src:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       dest:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       src_x:int -><br>       src_y:int -><br>       src_width:int -><br>       src_height:int -><br>       dest_x:int -> dest_y:int -> dest_width:int -> dest_height:int -> unit</code></pre><br><code><span class="keyword">type</span> <a name="TYPEcolor_conversion"></a><code class="type"></code>color_conversion = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_NONE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_8_TO_15</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_8_TO_16</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_8_TO_24</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_8_TO_32</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_15_TO_8</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_15_TO_16</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_15_TO_24</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_15_TO_32</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_16_TO_8</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_16_TO_15</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_16_TO_24</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_16_TO_32</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_24_TO_8</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_24_TO_15</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_24_TO_16</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_24_TO_32</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_32_TO_8</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_32_TO_15</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_32_TO_16</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_32_TO_24</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_32A_TO_8</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_32A_TO_15</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_32A_TO_16</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_32A_TO_24</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_DITHER_PAL</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_DITHER_HI</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_KEEP_TRANS</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_EXPAND_256</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_REDUCE_TO_256</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_EXPAND_15_TO_16</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_REDUCE_16_TO_15</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_EXPAND_HI_TO_TRUE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_REDUCE_TRUE_TO_HI</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_24_EQUALS_32</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_TOTAL</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_PARTIAL</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_MOST</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">COLORCONV_DITHER</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALset_color_conversion"></a>set_color_conversion : <code class="type"><a href="Allegro.html#TYPEcolor_conversion">color_conversion</a> -> unit</code></pre><br>
+<a name="keyboard"></a>
+<h3>Keyboard Routines</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg006.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALinstall_keyboard"></a>install_keyboard : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALpoll_keyboard"></a>poll_keyboard : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALkeypressed"></a>keypressed : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALreadkey"></a>readkey : <code class="type">unit -> char</code></pre><pre><span class="keyword">val</span> <a name="VALkey_esc"></a>key_esc : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALkey_enter"></a>key_enter : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALkey_left"></a>key_left : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALkey_right"></a>key_right : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALkey_up"></a>key_up : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALkey_down"></a>key_down : <code class="type">unit -> bool</code></pre><br><code><span class="keyword">type</span> <a name="TYPEkb_flag"></a><code class="type"></code>kb_flag = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_SHIFT_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_CTRL_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_ALT_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_LWIN_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_RWIN_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_MENU_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_COMMAND_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_SCROLOCK_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_NUMLOCK_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_CAPSLOCK_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_INALTSEQ_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_ACCENT1_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_ACCENT2_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_ACCENT3_FLAG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KB_ACCENT4_FLAG</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALget_kb_flag"></a>get_kb_flag : <code class="type"><a href="Allegro.html#TYPEkb_flag">kb_flag</a> -> bool</code></pre><br><code><span class="keyword">type</span> <a name="TYPEscancode"></a><code class="type"></code>scancode = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_A</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_B</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_C</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_D</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_E</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_G</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_H</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_I</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_J</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_K</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_L</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_M</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_N</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_O</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_P</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_Q</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_R</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_S</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_T</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_U</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_V</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_W</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_X</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_Y</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_Z</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_0</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_1</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_2</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_3</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_4</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_5</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_6</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_7</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_8</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_9</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_0_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_1_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_2_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_3_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_4_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_5_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_6_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_7_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_8_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_9_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F1</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F2</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F3</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F4</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F5</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F6</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F7</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F8</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F9</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F10</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F11</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_F12</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_ESC</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_TILDE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_MINUS</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_EQUALS</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_BACKSPACE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_TAB</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_OPENBRACE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_CLOSEBRACE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_ENTER</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_COLON</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_QUOTE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_BACKSLASH</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_BACKSLASH2</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_COMMA</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_STOP</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_SLASH</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_SPACE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_INSERT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_DEL</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_HOME</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_END</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_PGUP</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_PGDN</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_LEFT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_RIGHT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_UP</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_DOWN</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_SLASH_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_ASTERISK</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_MINUS_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_PLUS_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_DEL_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_ENTER_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_PRTSCR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_PAUSE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_ABNT_C1</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_YEN</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_KANA</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_CONVERT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_NOCONVERT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_AT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_CIRCUMFLEX</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_COLON2</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_KANJI</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_LSHIFT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_RSHIFT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_LCONTROL</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_RCONTROL</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_ALT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_ALTGR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_LWIN</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_RWIN</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_MENU</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_SCRLOCK</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_NUMLOCK</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_CAPSLOCK</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_EQUALS_PAD</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_BACKQUOTE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_SEMICOLON</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">KEY_COMMAND</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALreadkey_scancode"></a>readkey_scancode : <code class="type">unit -> <a href="Allegro.html#TYPEscancode">scancode</a></code></pre><pre><span class="keyword">val</span> <a name="VALclear_keybuf"></a>clear_keybuf : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_keyboard_rate"></a>set_keyboard_rate : <code class="type">delay:int -> repeat:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALremove_keyboard"></a>remove_keyboard : <code class="type">unit -> unit</code></pre><br>
+<a name="timer"></a>
+<h3>Timer Routines</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg005.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALinstall_timer"></a>install_timer : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALretrace_count"></a>retrace_count : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALrest"></a>rest : <code class="type">time:int -> unit</code></pre><br>
+<a name="mouse"></a>
+<h3>Mouse Routines</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg004.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALinstall_mouse"></a>install_mouse : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALpoll_mouse"></a>poll_mouse : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmouse_driver_name"></a>mouse_driver_name : <code class="type">unit -> string</code></pre><pre><span class="keyword">val</span> <a name="VALenable_hardware_cursor"></a>enable_hardware_cursor : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdisable_hardware_cursor"></a>disable_hardware_cursor : <code class="type">unit -> unit</code></pre><br><code><span class="keyword">type</span> <a name="TYPEmouse_cursor"></a><code class="type"></code>mouse_cursor = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MOUSE_CURSOR_NONE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MOUSE_CURSOR_ALLEGRO</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MOUSE_CURSOR_ARROW</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MOUSE_CURSOR_BUSY</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MOUSE_CURSOR_QUESTION</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MOUSE_CURSOR_EDIT</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALselect_mouse_cursor"></a>select_mouse_cursor : <code class="type"><a href="Allegro.html#TYPEmouse_cursor">mouse_cursor</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_mouse_cursor_bitmap"></a>set_mouse_cursor_bitmap : <code class="type"><a href="Allegro.html#TYPEmouse_cursor">mouse_cursor</a> -> bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALshow_mouse"></a>show_mouse : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALhide_mouse"></a>hide_mouse : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALscare_mouse"></a>scare_mouse : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALscare_mouse_area"></a>scare_mouse_area : <code class="type">x:int -> y:int -> w:int -> h:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALunscare_mouse"></a>unscare_mouse : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALposition_mouse"></a>position_mouse : <code class="type">x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALposition_mouse_z"></a>position_mouse_z : <code class="type">z:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_mouse_range"></a>set_mouse_range : <code class="type">x1:int -> y1:int -> x2:int -> y2:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_mouse_speed"></a>set_mouse_speed : <code class="type">xspeed:int -> yspeed:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_mouse_sprite"></a>set_mouse_sprite : <code class="type">sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_mouse_sprite_focus"></a>set_mouse_sprite_focus : <code class="type">x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_mouse_mickeys"></a>get_mouse_mickeys : <code class="type">unit -> int * int</code></pre><pre><span class="keyword">val</span> <a name="VALget_mouse_x"></a>get_mouse_x : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_mouse_y"></a>get_mouse_y : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_mouse_z"></a>get_mouse_z : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_mouse_x_focus"></a>get_mouse_x_focus : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_mouse_y_focus"></a>get_mouse_y_focus : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALleft_button_pressed"></a>left_button_pressed : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALright_button_pressed"></a>right_button_pressed : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALmiddle_button_pressed"></a>middle_button_pressed : <code class="type">unit -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALget_mouse_b"></a>get_mouse_b : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_mouse_pos"></a>get_mouse_pos : <code class="type">unit -> int * int</code></pre><br>
+<a name="fix"></a>
+<h3>Fixed Point Number</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg032.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">type</span> <a name="TYPEfixed"></a><code class="type"></code>fixed </pre>
+
+<pre><span class="keyword">val</span> <a name="VALitofix"></a>itofix : <code class="type">int -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixtoi"></a>fixtoi : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALftofix"></a>ftofix : <code class="type">float -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixtof"></a>fixtof : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> float</code></pre><pre><span class="keyword">val</span> <a name="VALfixadd"></a>fixadd : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixsub"></a>fixsub : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixdiv"></a>fixdiv : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixmul"></a>fixmul : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixhypot"></a>fixhypot : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixceil"></a>fixceil : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALfixfloor"></a>fixfloor : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALfixsin"></a>fixsin : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixcos"></a>fixcos : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixtan"></a>fixtan : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixasin"></a>fixasin : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixacos"></a>fixacos : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixatan"></a>fixatan : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixsqrt"></a>fixsqrt : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALto_rad"></a>to_rad : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALof_rad"></a>of_rad : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixminus"></a>fixminus : <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALfixatan2"></a>fixatan2 : <code class="type">y:<a href="Allegro.html#TYPEfixed">fixed</a> -> x:<a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><br>
+<a name="drawprim"></a>
+<h3>Drawing Primitives</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg013.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALputpixel"></a>putpixel : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrect"></a>rect : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x1:int -> y1:int -> x2:int -> y2:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrectfill"></a>rectfill : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x1:int -> y1:int -> x2:int -> y2:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALarc"></a>arc : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -><br>       y:int -><br>       angle1:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       angle2:<a href="Allegro.html#TYPEfixed">fixed</a> -> r:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALfloodfill"></a>floodfill : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALspline"></a>spline : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x1:int -><br>       y1:int -><br>       x2:int -><br>       y2:int -> x3:int -> y3:int -> x4:int -> y4:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcircle"></a>circle : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -> y:int -> radius:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcirclefill"></a>circlefill : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -> y:int -> radius:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALellipse"></a>ellipse : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -> y:int -> rx:int -> ry:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALellipsefill"></a>ellipsefill : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -> y:int -> rx:int -> ry:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALtriangle"></a>triangle : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x1:int -><br>       y1:int -> x2:int -> y2:int -> x3:int -> y3:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALline"></a>line : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x1:int -> y1:int -> x2:int -> y2:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALfastline"></a>fastline : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x1:int -> y1:int -> x2:int -> y2:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALvline"></a>vline : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -> y1:int -> y2:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALhline"></a>hline : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x1:int -> y:int -> x2:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALgetpixel"></a>getpixel : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> <a href="Allegro.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALdo_circle"></a>do_circle : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -><br>       y:int -><br>       radius:int -><br>       d:int -> proc:(bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> d:int -> unit) -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdo_ellipse"></a>do_ellipse : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -><br>       y:int -><br>       rx:int -><br>       ry:int -><br>       d:int -> proc:(bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> d:int -> unit) -> unit</code></pre><br>
+<a name="sprites"></a>
+<h3>Sprites</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg014.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALdraw_sprite"></a>draw_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_sprite_v_flip"></a>draw_sprite_v_flip : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_sprite_h_flip"></a>draw_sprite_h_flip : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_sprite_vh_flip"></a>draw_sprite_vh_flip : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrotate_sprite"></a>rotate_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> angle:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrotate_sprite_v_flip"></a>rotate_sprite_v_flip : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> angle:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrotate_scaled_sprite"></a>rotate_scaled_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -> y:int -> angle:<a href="Allegro.html#TYPEfixed">fixed</a> -> scale:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrotate_scaled_sprite_v_flip"></a>rotate_scaled_sprite_v_flip : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -> y:int -> angle:<a href="Allegro.html#TYPEfixed">fixed</a> -> scale:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALpivot_sprite"></a>pivot_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -> y:int -> cx:int -> cy:int -> angle:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALpivot_sprite_v_flip"></a>pivot_sprite_v_flip : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -> y:int -> cx:int -> cy:int -> angle:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALpivot_scaled_sprite"></a>pivot_scaled_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -><br>       y:int -><br>       cx:int -> cy:int -> angle:<a href="Allegro.html#TYPEfixed">fixed</a> -> scale:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALpivot_scaled_sprite_v_flip"></a>pivot_scaled_sprite_v_flip : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -><br>       y:int -><br>       cx:int -> cy:int -> angle:<a href="Allegro.html#TYPEfixed">fixed</a> -> scale:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALstretch_sprite"></a>stretch_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> w:int -> h:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_character_ex"></a>draw_character_ex : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -> y:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> bg:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_lit_sprite"></a>draw_lit_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_trans_sprite"></a>draw_trans_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_gouraud_sprite"></a>draw_gouraud_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       x:int -><br>       y:int -><br>       c1:<a href="Allegro.html#TYPEcolor">color</a> -><br>       c2:<a href="Allegro.html#TYPEcolor">color</a> -> c3:<a href="Allegro.html#TYPEcolor">color</a> -> c4:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><br>
+<a name="rle"></a>
+<h3>RLE Sprites</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg015.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">type</span> <a name="TYPErle_sprite"></a><code class="type"></code>rle_sprite </pre>
+
+<pre><span class="keyword">val</span> <a name="VALget_rle_sprite"></a>get_rle_sprite : <code class="type">tmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> <a href="Allegro.html#TYPErle_sprite">rle_sprite</a></code></pre><pre><span class="keyword">val</span> <a name="VALdestroy_rle_sprite"></a>destroy_rle_sprite : <code class="type"><a href="Allegro.html#TYPErle_sprite">rle_sprite</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_rle_sprite"></a>draw_rle_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> sprite:<a href="Allegro.html#TYPErle_sprite">rle_sprite</a> -> x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_trans_rle_sprite"></a>draw_trans_rle_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> sprite:<a href="Allegro.html#TYPErle_sprite">rle_sprite</a> -> x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_lit_rle_sprite"></a>draw_lit_rle_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPErle_sprite">rle_sprite</a> -> x:int -> y:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><br>
+<a name="comp"></a>
+<h3>Compiled Sprites</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg016.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">type</span> <a name="TYPEcompiled_sprite"></a><code class="type"></code>compiled_sprite </pre>
+
+<pre><span class="keyword">val</span> <a name="VALget_compiled_sprite"></a>get_compiled_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> planar:bool -> <a href="Allegro.html#TYPEcompiled_sprite">compiled_sprite</a></code></pre><pre><span class="keyword">val</span> <a name="VALdestroy_compiled_sprite"></a>destroy_compiled_sprite : <code class="type">sprite:<a href="Allegro.html#TYPEcompiled_sprite">compiled_sprite</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_compiled_sprite"></a>draw_compiled_sprite : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       sprite:<a href="Allegro.html#TYPEcompiled_sprite">compiled_sprite</a> -> x:int -> y:int -> unit</code></pre><br>
+<a name="cout"></a>
+<h3>Text Output</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg018.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">type</span> <a name="TYPEfont"></a><code class="type"></code>font </pre>
+
+<pre><span class="keyword">val</span> <a name="VALget_font"></a>get_font : <code class="type">unit -> <a href="Allegro.html#TYPEfont">font</a></code></pre><pre><span class="keyword">val</span> <a name="VALallegro_404_char"></a>allegro_404_char : <code class="type">char -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALtext_length"></a>text_length : <code class="type">f:<a href="Allegro.html#TYPEfont">font</a> -> string -> int</code></pre><pre><span class="keyword">val</span> <a name="VALtext_height"></a>text_height : <code class="type">f:<a href="Allegro.html#TYPEfont">font</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALtextout_ex"></a>textout_ex : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       f:<a href="Allegro.html#TYPEfont">font</a> -><br>       str:string -><br>       x:int -> y:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> bg:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALtextout_centre_ex"></a>textout_centre_ex : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       f:<a href="Allegro.html#TYPEfont">font</a> -><br>       str:string -><br>       x:int -> y:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> bg:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALtextout_justify_ex"></a>textout_justify_ex : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       f:<a href="Allegro.html#TYPEfont">font</a> -><br>       str:string -><br>       x1:int -><br>       x2:int -><br>       y:int -> diff:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> bg:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALtextout_right_ex"></a>textout_right_ex : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       f:<a href="Allegro.html#TYPEfont">font</a> -><br>       str:string -><br>       x:int -> y:int -> color:<a href="Allegro.html#TYPEcolor">color</a> -> bg:<a href="Allegro.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALtextprintf_ex"></a>textprintf_ex : <code class="type"><a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       <a href="Allegro.html#TYPEfont">font</a> -><br>       int -><br>       int -><br>       <a href="Allegro.html#TYPEcolor">color</a> -> <a href="Allegro.html#TYPEcolor">color</a> -> ('a, unit, string, unit) format4 -> 'a</code></pre><pre><span class="keyword">val</span> <a name="VALtextprintf_centre_ex"></a>textprintf_centre_ex : <code class="type"><a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       <a href="Allegro.html#TYPEfont">font</a> -><br>       int -><br>       int -><br>       <a href="Allegro.html#TYPEcolor">color</a> -> <a href="Allegro.html#TYPEcolor">color</a> -> ('a, unit, string, unit) format4 -> 'a</code></pre><pre><span class="keyword">val</span> <a name="VALtextprintf_justify_ex"></a>textprintf_justify_ex : <code class="type"><a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       <a href="Allegro.html#TYPEfont">font</a> -><br>       int -><br>       int -><br>       int -><br>       int -><br>       <a href="Allegro.html#TYPEcolor">color</a> -> <a href="Allegro.html#TYPEcolor">color</a> -> ('a, unit, string, unit) format4 -> 'a</code></pre><pre><span class="keyword">val</span> <a name="VALtextprintf_right_ex"></a>textprintf_right_ex : <code class="type"><a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       <a href="Allegro.html#TYPEfont">font</a> -><br>       int -><br>       int -><br>       <a href="Allegro.html#TYPEcolor">color</a> -> <a href="Allegro.html#TYPEcolor">color</a> -> ('a, unit, string, unit) format4 -> 'a</code></pre><br>
+<a name="fonts"></a>
+<h3>Fonts</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg017.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALload_font"></a>load_font : <code class="type">filename:string -> <a href="Allegro.html#TYPEfont">font</a> * <a href="Allegro.html#TYPEpalette">palette</a></code></pre><pre><span class="keyword">val</span> <a name="VALmerge_fonts"></a>merge_fonts : <code class="type">f1:<a href="Allegro.html#TYPEfont">font</a> -> f2:<a href="Allegro.html#TYPEfont">font</a> -> <a href="Allegro.html#TYPEfont">font</a></code></pre><pre><span class="keyword">val</span> <a name="VALdestroy_font"></a>destroy_font : <code class="type">f:<a href="Allegro.html#TYPEfont">font</a> -> unit</code></pre><br>
+<a name="transp"></a>
+<h3>Transparency and Patterned Drawing</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg020.html">
+    Allegro API documentation for this module</a><br>
+<br><code><span class="keyword">type</span> <a name="TYPEdraw_mode"></a><code class="type"></code>draw_mode = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DRAW_MODE_SOLID</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DRAW_MODE_XOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DRAW_MODE_COPY_PATTERN</span> <span class="keyword">of</span> <code class="type"><a href="Allegro.html#TYPEbitmap">bitmap</a> * int * int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DRAW_MODE_SOLID_PATTERN</span> <span class="keyword">of</span> <code class="type"><a href="Allegro.html#TYPEbitmap">bitmap</a> * int * int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DRAW_MODE_MASKED_PATTERN</span> <span class="keyword">of</span> <code class="type"><a href="Allegro.html#TYPEbitmap">bitmap</a> * int * int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DRAW_MODE_TRANS</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALdrawing_mode"></a>drawing_mode : <code class="type">draw_mode:<a href="Allegro.html#TYPEdraw_mode">draw_mode</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALxor_mode"></a>xor_mode : <code class="type">on:bool -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALsolid_mode"></a>solid_mode : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_trans_blender"></a>set_trans_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_alpha_blender"></a>set_alpha_blender : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_write_alpha_blender"></a>set_write_alpha_blender : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_add_blender"></a>set_add_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_burn_blender"></a>set_burn_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_color_blender"></a>set_color_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_difference_blender"></a>set_difference_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_dissolve_blender"></a>set_dissolve_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_dodge_blender"></a>set_dodge_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_hue_blender"></a>set_hue_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_invert_blender"></a>set_invert_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_luminance_blender"></a>set_luminance_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_multiply_blender"></a>set_multiply_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_saturation_blender"></a>set_saturation_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_screen_blender"></a>set_screen_blender : <code class="type">r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdigi_driver_name"></a>digi_driver_name : <code class="type">unit -> string</code></pre><br>
+<a name="sndini"></a>
+<h3>Sound Init Routines</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg024.html">
+    Allegro API documentation for this module</a><br>
+<br><code><span class="keyword">type</span> <a name="TYPEdigi"></a><code class="type"></code>digi = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DIGI_AUTODETECT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DIGI_NONE</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEmidi"></a><code class="type"></code>midi = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MIDI_AUTODETECT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MIDI_NONE</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALinstall_sound"></a>install_sound : <code class="type"><a href="Allegro.html#TYPEdigi">digi</a> -> <a href="Allegro.html#TYPEmidi">midi</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALremove_sound"></a>remove_sound : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALreserve_voices"></a>reserve_voices : <code class="type">digi_voices:int -> midi_voices:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_volume_per_voice"></a>set_volume_per_voice : <code class="type">scale:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_volume"></a>set_volume : <code class="type">digi_volume:int -> midi_volume:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_hardware_volume"></a>set_hardware_volume : <code class="type">digi_volume:int -> midi_volume:int -> unit</code></pre><br>
+<a name="digispl"></a>
+<h3>Digital Sample Routines</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg026.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">type</span> <a name="TYPEsample"></a><code class="type"></code>sample </pre>
+
+<pre><span class="keyword">val</span> <a name="VALload_sample"></a>load_sample : <code class="type">filename:string -> <a href="Allegro.html#TYPEsample">sample</a></code></pre><pre><span class="keyword">val</span> <a name="VALdestroy_sample"></a>destroy_sample : <code class="type">spl:<a href="Allegro.html#TYPEsample">sample</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALadjust_sample"></a>adjust_sample : <code class="type">spl:<a href="Allegro.html#TYPEsample">sample</a> -> vol:int -> pan:int -> freq:int -> loop:bool -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALplay_sample"></a>play_sample : <code class="type">spl:<a href="Allegro.html#TYPEsample">sample</a> -> vol:int -> pan:int -> freq:int -> loop:bool -> int</code></pre><pre><span class="keyword">val</span> <a name="VALstop_sample"></a>stop_sample : <code class="type">spl:<a href="Allegro.html#TYPEsample">sample</a> -> unit</code></pre><br>
+<a name="filefuns"></a>
+<h3>File and Compression Routines</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg030.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALreplace_filename"></a>replace_filename : <code class="type">path:string -> filename:string -> string</code></pre><br>
+<a name="dat"></a>
+<h3>Datafile Routines</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg031.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">type</span> <a name="TYPEdatafile"></a><code class="type"></code>datafile </pre>
+
+<pre><span class="keyword">val</span> <a name="VALload_datafile"></a>load_datafile : <code class="type">filename:string -> <a href="Allegro.html#TYPEdatafile">datafile</a></code></pre><pre><span class="keyword">val</span> <a name="VALunload_datafile"></a>unload_datafile : <code class="type">dat:<a href="Allegro.html#TYPEdatafile">datafile</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALfixup_datafile"></a>fixup_datafile : <code class="type">dat:<a href="Allegro.html#TYPEdatafile">datafile</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALpalette_dat"></a>palette_dat : <code class="type">dat:<a href="Allegro.html#TYPEdatafile">datafile</a> -> idx:int -> <a href="Allegro.html#TYPEpalette">palette</a></code></pre><pre><span class="keyword">val</span> <a name="VALbitmap_dat"></a>bitmap_dat : <code class="type">dat:<a href="Allegro.html#TYPEdatafile">datafile</a> -> idx:int -> <a href="Allegro.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALfont_dat"></a>font_dat : <code class="type">dat:<a href="Allegro.html#TYPEdatafile">datafile</a> -> idx:int -> <a href="Allegro.html#TYPEfont">font</a></code></pre><pre><span class="keyword">val</span> <a name="VALsample_dat"></a>sample_dat : <code class="type">dat:<a href="Allegro.html#TYPEdatafile">datafile</a> -> idx:int -> <a href="Allegro.html#TYPEsample">sample</a></code></pre><pre><span class="keyword">val</span> <a name="VALitem_dat"></a>item_dat : <code class="type">dat:<a href="Allegro.html#TYPEdatafile">datafile</a> -> idx:int -> 'a</code></pre><br>
+<a name="gui"></a>
+<h3>GUI Routines</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg035.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">val</span> <a name="VALgfx_mode_select_ex"></a>gfx_mode_select_ex : <code class="type">unit -> <a href="Allegro.html#TYPEgfx_driver">gfx_driver</a> * int * int * int</code></pre><br>
+<a name="poly"></a>
+<h3>Polygon Rendering</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg019.html">
+    Allegro API documentation for this module</a><br>
+<br><code><span class="keyword">type</span> <a name="TYPEpolytype"></a><code class="type"></code>polytype = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_ATEX</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_ATEX_LIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_ATEX_MASK</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_ATEX_MASK_LIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_ATEX_MASK_TRANS</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_ATEX_TRANS</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_FLAT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_GCOL</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_GRGB</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_PTEX</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_PTEX_LIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_PTEX_MASK</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_PTEX_MASK_LIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_PTEX_MASK_TRANS</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">POLYTYPE_PTEX_TRANS</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPE_v3d"></a><code class="type">'a</code> _v3d = {</code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>x&nbsp;: <code class="type">'a</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>y&nbsp;: <code class="type">'a</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>z&nbsp;: <code class="type">'a</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >position</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>u&nbsp;: <code class="type">'a</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>v&nbsp;: <code class="type">'a</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >texture map coordinates</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>c&nbsp;: <code class="type"><a href="Allegro.html#TYPEcolor">color</a></code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >color</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+}
+
+
+<pre><span class="keyword">type</span> <a name="TYPEv3d"></a><code class="type"></code>v3d = <code class="type"><a href="Allegro.html#TYPEfixed">fixed</a> Allegro._v3d</code> </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEv3d_f"></a><code class="type"></code>v3d_f = <code class="type">float Allegro._v3d</code> </pre>
+
+<pre><span class="keyword">val</span> <a name="VALtriangle3d"></a>triangle3d : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       polytype:<a href="Allegro.html#TYPEpolytype">polytype</a> -><br>       tex:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       v1:<a href="Allegro.html#TYPEv3d">v3d</a> -> v2:<a href="Allegro.html#TYPEv3d">v3d</a> -> v3:<a href="Allegro.html#TYPEv3d">v3d</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALtriangle3d_f"></a>triangle3d_f : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       polytype:<a href="Allegro.html#TYPEpolytype">polytype</a> -><br>       tex:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       v1:<a href="Allegro.html#TYPEv3d_f">v3d_f</a> -> v2:<a href="Allegro.html#TYPEv3d_f">v3d_f</a> -> v3:<a href="Allegro.html#TYPEv3d_f">v3d_f</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALquad3d"></a>quad3d : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       polytype:<a href="Allegro.html#TYPEpolytype">polytype</a> -><br>       tex:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       v1:<a href="Allegro.html#TYPEv3d">v3d</a> -> v2:<a href="Allegro.html#TYPEv3d">v3d</a> -> v3:<a href="Allegro.html#TYPEv3d">v3d</a> -> v4:<a href="Allegro.html#TYPEv3d">v3d</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALquad3d_f"></a>quad3d_f : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       polytype:<a href="Allegro.html#TYPEpolytype">polytype</a> -><br>       tex:<a href="Allegro.html#TYPEbitmap">bitmap</a> -><br>       v1:<a href="Allegro.html#TYPEv3d_f">v3d_f</a> -><br>       v2:<a href="Allegro.html#TYPEv3d_f">v3d_f</a> -> v3:<a href="Allegro.html#TYPEv3d_f">v3d_f</a> -> v4:<a href="Allegro.html#TYPEv3d_f">v3d_f</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALclear_scene"></a>clear_scene : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrender_scene"></a>render_scene : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcreate_scene"></a>create_scene : <code class="type">nedge:int -> npoly:int -> int</code></pre><pre><span class="keyword">val</span> <a name="VALdestroy_scene"></a>destroy_scene : <code class="type">unit -> unit</code></pre><pre><span class="keyword">type</span> <a name="TYPEzbuffer"></a><code class="type"></code>zbuffer </pre>
+
+<pre><span class="keyword">val</span> <a name="VALcreate_zbuffer"></a>create_zbuffer : <code class="type">bmp:<a href="Allegro.html#TYPEbitmap">bitmap</a> -> <a href="Allegro.html#TYPEzbuffer">zbuffer</a></code></pre><pre><span class="keyword">val</span> <a name="VALcreate_sub_zbuffer"></a>create_sub_zbuffer : <code class="type">parent:<a href="Allegro.html#TYPEzbuffer">zbuffer</a> -><br>       x:int -> y:int -> width:int -> height:int -> <a href="Allegro.html#TYPEzbuffer">zbuffer</a></code></pre><pre><span class="keyword">val</span> <a name="VALset_zbuffer"></a>set_zbuffer : <code class="type">zbuffer:<a href="Allegro.html#TYPEzbuffer">zbuffer</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALclear_zbuffer"></a>clear_zbuffer : <code class="type">zbuffer:<a href="Allegro.html#TYPEzbuffer">zbuffer</a> -> z:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdestroy_zbuffer"></a>destroy_zbuffer : <code class="type">zbuffer:<a href="Allegro.html#TYPEzbuffer">zbuffer</a> -> unit</code></pre><br>
+<a name="math3d"></a>
+<h3>3D Math Routines</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg033.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">type</span> <a name="TYPEmatrix"></a><code class="type"></code>matrix </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEmatrix_f"></a><code class="type"></code>matrix_f </pre>
+
+<pre><span class="keyword">val</span> <a name="VALget_identity_matrix"></a>get_identity_matrix : <code class="type">unit -> <a href="Allegro.html#TYPEmatrix">matrix</a></code></pre><pre><span class="keyword">val</span> <a name="VALget_identity_matrix_f"></a>get_identity_matrix_f : <code class="type">unit -> <a href="Allegro.html#TYPEmatrix_f">matrix_f</a></code></pre><pre><span class="keyword">val</span> <a name="VALfree_matrix"></a>free_matrix : <code class="type"><a href="Allegro.html#TYPEmatrix">matrix</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmake_matrix"></a>make_matrix : <code class="type">v:(float * float * float) * (float * float * float) * (float * float * float) -><br>       t:float * float * float -> <a href="Allegro.html#TYPEmatrix">matrix</a></code></pre><pre><span class="keyword">val</span> <a name="VALmake_matrix_f"></a>make_matrix_f : <code class="type">v:(float * float * float) * (float * float * float) * (float * float * float) -><br>       t:float * float * float -> <a href="Allegro.html#TYPEmatrix_f">matrix_f</a></code></pre><div class="info">
+use <code class="code">free_matrix</code> when not used any more.<br>
+</div>
+<div class="param_info"><code class="code">v</code> : 3x3 scaling and rotation component</div>
+<div class="param_info"><code class="code">t</code> : x/y/z translation component</div>
+<pre><span class="keyword">val</span> <a name="VALnew_matrix"></a>new_matrix : <code class="type">unit -> <a href="Allegro.html#TYPEmatrix">matrix</a></code></pre><pre><span class="keyword">val</span> <a name="VALnew_matrix_f"></a>new_matrix_f : <code class="type">unit -> <a href="Allegro.html#TYPEmatrix_f">matrix_f</a></code></pre><div class="info">
+<code class="code">new_matrix</code> functions provide uninitialised matrices made to be set
+    with the <code class="code">get_*_matrix</code> functions. The choice have been made to not make
+    the <code class="code">get_*_matrix</code> functions return a fresh malloc'ed matrix, because 
+    these are mainly to be used in the display loop, so alloc the matrices
+    with <code class="code">new_matrix</code> before the loop, manipulate and use these in the loop,
+    and finaly free it with <code class="code">free_matrix</code> at the end of the display loop.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALget_translation_matrix"></a>get_translation_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -><br>       x:<a href="Allegro.html#TYPEfixed">fixed</a> -> y:<a href="Allegro.html#TYPEfixed">fixed</a> -> z:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_translation_matrix_f"></a>get_translation_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -> x:float -> y:float -> z:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_scaling_matrix"></a>get_scaling_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -><br>       x:<a href="Allegro.html#TYPEfixed">fixed</a> -> y:<a href="Allegro.html#TYPEfixed">fixed</a> -> z:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_scaling_matrix_f"></a>get_scaling_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -> x:float -> y:float -> z:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_x_rotate_matrix"></a>get_x_rotate_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -> r:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_x_rotate_matrix_f"></a>get_x_rotate_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -> r:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_y_rotate_matrix"></a>get_y_rotate_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -> r:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_y_rotate_matrix_f"></a>get_y_rotate_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -> r:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_z_rotate_matrix"></a>get_z_rotate_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -> r:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_z_rotate_matrix_f"></a>get_z_rotate_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -> r:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_rotation_matrix"></a>get_rotation_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -><br>       x:<a href="Allegro.html#TYPEfixed">fixed</a> -> y:<a href="Allegro.html#TYPEfixed">fixed</a> -> z:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_rotation_matrix_f"></a>get_rotation_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -> x:float -> y:float -> z:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_align_matrix"></a>get_align_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -><br>       xfront:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       yfront:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       zfront:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       xup:<a href="Allegro.html#TYPEfixed">fixed</a> -> yup:<a href="Allegro.html#TYPEfixed">fixed</a> -> zup:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_align_matrix_f"></a>get_align_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix_f">matrix_f</a> -><br>       xfront:float -><br>       yfront:float -> zfront:float -> xup:float -> yup:float -> zup:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_vector_rotation_matrix"></a>get_vector_rotation_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -><br>       x:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       y:<a href="Allegro.html#TYPEfixed">fixed</a> -> z:<a href="Allegro.html#TYPEfixed">fixed</a> -> a:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_vector_rotation_matrix_f"></a>get_vector_rotation_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix_f">matrix_f</a> -> x:float -> y:float -> z:float -> a:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_transformation_matrix"></a>get_transformation_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -><br>       scale:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       xrot:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       yrot:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       zrot:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       x:<a href="Allegro.html#TYPEfixed">fixed</a> -> y:<a href="Allegro.html#TYPEfixed">fixed</a> -> z:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_transformation_matrix_f"></a>get_transformation_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix_f">matrix_f</a> -><br>       scale:float -><br>       xrot:float -><br>       yrot:float -> zrot:float -> x:float -> y:float -> z:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_camera_matrix"></a>get_camera_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -><br>       x:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       y:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       z:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       xfront:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       yfront:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       zfront:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       xup:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       yup:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       zup:<a href="Allegro.html#TYPEfixed">fixed</a> -> fov:<a href="Allegro.html#TYPEfixed">fixed</a> -> aspect:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_camera_matrix_f"></a>get_camera_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix_f">matrix_f</a> -><br>       x:float -><br>       y:float -><br>       z:float -><br>       xfront:float -><br>       yfront:float -><br>       zfront:float -><br>       xup:float -> yup:float -> zup:float -> fov:float -> aspect:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALqtranslate_matrix"></a>qtranslate_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -><br>       x:<a href="Allegro.html#TYPEfixed">fixed</a> -> y:<a href="Allegro.html#TYPEfixed">fixed</a> -> z:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALqtranslate_matrix_f"></a>qtranslate_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix_f">matrix_f</a> -> x:float -> y:float -> z:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALqscale_matrix"></a>qscale_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -> scale:<a href="Allegro.html#TYPEfixed">fixed</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALqscale_matrix_f"></a>qscale_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix_f">matrix_f</a> -> scale:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmatrix_mul"></a>matrix_mul : <code class="type">m1:<a href="Allegro.html#TYPEmatrix">matrix</a> -> m2:<a href="Allegro.html#TYPEmatrix">matrix</a> -> out:<a href="Allegro.html#TYPEmatrix">matrix</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmatrix_mul_f"></a>matrix_mul_f : <code class="type">m1:<a href="Allegro.html#TYPEmatrix_f">matrix_f</a> -> m2:<a href="Allegro.html#TYPEmatrix_f">matrix_f</a> -> out:<a href="Allegro.html#TYPEmatrix_f">matrix_f</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALvector_length"></a>vector_length : <code class="type">x:<a href="Allegro.html#TYPEfixed">fixed</a> -> y:<a href="Allegro.html#TYPEfixed">fixed</a> -> z:<a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALvector_length_f"></a>vector_length_f : <code class="type">x:float -> y:float -> z:float -> float</code></pre><pre><span class="keyword">val</span> <a name="VALapply_matrix"></a>apply_matrix : <code class="type">m:<a href="Allegro.html#TYPEmatrix">matrix</a> -><br>       x:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       y:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       z:<a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a> * <a href="Allegro.html#TYPEfixed">fixed</a> * <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALapply_matrix_f"></a>apply_matrix_f : <code class="type">m:<a href="Allegro.html#TYPEmatrix_f">matrix_f</a> -> x:float -> y:float -> z:float -> float * float * float</code></pre><pre><span class="keyword">val</span> <a name="VALset_projection_viewport"></a>set_projection_viewport : <code class="type">x:int -> y:int -> w:int -> h:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALpersp_project"></a>persp_project : <code class="type">x:<a href="Allegro.html#TYPEfixed">fixed</a> -><br>       y:<a href="Allegro.html#TYPEfixed">fixed</a> -> z:<a href="Allegro.html#TYPEfixed">fixed</a> -> <a href="Allegro.html#TYPEfixed">fixed</a> * <a href="Allegro.html#TYPEfixed">fixed</a></code></pre><pre><span class="keyword">val</span> <a name="VALpersp_project_f"></a>persp_project_f : <code class="type">x:float -> y:float -> z:float -> float * float</code></pre><br>
+<a name="quater"></a>
+<h3>Quaternion Math Routines</h3><br>
+<br>
+<a href="http://alleg.sourceforge.net/stabledocs/en/alleg034.html">
+    Allegro API documentation for this module</a><br>
+<pre><span class="keyword">type</span> <a name="TYPEquat"></a><code class="type"></code>quat </pre>
+
+<pre><span class="keyword">val</span> <a name="VALmake_quat"></a>make_quat : <code class="type">w:float -> x:float -> y:float -> z:float -> <a href="Allegro.html#TYPEquat">quat</a></code></pre><pre><span class="keyword">val</span> <a name="VALfree_quat"></a>free_quat : <code class="type">q:<a href="Allegro.html#TYPEquat">quat</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_identity_quat"></a>get_identity_quat : <code class="type">unit -> <a href="Allegro.html#TYPEquat">quat</a></code></pre><div class="info">
+use <code class="code">free_quat</code> at the end as with make_quat<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALget_x_rotate_quat"></a>get_x_rotate_quat : <code class="type">q:<a href="Allegro.html#TYPEquat">quat</a> -> r:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_y_rotate_quat"></a>get_y_rotate_quat : <code class="type">q:<a href="Allegro.html#TYPEquat">quat</a> -> r:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_z_rotate_quat"></a>get_z_rotate_quat : <code class="type">q:<a href="Allegro.html#TYPEquat">quat</a> -> r:float -> unit</code></pre><div class="info">
+the rotation is applied on the quat parameter (thus modiling it)<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALget_rotation_quat"></a>get_rotation_quat : <code class="type">q:<a href="Allegro.html#TYPEquat">quat</a> -> x:float -> y:float -> z:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_vector_rotation_quat"></a>get_vector_rotation_quat : <code class="type">q:<a href="Allegro.html#TYPEquat">quat</a> -> x:float -> y:float -> z:float -> a:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALquat_to_matrix"></a>quat_to_matrix : <code class="type">q:<a href="Allegro.html#TYPEquat">quat</a> -> <a href="Allegro.html#TYPEmatrix_f">matrix_f</a></code></pre><pre><span class="keyword">val</span> <a name="VALmatrix_to_quat"></a>matrix_to_quat : <code class="type">m:<a href="Allegro.html#TYPEmatrix_f">matrix_f</a> -> <a href="Allegro.html#TYPEquat">quat</a></code></pre><pre><span class="keyword">val</span> <a name="VALquat_mul"></a>quat_mul : <code class="type">p:<a href="Allegro.html#TYPEquat">quat</a> -> q:<a href="Allegro.html#TYPEquat">quat</a> -> <a href="Allegro.html#TYPEquat">quat</a></code></pre><pre><span class="keyword">val</span> <a name="VALapply_quat"></a>apply_quat : <code class="type">q:<a href="Allegro.html#TYPEquat">quat</a> -> x:float -> y:float -> z:float -> float * float * float</code></pre><pre><span class="keyword">val</span> <a name="VALquat_interpolate"></a>quat_interpolate : <code class="type">from:<a href="Allegro.html#TYPEquat">quat</a> -> to_:<a href="Allegro.html#TYPEquat">quat</a> -> t:float -> <a href="Allegro.html#TYPEquat">quat</a></code></pre><br><code><span class="keyword">type</span> <a name="TYPEhow_slerp"></a><code class="type"></code>how_slerp = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">QUAT_SHORT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">QUAT_LONG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">QUAT_CW</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">QUAT_CCW</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">QUAT_USER</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALquat_slerp"></a>quat_slerp : <code class="type">from:<a href="Allegro.html#TYPEquat">quat</a> -><br>       to_:<a href="Allegro.html#TYPEquat">quat</a> -> t:float -> how:<a href="Allegro.html#TYPEhow_slerp">how_slerp</a> -> <a href="Allegro.html#TYPEquat">quat</a></code></pre></body></html>

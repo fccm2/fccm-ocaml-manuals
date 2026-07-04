@@ -1,0 +1,1147 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Allegro" rel="Chapter" href="Allegro.html"><title>Allegro</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;allegro_init&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_allegro_init"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;allegro_exit&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_allegro_exit"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;allegro_message&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_allegro_message"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_allegro_error&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;=&nbsp;<span class="string">"ml_get_allegro_error"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;allegro_id&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;=&nbsp;<span class="string">"ml_get_allegro_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;allegro_version&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;string&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_alleg_version"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_window_title&nbsp;:&nbsp;name:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_set_window_title"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;cpu_vendor&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;=&nbsp;<span class="string">"ml_cpu_vendor"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;cpu_family&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">CPU_FAMILY_UNKNOWN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CPU_FAMILY_I386</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CPU_FAMILY_I486</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CPU_FAMILY_I586</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CPU_FAMILY_I686</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CPU_FAMILY_ITANIUM</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CPU_FAMILY_POWERPC</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CPU_FAMILY_EXTENDED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CPU_FAMILY_NOT_FOUND</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_cpu_family&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.cpu_family&nbsp;=&nbsp;<span class="string">"ml_get_cpu_family"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;os_version&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_os_version"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;os_revision&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_os_revision"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;os_multitasking&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_os_multitasking"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;desktop_color_depth&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_desktop_color_depth"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_desktop_resolution&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_desktop_resolution"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_color_depth&nbsp;:&nbsp;depth:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_set_color_depth"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_color_depth&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_get_color_depth"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_screen_width&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_get_screen_w"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_screen_height&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_get_screen_h"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_virtual_width&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_get_virtual_w"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_virtual_height&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_get_virtual_h"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;request_refresh_rate&nbsp;:&nbsp;rate:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_request_refresh_rate"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_refresh_rate&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_get_refresh_rate"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;gfx_driver&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">GFX_AUTODETECT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_AUTODETECT_FULLSCREEN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_AUTODETECT_WINDOWED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_SAFE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_TEXT</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_gfx_mode&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gfx_driver:<span class="constructor">Allegro</span>.gfx_driver&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;virtual_width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;virtual_height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_gfx_mode"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_gfx_driver_name&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;=&nbsp;<span class="string">"get_gfx_driver_name"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;enable_triple_buffer&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_enable_triple_buffer"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;vsync&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_vsync"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scroll_screen&nbsp;:&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_scroll_screen"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;request_scroll&nbsp;:&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_request_scroll"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;poll_scroll&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_poll_scroll"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;gfx_capabilities&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">GFX_CAN_SCROLL</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_CAN_TRIPLE_BUFFER</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_CURSOR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_SYSTEM_CURSOR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_HLINE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_HLINE_XOR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_HLINE_SOLID_PATTERN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_HLINE_COPY_PATTERN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_FILL</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_FILL_XOR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_FILL_SOLID_PATTERN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_FILL_COPY_PATTERN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_LINE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_LINE_XOR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_TRIANGLE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_TRIANGLE_XOR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_GLYPH</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_VRAM_BLIT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_VRAM_BLIT_MASKED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_MEM_BLIT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_MEM_BLIT_MASKED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_SYS_TO_VRAM_BLIT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_SYS_TO_VRAM_BLIT_MASKED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_VRAM_STRETCH_BLIT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_SYS_STRETCH_BLIT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_VRAM_STRETCH_BLIT_MASKED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GFX_HW_SYS_STRETCH_BLIT_MASKED</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_gfx_capabilities&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.gfx_capabilities&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"get_gfx_capabilities"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;switch_mode&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">SWITCH_NONE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">SWITCH_PAUSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">SWITCH_AMNESIA</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">SWITCH_BACKGROUND</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">SWITCH_BACKAMNESIA</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_display_switch_mode&nbsp;:&nbsp;<span class="constructor">Allegro</span>.switch_mode&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_display_switch_mode"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_display_switch_mode&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.switch_mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_display_switch_mode"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_windowed_mode&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_is_windowed_mode"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;allegro_vram_single_surface&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_vram_single_surface"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;allegro_dos&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_allegro_dos"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;color<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makecol&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;=&nbsp;<span class="string">"ml_makecol"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makecol_depth&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;depth:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_makecol_depth"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;transparent&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;=&nbsp;<span class="string">"get_transparent"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makeacol&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_makeacol"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makeacol_depth&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;depth:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_makeacol_depth"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;color_index&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;=&nbsp;<span class="string">"%identity"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getr&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getr"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getg&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getg"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getb&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getb"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;geta&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_geta"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;palette_color&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;=&nbsp;<span class="string">"ml_palette_color"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makecol8&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_makecol8"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makecol15&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_makecol15"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makecol16&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_makecol16"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makecol24&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_makecol24"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makecol32&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_makecol32"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makeacol32&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_makeacol32"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makecol15_dither&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_makecol15_dither"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;makecol16_dither&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_makecol16_dither"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getr8&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getr8"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getg8&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getg8"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getb8&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getb8"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getr15&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getr15"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getg15&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getg15"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getb15&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getb15"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getr16&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getr16"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getg16&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getg16"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getb16&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getb16"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getr24&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getr24"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getg24&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getg24"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getb24&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getb24"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getr32&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getr32"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getg32&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getg32"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getb32&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getb32"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;geta32&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_geta32"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getr_depth&nbsp;:&nbsp;depth:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getr_depth"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getg_depth&nbsp;:&nbsp;depth:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getg_depth"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getb_depth&nbsp;:&nbsp;depth:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_getb_depth"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;geta_depth&nbsp;:&nbsp;depth:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_geta_depth"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;palette<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_palette&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.palette&nbsp;=&nbsp;<span class="string">"new_palette"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;free_palette&nbsp;:&nbsp;pal:<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"free_palette"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_palette&nbsp;:&nbsp;pal:<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_set_palette"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_palette&nbsp;:&nbsp;pal:<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_get_palette"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_color&nbsp;:&nbsp;index:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_color"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_desktop_palette&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.palette<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_desktop_palette"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;generate_332_palette&nbsp;:&nbsp;pal:<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_generate_332_palette"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;select_palette&nbsp;:&nbsp;pal:<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_select_palette"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;unselect_palette&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_unselect_palette"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;palette_set_rgb&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pal:<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;i:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_palette_set_rgb"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;palette_set_rgba&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pal:<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;i:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_palette_set_rgba_bytecode"</span>&nbsp;<span class="string">"ml_palette_set_rgba_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;palette_get_rgb&nbsp;:&nbsp;pal:<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;i:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_palette_get_rgb"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;palette_get_rgba&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pal:<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;i:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_palette_get_rgba"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;palette_copy_index&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;src:<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dst:<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;i:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_palette_copy_index"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;hsv_to_rgb&nbsp;:&nbsp;h:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;s:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_hsv_to_rgb"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rgb_to_hsv&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_rgb_to_hsv"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;bitmap<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_screen&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap&nbsp;=&nbsp;<span class="string">"ml_get_screen"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;create_bitmap&nbsp;:&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_create_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;create_sub_bitmap&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;parent:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_create_sub_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;create_video_bitmap&nbsp;:&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_create_video_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;create_system_bitmap&nbsp;:&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_create_system_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;create_bitmap_ex&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color_depth:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_create_bitmap_ex"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;bitmap_color_depth&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_bitmap_color_depth"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroy_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_bitmap_width&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"get_bitmap_width"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_bitmap_height&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"get_bitmap_height"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;acquire_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_acquire_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;release_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_release_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;acquire_screen&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_acquire_screen"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;release_screen&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_release_screen"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;bitmap_mask_color&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_bitmap_mask_color"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_same_bitmap&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp1:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bmp2:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_is_same_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;show_video_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_show_video_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;request_video_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_request_video_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;clear_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_clear_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;clear_to_color&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_clear_to_color"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;add_clip_rect&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_add_clip_rect"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_clip_rect&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_clip_rect"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_clip_state&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_clip_state"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_clip_state&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_get_clip_state"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_planar_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_is_planar_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_linear_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_is_linear_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_memory_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_is_memory_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_screen_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_is_screen_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_video_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_is_video_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_system_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_is_system_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_sub_bitmap&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_is_sub_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;load_bitmap&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_load_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;load_bmp&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_load_bmp"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;load_lbm&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_load_lbm"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;load_pcx&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_load_pcx"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;load_tga&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.palette&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_load_tga"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;blit&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;src:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;dest:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dest_x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dest_y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_blit_bytecode"</span>&nbsp;<span class="string">"ml_blit_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;masked_blit&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;src:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;dest:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dest_x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dest_y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_masked_blit_bytecode"</span>&nbsp;<span class="string">"ml_masked_blit_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;stretch_blit&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;src:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;dest:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_height:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;dest_x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dest_y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dest_width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dest_height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_stretch_blit_bytecode"</span>&nbsp;<span class="string">"ml_stretch_blit_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;masked_stretch_blit&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;src:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;dest:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;src_height:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;dest_x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dest_y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dest_width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dest_height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_masked_stretch_blit_bytecode"</span>&nbsp;<span class="string">"ml_masked_stretch_blit_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;color_conversion&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">COLORCONV_NONE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_8_TO_15</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_8_TO_16</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_8_TO_24</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_8_TO_32</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_15_TO_8</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_15_TO_16</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_15_TO_24</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_15_TO_32</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_16_TO_8</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_16_TO_15</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_16_TO_24</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_16_TO_32</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_24_TO_8</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_24_TO_15</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_24_TO_16</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_24_TO_32</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_32_TO_8</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_32_TO_15</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_32_TO_16</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_32_TO_24</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_32A_TO_8</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_32A_TO_15</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_32A_TO_16</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_32A_TO_24</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_DITHER_PAL</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_DITHER_HI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_KEEP_TRANS</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_EXPAND_256</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_REDUCE_TO_256</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_EXPAND_15_TO_16</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_REDUCE_16_TO_15</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_EXPAND_HI_TO_TRUE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_REDUCE_TRUE_TO_HI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_24_EQUALS_32</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_TOTAL</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_PARTIAL</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_MOST</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">COLORCONV_DITHER</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_color_conversion&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color_conversion&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_color_conversion"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;install_keyboard&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_install_keyboard"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;poll_keyboard&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_poll_keyboard"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;keypressed&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_keypressed"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;readkey&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;char&nbsp;=&nbsp;<span class="string">"ml_readkey"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;key_esc&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_key_key_esc"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;key_enter&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_key_key_enter"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;key_left&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_key_key_left"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;key_right&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_key_key_right"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;key_up&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_key_key_up"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;key_down&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"ml_key_key_down"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;kb_flag&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">KB_SHIFT_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_CTRL_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_ALT_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_LWIN_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_RWIN_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_MENU_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_COMMAND_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_SCROLOCK_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_NUMLOCK_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_CAPSLOCK_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_INALTSEQ_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_ACCENT1_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_ACCENT2_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_ACCENT3_FLAG</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KB_ACCENT4_FLAG</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_kb_flag&nbsp;:&nbsp;<span class="constructor">Allegro</span>.kb_flag&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"get_kb_flag"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;scancode&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">KEY_A</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_B</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_C</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_D</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_E</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_G</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_H</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_I</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_J</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_K</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_L</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_M</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_N</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_O</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_P</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_Q</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_R</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_S</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_T</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_U</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_V</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_W</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_X</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_Y</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_Z</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_3</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_4</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_5</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_6</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_7</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_8</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_9</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_0_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_1_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_2_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_3_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_4_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_5_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_6_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_7_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_8_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_9_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F3</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F4</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F5</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F6</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F7</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F8</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F9</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F10</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F11</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_F12</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_ESC</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_TILDE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_MINUS</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_EQUALS</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_BACKSPACE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_TAB</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_OPENBRACE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_CLOSEBRACE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_ENTER</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_COLON</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_QUOTE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_BACKSLASH</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_BACKSLASH2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_COMMA</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_STOP</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_SLASH</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_SPACE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_INSERT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_DEL</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_HOME</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_END</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_PGUP</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_PGDN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_LEFT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_RIGHT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_UP</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_DOWN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_SLASH_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_ASTERISK</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_MINUS_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_PLUS_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_DEL_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_ENTER_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_PRTSCR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_PAUSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_ABNT_C1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_YEN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_KANA</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_CONVERT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_NOCONVERT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_AT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_CIRCUMFLEX</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_COLON2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_KANJI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_LSHIFT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_RSHIFT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_LCONTROL</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_RCONTROL</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_ALT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_ALTGR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_LWIN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_RWIN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_MENU</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_SCRLOCK</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_NUMLOCK</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_CAPSLOCK</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_EQUALS_PAD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_BACKQUOTE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_SEMICOLON</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">KEY_COMMAND</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;readkey_scancode&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.scancode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_readkey_scancode"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;clear_keybuf&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_clear_keybuf"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_keyboard_rate&nbsp;:&nbsp;delay:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;repeat:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_keyboard_rate"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;remove_keyboard&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_remove_keyboard"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;install_timer&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_install_timer"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;retrace_count&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"get_retrace_count"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rest&nbsp;:&nbsp;time:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_rest"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;install_mouse&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_install_mouse"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;poll_mouse&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_poll_mouse"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;mouse_driver_name&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;=&nbsp;<span class="string">"get_mouse_driver_name"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;enable_hardware_cursor&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_enable_hardware_cursor"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;disable_hardware_cursor&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_disable_hardware_cursor"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;mouse_cursor&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">MOUSE_CURSOR_NONE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">MOUSE_CURSOR_ALLEGRO</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">MOUSE_CURSOR_ARROW</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">MOUSE_CURSOR_BUSY</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">MOUSE_CURSOR_QUESTION</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">MOUSE_CURSOR_EDIT</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;select_mouse_cursor&nbsp;:&nbsp;<span class="constructor">Allegro</span>.mouse_cursor&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_select_mouse_cursor"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_mouse_cursor_bitmap&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.mouse_cursor&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_mouse_cursor_bitmap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;show_mouse&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_show_mouse"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;hide_mouse&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_hide_mouse"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scare_mouse&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_scare_mouse"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scare_mouse_area&nbsp;:&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;h:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_scare_mouse_area"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;unscare_mouse&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_unscare_mouse"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;position_mouse&nbsp;:&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_position_mouse"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;position_mouse_z&nbsp;:&nbsp;z:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_position_mouse_z"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_mouse_range&nbsp;:&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_mouse_range"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_mouse_speed&nbsp;:&nbsp;xspeed:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;yspeed:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_mouse_speed"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_mouse_sprite&nbsp;:&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_mouse_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_mouse_sprite_focus&nbsp;:&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_mouse_sprite_focus"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_mouse_mickeys&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_get_mouse_mickeys"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_mouse_x&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_mouse_x"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_mouse_y&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_mouse_y"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_mouse_z&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_mouse_z"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_mouse_x_focus&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_mouse_x_focus"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_mouse_y_focus&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_mouse_y_focus"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;left_button_pressed&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"left_button_pressed"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;right_button_pressed&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"right_button_pressed"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;middle_button_pressed&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"middle_button_pressed"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_mouse_b&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"get_mouse_b"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_mouse_pos&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int&nbsp;=&nbsp;<span class="string">"get_mouse_pos"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;fixed<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;itofix&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_itofix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixtoi&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_fixtoi"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;ftofix&nbsp;:&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_ftofix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixtof&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;=&nbsp;<span class="string">"ml_fixtof"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixadd&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_fixadd"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixsub&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_fixsub"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixdiv&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_fixdiv"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixmul&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_fixmul"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixhypot&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_fixhypot"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixceil&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_fixceil"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixfloor&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_fixfloor"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixsin&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_fixsin"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixcos&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_fixcos"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixtan&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_fixtan"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixasin&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_fixasin"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixacos&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_fixacos"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixatan&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_fixatan"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixsqrt&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_fixsqrt"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;to_rad&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_fixtorad"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;of_rad&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_fixofrad"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixminus&nbsp;:&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;=&nbsp;<span class="string">"ml_fixminus"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixatan2&nbsp;:&nbsp;y:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_fixatan2"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;putpixel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_putpixel"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rect&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_rect_bytecode"</span>&nbsp;<span class="string">"ml_rect_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rectfill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_rectfill_bytecode"</span>&nbsp;<span class="string">"ml_rectfill_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;arc&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;angle1:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;angle2:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_arc_bytecode"</span>&nbsp;<span class="string">"ml_arc_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;floodfill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_floodfill"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;spline&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y2:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x3:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y3:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x4:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y4:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_spline_bytecode"</span>&nbsp;<span class="string">"ml_spline_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;circle&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;radius:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_circle"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;circlefill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;radius:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_circlefill"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;ellipse&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;rx:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;ry:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_ellipse_bytecode"</span>&nbsp;<span class="string">"ml_ellipse_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;ellipsefill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;rx:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;ry:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_ellipsefill_bytecode"</span>&nbsp;<span class="string">"ml_ellipsefill_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;triangle&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x3:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y3:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_triangle_bytecode"</span>&nbsp;<span class="string">"ml_triangle_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;line&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_line_bytecode"</span>&nbsp;<span class="string">"ml_line_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fastline&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_fastline_bytecode"</span>&nbsp;<span class="string">"ml_fastline_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;vline&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_vline"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;hline&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_hline"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;getpixel&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_getpixel"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;do_circle&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;d:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;proc:(bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;d:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;do_ellipse&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;rx:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;ry:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;d:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;proc:(bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;d:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_draw_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_sprite_v_flip&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"draw_sprite_v_flip"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_sprite_h_flip&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"draw_sprite_h_flip"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_sprite_vh_flip&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"draw_sprite_vh_flip"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rotate_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;angle:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_rotate_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rotate_sprite_v_flip&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;angle:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_rotate_sprite_v_flip"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rotate_scaled_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;angle:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;scale:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_rotate_scaled_sprite_bytecode"</span>&nbsp;<span class="string">"ml_rotate_scaled_sprite_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rotate_scaled_sprite_v_flip&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;angle:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;scale:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_rotate_scaled_sprite_v_flip_bytecode"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"ml_rotate_scaled_sprite_v_flip_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;pivot_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;cx:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;cy:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;angle:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_pivot_sprite_bytecode"</span>&nbsp;<span class="string">"ml_pivot_sprite_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;pivot_sprite_v_flip&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;cx:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;cy:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;angle:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_pivot_sprite_v_flip_bytecode"</span>&nbsp;<span class="string">"ml_pivot_sprite_v_flip_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;pivot_scaled_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;cx:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;cy:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;angle:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;scale:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_pivot_scaled_sprite_bytecode"</span>&nbsp;<span class="string">"ml_pivot_scaled_sprite_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;pivot_scaled_sprite_v_flip&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;cx:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;cy:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;angle:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;scale:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_pivot_scaled_sprite_v_flip_bytecode"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"ml_pivot_scaled_sprite_v_flip_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;stretch_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;h:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_stretch_sprite_bytecode"</span>&nbsp;<span class="string">"ml_stretch_sprite_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_character_ex&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bg:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_draw_character_ex_bytecode"</span>&nbsp;<span class="string">"ml_draw_character_ex_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_lit_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_draw_lit_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_trans_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_draw_trans_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_gouraud_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;c1:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;c2:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;c3:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;c4:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_draw_gouraud_sprite_bytecode"</span>&nbsp;<span class="string">"ml_draw_gouraud_sprite_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;rle_sprite<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_rle_sprite&nbsp;:&nbsp;tmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.rle_sprite<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_rle_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy_rle_sprite&nbsp;:&nbsp;<span class="constructor">Allegro</span>.rle_sprite&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_destroy_rle_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_rle_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sprite:<span class="constructor">Allegro</span>.rle_sprite&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_draw_rle_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_trans_rle_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sprite:<span class="constructor">Allegro</span>.rle_sprite&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_draw_trans_rle_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_lit_rle_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.rle_sprite&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_draw_lit_rle_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;compiled_sprite<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_compiled_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;planar:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.compiled_sprite<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_compiled_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy_compiled_sprite&nbsp;:&nbsp;sprite:<span class="constructor">Allegro</span>.compiled_sprite&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_destroy_compiled_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_compiled_sprite&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sprite:<span class="constructor">Allegro</span>.compiled_sprite&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_draw_compiled_sprite"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;font<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_font&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.font&nbsp;=&nbsp;<span class="string">"get_font"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;allegro_404_char&nbsp;:&nbsp;char&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_allegro_404_char"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;text_length&nbsp;:&nbsp;f:<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_text_length"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;text_height&nbsp;:&nbsp;f:<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_text_height"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;textout_ex&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;f:<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bg:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_textout_ex_bytecode"</span>&nbsp;<span class="string">"ml_textout_ex_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;textout_centre_ex&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;f:<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bg:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_textout_centre_ex_bytecode"</span>&nbsp;<span class="string">"ml_textout_centre_ex_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;textout_justify_ex&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;f:<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;diff:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bg:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_textout_justify_ex_bytecode"</span>&nbsp;<span class="string">"ml_textout_justify_ex_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;textout_right_ex&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;f:<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bg:<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_textout_right_ex_bytecode"</span>&nbsp;<span class="string">"ml_textout_right_ex_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;textprintf_ex&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>a,&nbsp;unit,&nbsp;string,&nbsp;unit)&nbsp;format4&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;textprintf_centre_ex&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>a,&nbsp;unit,&nbsp;string,&nbsp;unit)&nbsp;format4&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;textprintf_justify_ex&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>a,&nbsp;unit,&nbsp;string,&nbsp;unit)&nbsp;format4&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;textprintf_right_ex&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>a,&nbsp;unit,&nbsp;string,&nbsp;unit)&nbsp;format4&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;load_font&nbsp;:&nbsp;filename:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.font&nbsp;*&nbsp;<span class="constructor">Allegro</span>.palette<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_load_font"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;merge_fonts&nbsp;:&nbsp;f1:<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f2:<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.font<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_merge_fonts"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy_font&nbsp;:&nbsp;f:<span class="constructor">Allegro</span>.font&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroy_font"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;draw_mode&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">DRAW_MODE_SOLID</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">DRAW_MODE_XOR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">DRAW_MODE_COPY_PATTERN</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Allegro</span>.bitmap&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">DRAW_MODE_SOLID_PATTERN</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Allegro</span>.bitmap&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">DRAW_MODE_MASKED_PATTERN</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Allegro</span>.bitmap&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">DRAW_MODE_TRANS</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;drawing_mode&nbsp;:&nbsp;draw_mode:<span class="constructor">Allegro</span>.draw_mode&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xor_mode&nbsp;:&nbsp;on:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_xor_mode"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;solid_mode&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_solid_mode"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_trans_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_trans_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_alpha_blender&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_set_alpha_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_write_alpha_blender&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_write_alpha_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_add_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_add_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_burn_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_burn_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_color_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_color_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_difference_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_difference_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_dissolve_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_dissolve_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_dodge_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_dodge_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_hue_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_hue_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_invert_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_invert_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_luminance_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_luminance_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_multiply_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_multiply_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_saturation_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_saturation_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_screen_blender&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_screen_blender"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;digi_driver_name&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;=&nbsp;<span class="string">"ml_digi_driver_name"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;digi&nbsp;=&nbsp;<span class="constructor">DIGI_AUTODETECT</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">DIGI_NONE</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;midi&nbsp;=&nbsp;<span class="constructor">MIDI_AUTODETECT</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">MIDI_NONE</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;install_sound&nbsp;:&nbsp;<span class="constructor">Allegro</span>.digi&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.midi&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_install_sound"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;remove_sound&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_remove_sound"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;reserve_voices&nbsp;:&nbsp;digi_voices:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;midi_voices:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_reserve_voices"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_volume_per_voice&nbsp;:&nbsp;scale:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_volume_per_voice"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_volume&nbsp;:&nbsp;digi_volume:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;midi_volume:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_volume"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_hardware_volume&nbsp;:&nbsp;digi_volume:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;midi_volume:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_hardware_volume"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;sample<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;load_sample&nbsp;:&nbsp;filename:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.sample&nbsp;=&nbsp;<span class="string">"ml_load_sample"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy_sample&nbsp;:&nbsp;spl:<span class="constructor">Allegro</span>.sample&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroy_sample"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;adjust_sample&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;spl:<span class="constructor">Allegro</span>.sample&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;vol:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;pan:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;freq:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;loop:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_adjust_sample"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;play_sample&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;spl:<span class="constructor">Allegro</span>.sample&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;vol:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;pan:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;freq:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;loop:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_play_sample"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;stop_sample&nbsp;:&nbsp;spl:<span class="constructor">Allegro</span>.sample&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_stop_sample"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;replace_filename&nbsp;:&nbsp;path:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;filename:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_replace_filename"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;datafile<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;load_datafile&nbsp;:&nbsp;filename:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.datafile<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_load_datafile"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;unload_datafile&nbsp;:&nbsp;dat:<span class="constructor">Allegro</span>.datafile&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_unload_datafile"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;fixup_datafile&nbsp;:&nbsp;dat:<span class="constructor">Allegro</span>.datafile&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_fixup_datafile"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;palette_dat&nbsp;:&nbsp;dat:<span class="constructor">Allegro</span>.datafile&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;idx:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.palette<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"datafile_index"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;bitmap_dat&nbsp;:&nbsp;dat:<span class="constructor">Allegro</span>.datafile&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;idx:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"datafile_index"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;font_dat&nbsp;:&nbsp;dat:<span class="constructor">Allegro</span>.datafile&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;idx:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.font<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"datafile_index"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;sample_dat&nbsp;:&nbsp;dat:<span class="constructor">Allegro</span>.datafile&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;idx:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.sample<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"datafile_index"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;item_dat&nbsp;:&nbsp;dat:<span class="constructor">Allegro</span>.datafile&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;idx:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"datafile_index"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;gfx_mode_select_ex&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.gfx_driver&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_gfx_mode_select_ex"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;polytype&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">POLYTYPE_ATEX</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_ATEX_LIT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_ATEX_MASK</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_ATEX_MASK_LIT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_ATEX_MASK_TRANS</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_ATEX_TRANS</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_FLAT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_GCOL</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_GRGB</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_PTEX</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_PTEX_LIT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_PTEX_MASK</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_PTEX_MASK_LIT</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_PTEX_MASK_TRANS</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">POLYTYPE_PTEX_TRANS</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;_v3d&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;:&nbsp;<span class="keywordsign">'</span>a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;:&nbsp;<span class="keywordsign">'</span>a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;z&nbsp;:&nbsp;<span class="keywordsign">'</span>a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;u&nbsp;:&nbsp;<span class="keywordsign">'</span>a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;:&nbsp;<span class="keywordsign">'</span>a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;:&nbsp;<span class="constructor">Allegro</span>.color;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;v3d&nbsp;=&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;<span class="constructor">Allegro</span>._v3d<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;v3d_f&nbsp;=&nbsp;float&nbsp;<span class="constructor">Allegro</span>._v3d<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;triangle3d&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;polytype:<span class="constructor">Allegro</span>.polytype&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;tex:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;v1:<span class="constructor">Allegro</span>.v3d&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v2:<span class="constructor">Allegro</span>.v3d&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v3:<span class="constructor">Allegro</span>.v3d&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_triangle3d_bytecode"</span>&nbsp;<span class="string">"ml_triangle3d_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;triangle3d_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;polytype:<span class="constructor">Allegro</span>.polytype&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;tex:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;v1:<span class="constructor">Allegro</span>.v3d_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v2:<span class="constructor">Allegro</span>.v3d_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v3:<span class="constructor">Allegro</span>.v3d_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_triangle3d_f_bytecode"</span>&nbsp;<span class="string">"ml_triangle3d_f_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;quad3d&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;polytype:<span class="constructor">Allegro</span>.polytype&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;tex:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;v1:<span class="constructor">Allegro</span>.v3d&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;v2:<span class="constructor">Allegro</span>.v3d&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v3:<span class="constructor">Allegro</span>.v3d&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v4:<span class="constructor">Allegro</span>.v3d&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_quad3d_bytecode"</span>&nbsp;<span class="string">"ml_quad3d_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;quad3d_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;polytype:<span class="constructor">Allegro</span>.polytype&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;tex:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;v1:<span class="constructor">Allegro</span>.v3d_f&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;v2:<span class="constructor">Allegro</span>.v3d_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v3:<span class="constructor">Allegro</span>.v3d_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v4:<span class="constructor">Allegro</span>.v3d_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_quad3d_f_bytecode"</span>&nbsp;<span class="string">"ml_quad3d_f_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;clear_scene&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_clear_scene"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;render_scene&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_render_scene"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;create_scene&nbsp;:&nbsp;nedge:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;npoly:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_create_scene"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy_scene&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroy_scene"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;zbuffer<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;create_zbuffer&nbsp;:&nbsp;bmp:<span class="constructor">Allegro</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.zbuffer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_create_zbuffer"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;create_sub_zbuffer&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;parent:<span class="constructor">Allegro</span>.zbuffer&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.zbuffer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_create_sub_zbuffer"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_zbuffer&nbsp;:&nbsp;zbuffer:<span class="constructor">Allegro</span>.zbuffer&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_set_zbuffer"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;clear_zbuffer&nbsp;:&nbsp;zbuffer:<span class="constructor">Allegro</span>.zbuffer&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_clear_zbuffer"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy_zbuffer&nbsp;:&nbsp;zbuffer:<span class="constructor">Allegro</span>.zbuffer&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_destroy_zbuffer"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;matrix<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;matrix_f<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_identity_matrix&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_identity_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_identity_matrix_f&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.matrix_f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_identity_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;free_matrix&nbsp;:&nbsp;<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_free_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;make_matrix&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v:(float&nbsp;*&nbsp;float&nbsp;*&nbsp;float)&nbsp;*&nbsp;(float&nbsp;*&nbsp;float&nbsp;*&nbsp;float)&nbsp;*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(float&nbsp;*&nbsp;float&nbsp;*&nbsp;float)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;t:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.matrix&nbsp;=&nbsp;<span class="string">"ml_make_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;make_matrix_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v:(float&nbsp;*&nbsp;float&nbsp;*&nbsp;float)&nbsp;*&nbsp;(float&nbsp;*&nbsp;float&nbsp;*&nbsp;float)&nbsp;*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(float&nbsp;*&nbsp;float&nbsp;*&nbsp;float)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;t:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.matrix_f&nbsp;=&nbsp;<span class="string">"ml_make_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_matrix&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.matrix&nbsp;=&nbsp;<span class="string">"ml_new_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_matrix_f&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.matrix_f&nbsp;=&nbsp;<span class="string">"ml_new_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_translation_matrix&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_translation_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_translation_matrix_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_translation_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_scaling_matrix&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_scaling_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_scaling_matrix_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_scaling_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_x_rotate_matrix&nbsp;:&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_x_rotate_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_x_rotate_matrix_f&nbsp;:&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_x_rotate_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_y_rotate_matrix&nbsp;:&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_y_rotate_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_y_rotate_matrix_f&nbsp;:&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_y_rotate_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_z_rotate_matrix&nbsp;:&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_z_rotate_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_z_rotate_matrix_f&nbsp;:&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_z_rotate_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_rotation_matrix&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_rotation_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_rotation_matrix_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_rotation_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_align_matrix&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;xfront:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;yfront:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;zfront:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;xup:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;yup:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;zup:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_align_matrix_bytecode"</span>&nbsp;<span class="string">"ml_get_align_matrix_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_align_matrix_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix_f&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;xfront:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;yfront:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;zfront:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;xup:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;yup:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;zup:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_align_matrix_f_bytecode"</span>&nbsp;<span class="string">"ml_get_align_matrix_f_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_vector_rotation_matrix&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_vector_rotation_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_vector_rotation_matrix_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_vector_rotation_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_transformation_matrix&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;scale:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;xrot:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;yrot:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;zrot:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_transformation_matrix_bytecode"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"ml_get_transformation_matrix_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_transformation_matrix_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix_f&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;scale:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;xrot:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;yrot:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;zrot:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_transformation_matrix_f_bytecode"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"ml_get_transformation_matrix_f_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_camera_matrix&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;z:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;xfront:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;yfront:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;zfront:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;xup:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;yup:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;zup:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;fov:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;aspect:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_camera_matrix_bytecode"</span>&nbsp;<span class="string">"ml_get_camera_matrix_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_camera_matrix_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix_f&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;xfront:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;yfront:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;zfront:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;xup:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;yup:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;zup:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;fov:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;aspect:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_camera_matrix_f_bytecode"</span>&nbsp;<span class="string">"ml_get_camera_matrix_f_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;qtranslate_matrix&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_qtranslate_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;qtranslate_matrix_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_qtranslate_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;qscale_matrix&nbsp;:&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;scale:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_qscale_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;qscale_matrix_f&nbsp;:&nbsp;m:<span class="constructor">Allegro</span>.matrix_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;scale:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_qscale_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;matrix_mul&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m1:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;m2:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;out:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_matrix_mul"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;matrix_mul_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m1:<span class="constructor">Allegro</span>.matrix_f&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;m2:<span class="constructor">Allegro</span>.matrix_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;out:<span class="constructor">Allegro</span>.matrix_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_matrix_mul_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;vector_length&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_vector_length"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;vector_length_f&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_vector_length_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;apply_matrix&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;z:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;*&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;*&nbsp;<span class="constructor">Allegro</span>.fixed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_apply_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;apply_matrix_f&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m:<span class="constructor">Allegro</span>.matrix_f&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_apply_matrix_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_projection_viewport&nbsp;:&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;h:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_set_projection_viewport"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;persp_project&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:<span class="constructor">Allegro</span>.fixed&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.fixed&nbsp;*&nbsp;<span class="constructor">Allegro</span>.fixed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_persp_project"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;persp_project_f&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;*&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_persp_project_f"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;quat<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;make_quat&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;w:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.quat&nbsp;=&nbsp;<span class="string">"ml_make_quat"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;free_quat&nbsp;:&nbsp;q:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_free_quat"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_identity_quat&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.quat&nbsp;=&nbsp;<span class="string">"ml_get_identity_quat"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_x_rotate_quat&nbsp;:&nbsp;q:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_x_rotate_quat"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_y_rotate_quat&nbsp;:&nbsp;q:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_y_rotate_quat"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_z_rotate_quat&nbsp;:&nbsp;q:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_z_rotate_quat"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_rotation_quat&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;q:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_rotation_quat"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_vector_rotation_quat&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;q:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_get_vector_rotation_quat"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;quat_to_matrix&nbsp;:&nbsp;q:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.matrix_f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_quat_to_matrix"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;matrix_to_quat&nbsp;:&nbsp;m:<span class="constructor">Allegro</span>.matrix_f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.quat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_matrix_to_quat"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;quat_mul&nbsp;:&nbsp;p:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;q:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.quat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_quat_mul"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;apply_quat&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;q:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;z:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_apply_quat"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;quat_interpolate&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;to_:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;t:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.quat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_quat_interpolate"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;how_slerp&nbsp;=&nbsp;<span class="constructor">QUAT_SHORT</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">QUAT_LONG</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">QUAT_CW</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">QUAT_CCW</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">QUAT_USER</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;quat_slerp&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;to_:<span class="constructor">Allegro</span>.quat&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;t:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;how:<span class="constructor">Allegro</span>.how_slerp&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Allegro</span>.quat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_quat_slerp"</span><br>
+<span class="keyword">end</span></code></body></html>

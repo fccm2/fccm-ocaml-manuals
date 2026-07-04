@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Mail.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Smtp" rel="Chapter" href="Smtp.html">
+<link title="Mail" rel="Chapter" href="Mail.html"><title>Smtp</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Mail.html">Next</a>
+</div>
+<center><h1>Module <a href="type_Smtp.html">Smtp</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Smtp: <code class="code"><span class="keyword">sig</span></code> <a href="Smtp.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>Module implementing SMTP protocol for client side.
+   For example :
+   <pre></pre><code class="code">&nbsp;<br>
+<span class="keyword">try</span>&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;h&nbsp;=&nbsp;<span class="constructor">Smtp</span>.connect&nbsp;host&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;<span class="constructor">Smtp</span>.helo&nbsp;h&nbsp;myhost&nbsp;<span class="keywordsign">&amp;&amp;</span>&nbsp;<span class="constructor">Smtp</span>.mail&nbsp;h&nbsp;mymail&nbsp;<span class="keywordsign">&amp;&amp;</span><br>
+&nbsp;&nbsp;&nbsp;<span class="constructor">Smtp</span>.rctp&nbsp;h&nbsp;hismail&nbsp;<span class="keywordsign">&amp;&amp;</span>&nbsp;<span class="constructor">Smtp</span>.data&nbsp;h&nbsp;msg&nbsp;<span class="keywordsign">&amp;&amp;</span><br>
+&nbsp;&nbsp;&nbsp;<span class="constructor">Smtp</span>.quit&nbsp;h;<br>
+&nbsp;&nbsp;&nbsp;<span class="constructor">Smtp</span>.close&nbsp;h<br>
+<span class="keyword">with</span><br>
+<span class="keywordsign">|</span>&nbsp;<span class="constructor">Smtp</span>.<span class="constructor">Error</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;<span class="constructor">Printf</span>.printf&nbsp;<span class="string">"smtp&nbsp;error&nbsp;:&nbsp;%s\n"</span>&nbsp;s;<br>
+&nbsp;&nbsp;&nbsp;exit&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;</code><pre></pre><br>
+<hr width="100%">
+<pre><span class="keyword">type</span> <a name="TYPEhandle"></a><code class="type"></code>handle </pre>
+<div class="info">
+smtp server connection<br>
+</div>
+
+<pre><span class="keyword">exception</span> <a name="EXCEPTIONError"></a>Error <span class="keyword">of</span> <code class="type">int * string</code></pre>
+<div class="info">
+exception for the module<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALconnect"></a>connect : <code class="type">string -> <a href="Smtp.html#TYPEhandle">handle</a></code></pre><div class="info">
+<code class="code">connect host</code> return channels for 
+       the connection with host on smtp port<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALclose"></a>close : <code class="type"><a href="Smtp.html#TYPEhandle">handle</a> -> unit</code></pre><div class="info">
+<code class="code">close h</code> close the connection<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALhelo"></a>helo : <code class="type"><a href="Smtp.html#TYPEhandle">handle</a> -> string -> bool</code></pre><div class="info">
+<code class="code">helo h hostname</code> send the HELO command thru the 
+       handle h and with hostname as argument.
+     Return exception <code class="code"><span class="constructor">Error</span></code> if smtp server give an error code.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALmail"></a>mail : <code class="type"><a href="Smtp.html#TYPEhandle">handle</a> -> string -> bool</code></pre><div class="info">
+<code class="code">mail h mail</code> send a MAIL FROM command thru handle h and with
+       mail as argument .
+     Return exception <code class="code"><span class="constructor">Error</span></code> if smtp server give an error code.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALrcpt"></a>rcpt : <code class="type"><a href="Smtp.html#TYPEhandle">handle</a> -> string -> bool</code></pre><div class="info">
+<code class="code">rcpt h mail</code> send a RCPT TO command thru handle h and with
+       mail as argument.
+     Return exception <code class="code"><span class="constructor">Error</span></code> if smtp server give an error code.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALdata"></a>data : <code class="type"><a href="Smtp.html#TYPEhandle">handle</a> -> string -> bool</code></pre><div class="info">
+<code class="code">data h msg</code> send a DATA command and after the message msg.
+     Return exception <code class="code"><span class="constructor">Error</span></code> if smtp server give an error code.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALquit"></a>quit : <code class="type"><a href="Smtp.html#TYPEhandle">handle</a> -> bool</code></pre><div class="info">
+<code class="code">quit h</code> send a QUIT command thru handle h.
+     Return exception <code class="code"><span class="constructor">Error</span></code> if smtp server give an error code.<br>
+</div>
+</body></html>

@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="_style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="GLX.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Xlib" rel="Chapter" href="Xlib.html">
+<link title="Keysym" rel="Chapter" href="Keysym.html">
+<link title="Keysym_match" rel="Chapter" href="Keysym_match.html">
+<link title="Xt" rel="Chapter" href="Xt.html">
+<link title="GLX" rel="Chapter" href="GLX.html">
+<link title="GLX_P2T" rel="Chapter" href="GLX_P2T.html"><title>GLX_P2T</title>
+</head>
+<body>
+<div class="navbar"><a href="GLX.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;</div>
+<center><h1>Module <a href="type_GLX_P2T.html">GLX_P2T</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> GLX_P2T: <code class="code"><span class="keyword">sig</span></code> <a href="GLX_P2T.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>OCaml bindings to the GLX_EXT_texture_from_pixmap extension<br>
+<hr width="100%">
+<br>
+<b>Warning:</b> This module is currently under construction.
+<p>
+
+  This module is a binding to this GLX extension:
+  <a href="http://www.opengl.org/registry/specs/EXT/texture_from_pixmap.txt">GLX_EXT_texture_from_pixmap</a><br>
+<pre><span class="keyword">val</span> <a name="VALinit_glx_p2t"></a><a href="code_VALGLX_P2T.init_glx_p2t.html">init_glx_p2t</a> : <code class="type">unit -> unit</code></pre><br><code><span class="keyword">type</span> <a name="TYPEbuffer_param"></a><code class="type"></code>buffer_param = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_FRONT_LEFT_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_FRONT_RIGHT_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_BACK_LEFT_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_BACK_RIGHT_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_FRONT_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_BACK_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_AUX0_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_AUX1_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_AUX2_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_AUX3_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_AUX4_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_AUX5_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_AUX6_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_AUX7_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_AUX8_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_AUX9_EXT</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALglXBindTexImageEXT"></a><a href="code_VALGLX_P2T.glXBindTexImageEXT.html">glXBindTexImageEXT</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       drawable:'a <a href="GLX.html#TYPEglXDrawable">GLX.glXDrawable</a> -><br>       buffer:<a href="GLX_P2T.html#TYPEbuffer_param">buffer_param</a> -> attrib_list:'a list -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALglXReleaseTexImageEXT"></a><a href="code_VALGLX_P2T.glXReleaseTexImageEXT.html">glXReleaseTexImageEXT</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       drawable:'a <a href="GLX.html#TYPEglXDrawable">GLX.glXDrawable</a> -> buffer:<a href="GLX_P2T.html#TYPEbuffer_param">buffer_param</a> -> unit</code></pre><br><code><span class="keyword">type</span> <a name="TYPEglx_texture_target_ext"></a><code class="type"></code>glx_texture_target_ext = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_1D_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_2D_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_RECTANGLE_EXT</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEglx_texture_format_ext"></a><code class="type"></code>glx_texture_format_ext = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_FORMAT_NONE_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_FORMAT_RGB_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_FORMAT_RGBA_EXT</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEglx_create_pixmap_attrib"></a><code class="type"></code>glx_create_pixmap_attrib = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_FORMAT_EXT</span> <span class="keyword">of</span> <code class="type"><a href="GLX_P2T.html#TYPEglx_texture_format_ext">glx_texture_format_ext</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_TARGET_EXT</span> <span class="keyword">of</span> <code class="type"><a href="GLX_P2T.html#TYPEglx_texture_target_ext">glx_texture_target_ext</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_MIPMAP_TEXTURE_EXT</span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALglXCreatePixmapEXT"></a><a href="code_VALGLX_P2T.glXCreatePixmapEXT.html">glXCreatePixmapEXT</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       config:<a href="GLX.html#TYPEglXFBConfig">GLX.glXFBConfig</a> -><br>       pixmap:<a href="Xlib.html#TYPEpixmap">Xlib.pixmap</a> -> attribs:'a list -> <a href="GLX.html#TYPEglXPixmap">GLX.glXPixmap</a></code></pre></body></html>

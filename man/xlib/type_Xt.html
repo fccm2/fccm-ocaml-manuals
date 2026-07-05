@@ -1,0 +1,83 @@
+<html><head>
+<link rel="stylesheet" href="_style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Xlib" rel="Chapter" href="Xlib.html">
+<link title="Keysym" rel="Chapter" href="Keysym.html">
+<link title="Keysym_match" rel="Chapter" href="Keysym_match.html">
+<link title="Xt" rel="Chapter" href="Xt.html">
+<link title="GLX" rel="Chapter" href="GLX.html">
+<link title="GLX_P2T" rel="Chapter" href="GLX_P2T.html"><title>Xt</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;xtAppContext<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;widget<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;wobject<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;shell_widget_class&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">ShellWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">OverrideShellWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">WmShellWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">TransientShellWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">TopLevelShellWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">ApplicationShellWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">SessionShellWidgetClass</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtOpenApplication&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;application_class:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Xt</span>.shell_widget_class&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Xt</span>.xtAppContext&nbsp;*&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_XtOpenApplication"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtAppMainLoop&nbsp;:&nbsp;app:<span class="constructor">Xt</span>.xtAppContext&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_XtAppMainLoop"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtDestroyApplicationContext&nbsp;:&nbsp;app:<span class="constructor">Xt</span>.xtAppContext&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_XtDestroyApplicationContext"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtRealizeWidget&nbsp;:&nbsp;widget:<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_XtRealizeWidget"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtManageChild&nbsp;:&nbsp;child:<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_XtManageChild"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtUnmanageChild&nbsp;:&nbsp;child:<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_XtUnmanageChild"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtDisplay&nbsp;:&nbsp;widget:<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Xlib</span>.display&nbsp;=&nbsp;<span class="string">"ml_XtDisplay"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtDisplayOfObject&nbsp;:&nbsp;wobject:<span class="constructor">Xt</span>.wobject&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Xlib</span>.display<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_XtDisplayOfObject"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtScreen&nbsp;:&nbsp;widget:<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Xlib</span>.xScreen&nbsp;=&nbsp;<span class="string">"ml_XtScreen"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtWindow&nbsp;:&nbsp;widget:<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Xlib</span>.window&nbsp;=&nbsp;<span class="string">"ml_XtWindow"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtParent&nbsp;:&nbsp;widget:<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;=&nbsp;<span class="string">"ml_XtParent"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtMapWidget&nbsp;:&nbsp;widget:<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_XtMapWidget"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtUnmapWidget&nbsp;:&nbsp;widget:<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_XtUnmapWidget"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;widget_class&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">AsciiSinkObjectClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">AsciiSrcObjectClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">AsciiTextWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">BoxWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CommandWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">FormWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GripWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">LabelWidgetClass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">MenuButtonWidgetClass</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;xtCreateManagedWidget&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Xt</span>.widget_class&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;parent:<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_XtCreateManagedWidget"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;callback_name&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">XtNcallback</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">XtNdestroyCallback</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">XtNpopupCallback</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">XtNpopdownCallback</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">XtNunrealizeCallback</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">XtCCallback</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">XtRCallback</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">XtHaddCallback</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">XtHaddCallbacks</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">XtHremoveCallback</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">XtHremoveCallbacks</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">XtHremoveAllCallbacks</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;init_xtAddCallback&nbsp;:&nbsp;(int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"init_xtAddCallback"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;cb_tbl&nbsp;:&nbsp;(int,&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="constructor">Hashtbl</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;real_callback&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;cb_count&nbsp;:&nbsp;int&nbsp;<span class="constructor">Pervasives</span>.ref<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;xtAddCallback&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget:<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Xt</span>.widget&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:<span class="constructor">Xt</span>.callback_name&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;cb:(data:<span class="keywordsign">'</span>b&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;value:unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;data:<span class="keywordsign">'</span>b&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+<span class="keyword">end</span></code></body></html>

@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="_style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Keysym_match.html">
+<link rel="next" href="GLX.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Xlib" rel="Chapter" href="Xlib.html">
+<link title="Keysym" rel="Chapter" href="Keysym.html">
+<link title="Keysym_match" rel="Chapter" href="Keysym_match.html">
+<link title="Xt" rel="Chapter" href="Xt.html">
+<link title="GLX" rel="Chapter" href="GLX.html">
+<link title="GLX_P2T" rel="Chapter" href="GLX_P2T.html"><title>Xt</title>
+</head>
+<body>
+<div class="navbar"><a href="Keysym_match.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="GLX.html">Next</a>
+</div>
+<center><h1>Module <a href="type_Xt.html">Xt</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Xt: <code class="code"><span class="keyword">sig</span></code> <a href="Xt.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><hr width="100%">
+<pre><span class="keyword">type</span> <a name="TYPExtAppContext"></a><code class="type"></code>xtAppContext </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEwidget"></a><code class="type">'a</code> widget </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEwobject"></a><code class="type"></code>wobject </pre>
+
+<br><code><span class="keyword">type</span> <a name="TYPEshell_widget_class"></a><code class="type"></code>shell_widget_class = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">ShellWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">OverrideShellWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">WmShellWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">TransientShellWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">TopLevelShellWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">ApplicationShellWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SessionShellWidgetClass</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALxtOpenApplication"></a>xtOpenApplication : <code class="type">application_class:string -><br>       <a href="Xt.html#TYPEshell_widget_class">shell_widget_class</a> -> string array -> <a href="Xt.html#TYPExtAppContext">xtAppContext</a> * 'a <a href="Xt.html#TYPEwidget">widget</a></code></pre><pre><span class="keyword">val</span> <a name="VALxtAppMainLoop"></a>xtAppMainLoop : <code class="type">app:<a href="Xt.html#TYPExtAppContext">xtAppContext</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALxtDestroyApplicationContext"></a>xtDestroyApplicationContext : <code class="type">app:<a href="Xt.html#TYPExtAppContext">xtAppContext</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALxtRealizeWidget"></a>xtRealizeWidget : <code class="type">widget:'a <a href="Xt.html#TYPEwidget">widget</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALxtManageChild"></a>xtManageChild : <code class="type">child:'a <a href="Xt.html#TYPEwidget">widget</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALxtUnmanageChild"></a>xtUnmanageChild : <code class="type">child:'a <a href="Xt.html#TYPEwidget">widget</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALxtDisplay"></a>xtDisplay : <code class="type">widget:'a <a href="Xt.html#TYPEwidget">widget</a> -> <a href="Xlib.html#TYPEdisplay">Xlib.display</a></code></pre><pre><span class="keyword">val</span> <a name="VALxtDisplayOfObject"></a>xtDisplayOfObject : <code class="type">wobject:<a href="Xt.html#TYPEwobject">wobject</a> <a href="Xt.html#TYPEwidget">widget</a> -> <a href="Xlib.html#TYPEdisplay">Xlib.display</a></code></pre><pre><span class="keyword">val</span> <a name="VALxtScreen"></a>xtScreen : <code class="type">widget:'a <a href="Xt.html#TYPEwidget">widget</a> -> <a href="Xlib.html#TYPExScreen">Xlib.xScreen</a></code></pre><pre><span class="keyword">val</span> <a name="VALxtWindow"></a>xtWindow : <code class="type">widget:'a <a href="Xt.html#TYPEwidget">widget</a> -> <a href="Xlib.html#TYPEwindow">Xlib.window</a></code></pre><pre><span class="keyword">val</span> <a name="VALxtParent"></a>xtParent : <code class="type">widget:'a <a href="Xt.html#TYPEwidget">widget</a> -> 'a <a href="Xt.html#TYPEwidget">widget</a></code></pre><pre><span class="keyword">val</span> <a name="VALxtMapWidget"></a>xtMapWidget : <code class="type">widget:'a <a href="Xt.html#TYPEwidget">widget</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALxtUnmapWidget"></a>xtUnmapWidget : <code class="type">widget:'a <a href="Xt.html#TYPEwidget">widget</a> -> unit</code></pre><br><code><span class="keyword">type</span> <a name="TYPEwidget_class"></a><code class="type"></code>widget_class = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">AsciiSinkObjectClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">AsciiSrcObjectClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">AsciiTextWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">BoxWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CommandWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">FormWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GripWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">LabelWidgetClass</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MenuButtonWidgetClass</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALxtCreateManagedWidget"></a>xtCreateManagedWidget : <code class="type">name:string -> <a href="Xt.html#TYPEwidget_class">widget_class</a> -> parent:'a <a href="Xt.html#TYPEwidget">widget</a> -> 'a <a href="Xt.html#TYPEwidget">widget</a></code></pre><br><code><span class="keyword">type</span> <a name="TYPEcallback_name"></a><code class="type"></code>callback_name = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtNcallback</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtNdestroyCallback</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtNpopupCallback</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtNpopdownCallback</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtNunrealizeCallback</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtCCallback</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtRCallback</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtHaddCallback</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtHaddCallbacks</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtHremoveCallback</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtHremoveCallbacks</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">XtHremoveAllCallbacks</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALinit_xtAddCallback"></a>init_xtAddCallback : <code class="type">(int -> unit -> unit) -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcb_tbl"></a>cb_tbl : <code class="type">(int, unit -> unit) Hashtbl.t</code></pre><pre><span class="keyword">val</span> <a name="VALreal_callback"></a>real_callback : <code class="type">int -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcb_count"></a>cb_count : <code class="type">int Pervasives.ref</code></pre><pre><span class="keyword">val</span> <a name="VALxtAddCallback"></a>xtAddCallback : <code class="type">widget:'a <a href="Xt.html#TYPEwidget">widget</a> -><br>       name:<a href="Xt.html#TYPEcallback_name">callback_name</a> -><br>       cb:(data:'b -> value:unit -> unit) -> data:'b -> unit</code></pre></body></html>

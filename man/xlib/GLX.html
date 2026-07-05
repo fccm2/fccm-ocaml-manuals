@@ -1,0 +1,638 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="_style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Xt.html">
+<link rel="next" href="GLX_P2T.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Xlib" rel="Chapter" href="Xlib.html">
+<link title="Keysym" rel="Chapter" href="Keysym.html">
+<link title="Keysym_match" rel="Chapter" href="Keysym_match.html">
+<link title="Xt" rel="Chapter" href="Xt.html">
+<link title="GLX" rel="Chapter" href="GLX.html">
+<link title="GLX_P2T" rel="Chapter" href="GLX_P2T.html"><link title="Backwards Compatibility" rel="Section" href="#2_BackwardsCompatibility">
+<link title="Types" rel="Subsection" href="#3_Types">
+<link title="Initialization" rel="Subsection" href="#3_Initialization">
+<link title="GLX Versioning" rel="Subsection" href="#3_GLXVersioning">
+<link title="Configuration Management" rel="Subsection" href="#3_ConfigurationManagement">
+<link title="On Screen Rendering" rel="Subsection" href="#3_OnScreenRendering">
+<link title="Off Screen Rendering" rel="Subsection" href="#3_OffScreenRendering">
+<link title="Querying Attributes" rel="Subsection" href="#3_QueryingAttributes">
+<link title="Rendering Contexts" rel="Subsection" href="#3_RenderingContexts">
+<link title="Events" rel="Subsection" href="#3_Events">
+<link title="Synchronization Primitives" rel="Subsection" href="#3_SynchronizationPrimitives">
+<link title="Double Buffering" rel="Subsection" href="#3_DoubleBuffering">
+<link title="Access to X Fonts" rel="Subsection" href="#3_AccesstoXFonts">
+<link title="GLX 1.2 functions which are deprecated in GLX 1.4" rel="Subsection" href="#3_GLX12functionswhicharedeprecatedinGLX14">
+<link title="Work in Progress" rel="Subsection" href="#3_WorkinProgress">
+<link title="Debug" rel="Subsection" href="#3_Debug">
+<title>GLX</title>
+</head>
+<body>
+<div class="navbar"><a href="Xt.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="GLX_P2T.html">Next</a>
+</div>
+<center><h1>Module <a href="type_GLX.html">GLX</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> GLX: <code class="code"><span class="keyword">sig</span></code> <a href="GLX.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>OCaml bindings for the GLX library.<br>
+<hr width="100%">
+<br>
+<ul>
+<li><a href="http://www.opengl.org/documentation/specs/glx/glx1.4.pdf">GLX Specs (pdf)</a>
+       (this one is the more complete documentation source)</li>
+<li><a href="http://www.opengl.org/sdk/docs/man/xhtml/#glX">GLX Mans</a> /
+     <a href="http://www.opengl.org/sdk/docs/man/xhtml/glXIntro.xml">GLX intro</a>
+     (on www.opengl.org)
+  </li>
+<li><a href="http://publib.boulder.ibm.com/infocenter/systems/index.jsp?topic=/com.ibm.aix.opengl/doc/openglrf/OpenGLXSubs.htm">
+       IBM Reference</a></li>
+<li><a href="http://techpubs.sgi.com/library/tpl/cgi-bin/getdoc.cgi/0650/bks/SGI_Developer/books/OpenGL_Porting/sgi_html/ch04.html">
+       SGI - OpenGL in the X Window System</a></li>
+</ul>
+<br>
+<br>
+<a name="3_Types"></a>
+<h3>Types</h3><br>
+<pre><span class="keyword">type</span> <a name="TYPEuint"></a><code class="type"></code>uint = <code class="type">int</code> </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEglXContext"></a><code class="type"></code>glXContext </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEglXFBConfigID"></a><code class="type"></code>glXFBConfigID </pre>
+
+<br><code><span class="keyword">type</span> <a name="TYPEopengl_rendering_modes"></a><code class="type"></code>opengl_rendering_modes = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_RGBA_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_COLOR_INDEX_BIT</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEdrawable_type"></a><code class="type"></code>drawable_type = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_WINDOW_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_PIXMAP_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_PBUFFER_BIT</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEx_visual_type"></a><code class="type"></code>x_visual_type = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TRUE_COLOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_DIRECT_COLOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_PSEUDO_COLOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_STATIC_COLOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_GRAY_SCALE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_STATIC_GRAY</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEconfig_caveat"></a><code class="type"></code>config_caveat = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_CONFIG_CAVEAT_NONE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_SLOW_CONFIG</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_NON_CONFORMANT_CONFIG</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEtransparent_type"></a><code class="type"></code>transparent_type = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TRANSPARENT_NONE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TRANSPARENT_RGB</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TRANSPARENT_INDEX</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">module</span> <a href="GLX.FBConfig.html">FBConfig</a>: <code class="code"><span class="keyword">sig</span></code> <a href="GLX.FBConfig.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">module</span> <a href="GLX.Visual.html">Visual</a>: <code class="code"><span class="keyword">sig</span></code> <a href="GLX.Visual.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><br><code><span class="keyword">type</span> <a name="TYPEattrib_bit"></a><code class="type"></code>attrib_bit = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_ACCUM_BUFFER_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_COLOR_BUFFER_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_CURRENT_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_DEPTH_BUFFER_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_ENABLE_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_EVAL_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_FOG_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_HINT_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_LIGHTING_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_LINE_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_LIST_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_MULTISAMPLE_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_PIXEL_MODE_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_POINT_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_POLYGON_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_POLYGON_STIPPLE_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_SCISSOR_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_STENCIL_BUFFER_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TRANSFORM_BIT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_VIEWPORT_BIT</span></code></td>
+
+</tr></table>
+
+<div class="info">
+This parameter is in fact an OpenGL GL-enum with a GL_ prefix.
+    This enum is included here in order to avoid a dependency across
+    any ocaml-opengl bindings (there are 3 ones).
+    The GL_ prefix was changed for a GLX_ prefix in order to not collide
+    with this parameter in the OpenGL module.<br>
+</div>
+
+<br>
+<a name="4_glXDrawable"></a>
+<h4>glXDrawable</h4><br>
+<pre><span class="keyword">type</span> <a name="TYPEglXDrawable"></a><code class="type">'a</code> glXDrawable </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPE_glXWindow"></a><code class="type"></code>_glXWindow </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEglXWindow"></a><code class="type"></code>glXWindow = <code class="type">GLX._glXWindow <a href="GLX.html#TYPEglXDrawable">glXDrawable</a></code> </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPE_glXPbuffer"></a><code class="type"></code>_glXPbuffer </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEglXPbuffer"></a><code class="type"></code>glXPbuffer = <code class="type">GLX._glXPbuffer <a href="GLX.html#TYPEglXDrawable">glXDrawable</a></code> </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPE_glXPixmap"></a><code class="type"></code>_glXPixmap </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEglXPixmap"></a><code class="type"></code>glXPixmap = <code class="type">GLX._glXPixmap <a href="GLX.html#TYPEglXDrawable">glXDrawable</a></code> </pre>
+<div class="info">
+all { glxWindow, glxPixmap, glxPbuffer and Xlib.window } are some glxDrawable<br>
+</div>
+
+<pre><span class="keyword">val</span> <a name="VALglXDrawable_of_window"></a><a href="code_VALGLX.glXDrawable_of_window.html">glXDrawable_of_window</a> : <code class="type">win:<a href="Xlib.html#TYPEwindow">Xlib.window</a> -> 'a <a href="GLX.html#TYPEglXDrawable">glXDrawable</a></code></pre><br>
+<a name="3_Initialization"></a>
+<h3>Initialization</h3><br>
+<pre><span class="keyword">val</span> <a name="VALglXQueryExtension"></a><a href="code_VALGLX.glXQueryExtension.html">glXQueryExtension</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> unit</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXQueryExtension.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXQueryVersion"></a><a href="code_VALGLX.glXQueryVersion.html">glXQueryVersion</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> int * int</code></pre><br>
+returns (major, minor)<br>
+<br>
+<a name="3_GLXVersioning"></a>
+<h3>GLX Versioning</h3><br>
+<pre><span class="keyword">val</span> <a name="VALglXQueryExtensionsString"></a><a href="code_VALGLX.glXQueryExtensionsString.html">glXQueryExtensionsString</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> screen:<a href="Xlib.html#TYPEscreen_number">Xlib.screen_number</a> -> string</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXQueryExtensionsString.xml">man</a><br>
+<br><code><span class="keyword">type</span> <a name="TYPEglx_name"></a><code class="type"></code>glx_name = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_VENDOR</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_VERSION</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_EXTENSIONS</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALglXQueryServerString"></a><a href="code_VALGLX.glXQueryServerString.html">glXQueryServerString</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> screen:<a href="Xlib.html#TYPEscreen_number">Xlib.screen_number</a> -> name:<a href="GLX.html#TYPEglx_name">glx_name</a> -> string</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXQueryServerString.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXGetClientString"></a><a href="code_VALGLX.glXGetClientString.html">glXGetClientString</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> name:<a href="GLX.html#TYPEglx_name">glx_name</a> -> string</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXGetClientString.xml">man</a><br>
+<br>
+<a name="3_ConfigurationManagement"></a>
+<h3>Configuration Management</h3><br>
+<pre><span class="keyword">type</span> <a name="TYPEglXFBConfig"></a><code class="type"></code>glXFBConfig </pre>
+
+<pre><span class="keyword">val</span> <a name="VALglXChooseFBConfig"></a><a href="code_VALGLX.glXChooseFBConfig.html">glXChooseFBConfig</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       screen:<a href="Xlib.html#TYPEscreen_number">Xlib.screen_number</a> -><br>       attribs:<a href="GLX.FBConfig.html#TYPEattrib">FBConfig.attrib</a> list -> <a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> list</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXChooseFBConfig.xml">man</a>
+<p>
+
+    To free the resources associated with the returned list, provide this list
+    unchanged to <br>
+<pre><span class="keyword">val</span> <a name="VALglXGetFBConfigs"></a><a href="code_VALGLX.glXGetFBConfigs.html">glXGetFBConfigs</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> screen:<a href="Xlib.html#TYPEscreen_number">Xlib.screen_number</a> -> <a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> list</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXGetFBConfigs.xml">man</a>
+<p>
+
+    To free the resources associated with the returned list, provide this list
+    unchanged to <br>
+<pre><span class="keyword">val</span> <a name="VALxFree_glXFBConfig"></a><a href="code_VALGLX.xFree_glXFBConfig.html">xFree_glXFBConfig</a> : <code class="type"><a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> list -> unit</code></pre><br>
+Frees the resources associated with the list returned by <code class="code">glXGetFBConfigs</code>
+    or <code class="code">glXChooseFBConfig</code>, you have to provide the list unchanged.<br>
+<pre><span class="keyword">val</span> <a name="VALglXGetVisualFromFBConfig"></a><a href="code_VALGLX.glXGetVisualFromFBConfig.html">glXGetVisualFromFBConfig</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> config:<a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> -> <a href="Xlib.html#TYPExVisualInfo">Xlib.xVisualInfo</a></code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXGetVisualFromFBConfig.xml">man</a><br>
+<br>
+<a name="3_OnScreenRendering"></a>
+<h3>On Screen Rendering</h3><br>
+<pre><span class="keyword">val</span> <a name="VALglXCreateWindow"></a><a href="code_VALGLX.glXCreateWindow.html">glXCreateWindow</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       config:<a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> -> win:<a href="Xlib.html#TYPEwindow">Xlib.window</a> -> <a href="GLX.html#TYPEglXWindow">glXWindow</a></code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXCreateWindow.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXDestroyWindow"></a><a href="code_VALGLX.glXDestroyWindow.html">glXDestroyWindow</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> win:<a href="GLX.html#TYPEglXWindow">glXWindow</a> -> unit</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXDestroyWindow.xml">man</a><br>
+<br>
+<a name="3_OffScreenRendering"></a>
+<h3>Off Screen Rendering</h3><br>
+<pre><span class="keyword">val</span> <a name="VALglXCreatePixmap"></a><a href="code_VALGLX.glXCreatePixmap.html">glXCreatePixmap</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       config:<a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> -><br>       pixmap:<a href="Xlib.html#TYPEpixmap">Xlib.pixmap</a> -> attribs:'a list -> <a href="GLX.html#TYPEglXPixmap">glXPixmap</a></code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXCreatePixmap.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXDestroyPixmap"></a><a href="code_VALGLX.glXDestroyPixmap.html">glXDestroyPixmap</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> pixmap:<a href="GLX.html#TYPEglXPixmap">glXPixmap</a> -> unit</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXDestroyPixmap.xml">man</a><br>
+<br><code><span class="keyword">type</span> <a name="TYPEpbuf_attrib"></a><code class="type"></code>pbuf_attrib = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_PBUFFER_WIDTH</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_PBUFFER_HEIGHT</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_LARGEST_PBUFFER</span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_PRESERVED_CONTENTS</span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALglXCreatePbuffer"></a><a href="code_VALGLX.glXCreatePbuffer.html">glXCreatePbuffer</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> config:<a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> -> <a href="GLX.html#TYPEglXPbuffer">glXPbuffer</a></code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXCreatePbuffer.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXDestroyPbuffer"></a><a href="code_VALGLX.glXDestroyPbuffer.html">glXDestroyPbuffer</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> pbuf:<a href="GLX.html#TYPEglXPbuffer">glXPbuffer</a> -> unit</code></pre><br>
+<a name="3_QueryingAttributes"></a>
+<h3>Querying Attributes</h3><br>
+<br>
+<a name="3_RenderingContexts"></a>
+<h3>Rendering Contexts</h3><br>
+<br><code><span class="keyword">type</span> <a name="TYPErender_type"></a><code class="type"></code>render_type = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_RGBA_TYPE</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_COLOR_INDEX_TYPE</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALglXCreateNewContext"></a><a href="code_VALGLX.glXCreateNewContext.html">glXCreateNewContext</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       config:<a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> -><br>       render_type:<a href="GLX.html#TYPErender_type">render_type</a> -><br>       share_list:<a href="GLX.html#TYPEglXContext">glXContext</a> option -> direct:bool -> <a href="GLX.html#TYPEglXContext">glXContext</a></code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXCreateNewContext.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXDestroyContext"></a><a href="code_VALGLX.glXDestroyContext.html">glXDestroyContext</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> ctx:<a href="GLX.html#TYPEglXContext">glXContext</a> -> unit</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXDestroyContext.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXIsDirect"></a><a href="code_VALGLX.glXIsDirect.html">glXIsDirect</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> ctx:<a href="GLX.html#TYPEglXContext">glXContext</a> -> bool</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXIsDirect.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXMakeContextCurrent"></a><a href="code_VALGLX.glXMakeContextCurrent.html">glXMakeContextCurrent</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       draw:'a <a href="GLX.html#TYPEglXDrawable">glXDrawable</a> -><br>       read:'a <a href="GLX.html#TYPEglXDrawable">glXDrawable</a> -> ctx:<a href="GLX.html#TYPEglXContext">glXContext</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALglXMakeContextCurrent_release"></a><a href="code_VALGLX.glXMakeContextCurrent_release.html">glXMakeContextCurrent_release</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> unit</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXMakeContextCurrent.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXCopyContext"></a><a href="code_VALGLX.glXCopyContext.html">glXCopyContext</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       ctx:<a href="GLX.html#TYPEglXContext">glXContext</a> -> mask:<a href="GLX.html#TYPEattrib_bit">attrib_bit</a> list -> <a href="GLX.html#TYPEglXContext">glXContext</a></code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXCopyContext.xml">man</a><br>
+<br>
+<a name="3_Events"></a>
+<h3>Events</h3><br>
+<br>
+<a name="3_SynchronizationPrimitives"></a>
+<h3>Synchronization Primitives</h3><br>
+<pre><span class="keyword">val</span> <a name="VALglXWaitGL"></a><a href="code_VALGLX.glXWaitGL.html">glXWaitGL</a> : <code class="type">unit -> unit</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXWaitGL.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXWaitX"></a><a href="code_VALGLX.glXWaitX.html">glXWaitX</a> : <code class="type">unit -> unit</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXWaitX.xml">man</a><br>
+<br>
+<a name="3_DoubleBuffering"></a>
+<h3>Double Buffering</h3><br>
+<pre><span class="keyword">val</span> <a name="VALglXSwapBuffers"></a><a href="code_VALGLX.glXSwapBuffers.html">glXSwapBuffers</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> drawable:'a <a href="GLX.html#TYPEglXDrawable">glXDrawable</a> -> unit</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXSwapBuffers.xml">man</a><br>
+<br>
+<a name="3_AccesstoXFonts"></a>
+<h3>Access to X Fonts</h3><br>
+<pre><span class="keyword">val</span> <a name="VALglXUseXFont"></a><a href="code_VALGLX.glXUseXFont.html">glXUseXFont</a> : <code class="type">font:<a href="Xlib.html#TYPEfont">Xlib.font</a> -> first:int -> count:int -> gl_list:int -> unit</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXUseXFont.xml">man</a><br>
+<br>
+<a name="2_BackwardsCompatibility"></a>
+<h2>Backwards Compatibility</h2><br>
+<br>
+<a name="3_GLX12functionswhicharedeprecatedinGLX14"></a>
+<h3>GLX 1.2 functions which are deprecated in GLX 1.4</h3><br>
+<pre><span class="keyword">val</span> <a name="VALglXChooseVisual"></a><a href="code_VALGLX.glXChooseVisual.html">glXChooseVisual</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       screen:<a href="Xlib.html#TYPEscreen_number">Xlib.screen_number</a> -><br>       attribs:<a href="GLX.Visual.html#TYPEattrib">Visual.attrib</a> list -> <a href="Xlib.html#TYPExVisualInfo">Xlib.xVisualInfo</a></code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXChooseVisual.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXCreateContext"></a><a href="code_VALGLX.glXCreateContext.html">glXCreateContext</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       vis:<a href="Xlib.html#TYPExVisualInfo">Xlib.xVisualInfo</a> -><br>       share_list:<a href="GLX.html#TYPEglXContext">glXContext</a> option -> direct:bool -> <a href="GLX.html#TYPEglXContext">glXContext</a></code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXCreateContext.xml">man</a><br>
+<pre><span class="keyword">val</span> <a name="VALglXMakeCurrent"></a><a href="code_VALGLX.glXMakeCurrent.html">glXMakeCurrent</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> drawable:'a <a href="GLX.html#TYPEglXDrawable">glXDrawable</a> -> ctx:<a href="GLX.html#TYPEglXContext">glXContext</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALglXMakeCurrentNone"></a><a href="code_VALGLX.glXMakeCurrentNone.html">glXMakeCurrentNone</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> unit</code></pre><br>
+<a href="http://www.opengl.org/sdk/docs/man/xhtml/glXMakeCurrent.xml">man</a><br>
+<br>
+<a name="3_WorkinProgress"></a>
+<h3>Work in Progress</h3><br>
+<br>
+<b>Warning:</b> This module is currently under construction.<br>
+<pre><span class="keyword">module</span> <a href="GLX.GetConf.html">GetConf</a>: <code class="code"><span class="keyword">sig</span></code> <a href="GLX.GetConf.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">module</span> <a href="GLX.GetConfEXT.html">GetConfEXT</a>: <code class="code"><span class="keyword">sig</span></code> <a href="GLX.GetConfEXT.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPE_a"></a><code class="type"></code>_a </pre>
+<div class="info">
+a fake type to make a hack, read the doc of the function <code class="code">glXGetFBConfigAttrib</code><br>
+</div>
+
+<br><code><span class="keyword">type</span> <a name="TYPEbind_to_tex_target"></a><code class="type"></code>bind_to_tex_target = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_1D_BIT_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_2D_BIT_EXT</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GLX_TEXTURE_RECTANGLE_BIT_EXT</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VAL_GLX_FBCONFIG_ID"></a><a href="code_VALGLX._GLX_FBCONFIG_ID.html">_GLX_FBCONFIG_ID</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEglXFBConfigID">glXFBConfigID</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_BUFFER_SIZE"></a><a href="code_VALGLX._GLX_BUFFER_SIZE.html">_GLX_BUFFER_SIZE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> bool)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_LEVEL"></a><a href="code_VALGLX._GLX_LEVEL.html">_GLX_LEVEL</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> int)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_DOUBLEBUFFER"></a><a href="code_VALGLX._GLX_DOUBLEBUFFER.html">_GLX_DOUBLEBUFFER</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> bool)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_STEREO"></a><a href="code_VALGLX._GLX_STEREO.html">_GLX_STEREO</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> bool)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_AUX_BUFFERS"></a><a href="code_VALGLX._GLX_AUX_BUFFERS.html">_GLX_AUX_BUFFERS</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_RED_SIZE"></a><a href="code_VALGLX._GLX_RED_SIZE.html">_GLX_RED_SIZE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_GREEN_SIZE"></a><a href="code_VALGLX._GLX_GREEN_SIZE.html">_GLX_GREEN_SIZE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_BLUE_SIZE"></a><a href="code_VALGLX._GLX_BLUE_SIZE.html">_GLX_BLUE_SIZE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_ALPHA_SIZE"></a><a href="code_VALGLX._GLX_ALPHA_SIZE.html">_GLX_ALPHA_SIZE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_DEPTH_SIZE"></a><a href="code_VALGLX._GLX_DEPTH_SIZE.html">_GLX_DEPTH_SIZE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_STENCIL_SIZE"></a><a href="code_VALGLX._GLX_STENCIL_SIZE.html">_GLX_STENCIL_SIZE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_ACCUM_RED_SIZE"></a><a href="code_VALGLX._GLX_ACCUM_RED_SIZE.html">_GLX_ACCUM_RED_SIZE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_ACCUM_GREEN_SIZE"></a><a href="code_VALGLX._GLX_ACCUM_GREEN_SIZE.html">_GLX_ACCUM_GREEN_SIZE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_ACCUM_BLUE_SIZE"></a><a href="code_VALGLX._GLX_ACCUM_BLUE_SIZE.html">_GLX_ACCUM_BLUE_SIZE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_ACCUM_ALPHA_SIZE"></a><a href="code_VALGLX._GLX_ACCUM_ALPHA_SIZE.html">_GLX_ACCUM_ALPHA_SIZE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> int)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_RENDER_TYPE"></a><a href="code_VALGLX._GLX_RENDER_TYPE.html">_GLX_RENDER_TYPE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPErender_type">render_type</a> list)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_DRAWABLE_TYPE"></a><a href="code_VALGLX._GLX_DRAWABLE_TYPE.html">_GLX_DRAWABLE_TYPE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEdrawable_type">drawable_type</a> list)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_X_RENDERABLE"></a><a href="code_VALGLX._GLX_X_RENDERABLE.html">_GLX_X_RENDERABLE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> bool)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_VISUAL_ID"></a><a href="code_VALGLX._GLX_VISUAL_ID.html">_GLX_VISUAL_ID</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="Xlib.html#TYPEvisualID">Xlib.visualID</a> option)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_X_VISUAL_TYPE"></a><a href="code_VALGLX._GLX_X_VISUAL_TYPE.html">_GLX_X_VISUAL_TYPE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEx_visual_type">x_visual_type</a> option)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_CONFIG_CAVEAT"></a><a href="code_VALGLX._GLX_CONFIG_CAVEAT.html">_GLX_CONFIG_CAVEAT</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEconfig_caveat">config_caveat</a> list)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_TRANSPARENT_TYPE"></a><a href="code_VALGLX._GLX_TRANSPARENT_TYPE.html">_GLX_TRANSPARENT_TYPE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEtransparent_type">transparent_type</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_TRANSPARENT_INDEX_VALUE"></a><a href="code_VALGLX._GLX_TRANSPARENT_INDEX_VALUE.html">_GLX_TRANSPARENT_INDEX_VALUE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> int)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_TRANSPARENT_RED_VALUE"></a><a href="code_VALGLX._GLX_TRANSPARENT_RED_VALUE.html">_GLX_TRANSPARENT_RED_VALUE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> int)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_TRANSPARENT_GREEN_VALUE"></a><a href="code_VALGLX._GLX_TRANSPARENT_GREEN_VALUE.html">_GLX_TRANSPARENT_GREEN_VALUE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> int)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_TRANSPARENT_BLUE_VALUE"></a><a href="code_VALGLX._GLX_TRANSPARENT_BLUE_VALUE.html">_GLX_TRANSPARENT_BLUE_VALUE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> int)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_TRANSPARENT_ALPHA_VALUE"></a><a href="code_VALGLX._GLX_TRANSPARENT_ALPHA_VALUE.html">_GLX_TRANSPARENT_ALPHA_VALUE</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> int)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_MAX_PBUFFER_WIDTH"></a><a href="code_VALGLX._GLX_MAX_PBUFFER_WIDTH.html">_GLX_MAX_PBUFFER_WIDTH</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_MAX_PBUFFER_HEIGHT"></a><a href="code_VALGLX._GLX_MAX_PBUFFER_HEIGHT.html">_GLX_MAX_PBUFFER_HEIGHT</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_MAX_PBUFFER_PIXELS"></a><a href="code_VALGLX._GLX_MAX_PBUFFER_PIXELS.html">_GLX_MAX_PBUFFER_PIXELS</a> : <code class="type"><a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEuint">uint</a>)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_BIND_TO_TEXTURE_TARGETS_EXT"></a><a href="code_VALGLX._GLX_BIND_TO_TEXTURE_TARGETS_EXT.html">_GLX_BIND_TO_TEXTURE_TARGETS_EXT</a> : <code class="type"><a href="GLX.GetConfEXT.html#TYPEreq_attribute">GetConfEXT.req_attribute</a> * (GLX._a -> <a href="GLX.html#TYPEbind_to_tex_target">bind_to_tex_target</a> list)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_BIND_TO_TEXTURE_RGBA_EXT"></a><a href="code_VALGLX._GLX_BIND_TO_TEXTURE_RGBA_EXT.html">_GLX_BIND_TO_TEXTURE_RGBA_EXT</a> : <code class="type"><a href="GLX.GetConfEXT.html#TYPEreq_attribute">GetConfEXT.req_attribute</a> * (GLX._a -> bool)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_BIND_TO_TEXTURE_RGB_EXT"></a><a href="code_VALGLX._GLX_BIND_TO_TEXTURE_RGB_EXT.html">_GLX_BIND_TO_TEXTURE_RGB_EXT</a> : <code class="type"><a href="GLX.GetConfEXT.html#TYPEreq_attribute">GetConfEXT.req_attribute</a> * (GLX._a -> bool)</code></pre><pre><span class="keyword">val</span> <a name="VAL_GLX_Y_INVERTED_EXT"></a><a href="code_VALGLX._GLX_Y_INVERTED_EXT.html">_GLX_Y_INVERTED_EXT</a> : <code class="type"><a href="GLX.GetConfEXT.html#TYPEreq_attribute">GetConfEXT.req_attribute</a> * (GLX._a -> bool)</code></pre><pre><span class="keyword">val</span> <a name="VALglXGetFBConfigAttrib"></a><a href="code_VALGLX.glXGetFBConfigAttrib.html">glXGetFBConfigAttrib</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       config:<a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> -> attrib:<a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> -> GLX._a</code></pre><pre><span class="keyword">val</span> <a name="VALglXGetFBConfigAttribEXT"></a><a href="code_VALGLX.glXGetFBConfigAttribEXT.html">glXGetFBConfigAttribEXT</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       config:<a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> -> attrib:<a href="GLX.GetConfEXT.html#TYPEreq_attribute">GetConfEXT.req_attribute</a> -> GLX._a</code></pre><pre><span class="keyword">val</span> <a name="VALglXGetFBConfigAttrib"></a><a href="code_VALGLX.glXGetFBConfigAttrib.html">glXGetFBConfigAttrib</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       config:<a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> -><br>       attrib:<a href="GLX.GetConf.html#TYPEreq_attribute">GetConf.req_attribute</a> * (GLX._a -> 'a) -> 'a</code></pre><br>
+as this function may return different types, instead of using for example
+    <code class="code"><span class="constructor">GLX_DRAWABLE_TYPE</span></code>, just use <code class="code">_GLX_DRAWABLE_TYPE</code><br>
+<pre><span class="keyword">val</span> <a name="VALglXGetFBConfigAttribEXT"></a><a href="code_VALGLX.glXGetFBConfigAttribEXT.html">glXGetFBConfigAttribEXT</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -><br>       config:<a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> -><br>       attrib:<a href="GLX.GetConfEXT.html#TYPEreq_attribute">GetConfEXT.req_attribute</a> * (GLX._a -> 'a) -> 'a</code></pre><br>
+same than <code class="code">glXGetFBConfigAttrib</code> but with additions from the GLX_EXT_texture_from_pixmap extension
+<p>
+
+    should be transfered to GLX_P2T<br>
+<br>
+<a name="3_Debug"></a>
+<h3>Debug</h3><br>
+<pre><span class="keyword">type</span> <a name="TYPEglXFBConfig2"></a><code class="type"></code>glXFBConfig2 </pre>
+
+<pre><span class="keyword">val</span> <a name="VALglXGetFBConfigs2"></a><a href="code_VALGLX.glXGetFBConfigs2.html">glXGetFBConfigs2</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> <a href="Xlib.html#TYPEscreen_number">Xlib.screen_number</a> -> <a href="GLX.html#TYPEglXFBConfig2">glXFBConfig2</a> array</code></pre><br><code><span class="keyword">type</span> <a name="TYPEattribute_and_value"></a><code class="type"></code>attribute_and_value = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">D_GLX_DRAWABLE_TYPE</span> <span class="keyword">of</span> <code class="type"><a href="GLX.html#TYPEdrawable_type">drawable_type</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">D_GLX_BIND_TO_TEXTURE_TARGETS_EXT</span> <span class="keyword">of</span> <code class="type"><a href="GLX.html#TYPEbind_to_tex_target">bind_to_tex_target</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">D_GLX_BIND_TO_TEXTURE_RGBA_EXT</span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">D_GLX_BIND_TO_TEXTURE_RGB_EXT</span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">D_GLX_Y_INVERTED_EXT</span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALglXHasFBConfigAttrib"></a><a href="code_VALGLX.glXHasFBConfigAttrib.html">glXHasFBConfigAttrib</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> <a href="GLX.html#TYPEglXFBConfig2">glXFBConfig2</a> -> <a href="GLX.html#TYPEattribute_and_value">attribute_and_value</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALchoosePixmapFBConfig"></a><a href="code_VALGLX.choosePixmapFBConfig.html">choosePixmapFBConfig</a> : <code class="type">dpy:<a href="Xlib.html#TYPEdisplay">Xlib.display</a> -> <a href="GLX.html#TYPEglXFBConfig">glXFBConfig</a> * float * float</code></pre></body></html>

@@ -1,0 +1,486 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Magick" rel="Chapter" href="Magick.html"><title>Magick.Imper</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;plasma_image&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y2:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;attenuate:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;depth:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_plasmaimage_bytecode"</span>&nbsp;<span class="string">"imper_plasmaimage_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;flip&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_flipimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;flop&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_flopimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;magnify&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_magnifyimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;minify&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_minifyimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;enhance&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_enhanceimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;trim&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_trimimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;despeckle&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_despeckle"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;negate&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?grayscale:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;contrast&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sharpen:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_contrastimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;equalize&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_equalizeimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;normalize&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_normalizeimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;white_threshold&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;threshold:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_whitethresholdimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;black_threshold&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;threshold:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_blackthresholdimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;cyclecolormap&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;displace:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_cyclecolormapimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;solarize&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;threshold:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_solarizeimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;modulate'&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;factors:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_modulateimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;modulate&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?brightness:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?saturation:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?hue:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;blur&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;gaussian_blur&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;motion_blur&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;charcoal&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;edge&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_edgeimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;emboss&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;implode&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;amount:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_implodeimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;medianfilter&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_medianfilterimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;oilpaint&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_oilpaintimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;reduce_noise&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_reducenoiseimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;roll&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_rollimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;shade&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?gray:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;azimuth:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;elevation:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;spread&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_spreadimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;swirl&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_swirlimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;sharpen&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;unsharpmask&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;amount:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;threshold:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_unsharpmaskimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;wave&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;amplitude:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;wave_length:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_waveimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rotate&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_rotateimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;shear&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_shearimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;affine_transform&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?tx:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?ty:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?sx:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?sy:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?rx:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?ry:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;adaptive_threshold&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;offset:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_adaptivethresholdimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;crop&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_cropimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;chop&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_chopimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;splice&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_spliceimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;colorize&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_colorizeimage_bytecode"</span>&nbsp;<span class="string">"imper_colorizeimage_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;acquire_pixel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_acquireonepixel"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;composite_image&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;compose:<span class="constructor">Magick</span>.composite_operator&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;texture_image&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_textureimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;bilevel_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_bilevelimagechannel"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;blur_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;gaussian_blur_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;radial_blur&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_radialblurimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;radial_blur_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_radialblurimagechannel"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;sharpen_image_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;add_noise&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.noise_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_addnoiseimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;resize&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;filter:<span class="constructor">Magick</span>.resize_filter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;blur:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_resizeimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;sample&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_sampleimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scale&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_scaleimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;thumbnail&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_thumbnailimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_image_colors&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_setimagecolors"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_compression_quality&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_setcompressionquality"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_image_type&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;image_type:<span class="constructor">Magick</span>.image_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_setimagetype"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_type&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_setimagetype__"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;strip_image&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_stripimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;level&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_levelimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;level_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_levelimagechannel"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;gamma_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gamma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_gammaimagechannel"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;negate_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_negateimagechannel"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;ordered_dither&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_orderedditherimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;compress_colormap&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_compressimagecolormap"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;posterize&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;levels:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dither:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_posterizeimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;map_image&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;map_image:<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dither:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_mapimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_gray&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"imper_isgrayimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_monochrome&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_ismonochromeimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_opaque&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"imper_isopaqueimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_palette&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"imper_ispaletteimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_taint&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"imper_istaintimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;is_equal&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_isimagesequal"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;line_cap&nbsp;=&nbsp;<span class="constructor">UndefinedCap</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">ButtCap</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">RoundCap</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">SquareCap</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;line_join&nbsp;=&nbsp;<span class="constructor">UndefinedJoin</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">MiterJoin</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">RoundJoin</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">BevelJoin</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;color&nbsp;=&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;channels_of_color&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;acquire_pixel_opacity&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_acquireonepixel_opacity"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_image_opacity&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;opacity:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_setimageopacity"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;color_of_string&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_querycolordatabase"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;color_of_rgbo_tuple&nbsp;:&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;rgbo_tuple_of_color&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;max_color_map&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_colors&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;sub_colors&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mul_colors&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;dump_color&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;div_colors&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;rgb_string_of_color&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;rgba_string_of_color&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;hexa_string_of_color&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;color_of_hex&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;black&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;transparent&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;affine_matrix&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sx&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rx&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ry&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sy&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tx&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ty&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;identity_matrix&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;tuple_of_matrix&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_pixel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;red:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;green:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;blue:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;opacity:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_draw_point_bytecode"</span>&nbsp;<span class="string">"imper_draw_point_native"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_point&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_line&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?fill_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?line_cap:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.line_cap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_circle&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?fill_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_rectangle&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?fill_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?line_join:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.line_join&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_round_rectangle&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;wc:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;hc:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?fill_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_arc&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;a0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;a1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?fill_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?line_cap:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.line_cap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_ellipse&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;cx:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;cy:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;rx:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;ry:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?a0:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?a1:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?fill_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_polyline&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;coords:(int&nbsp;*&nbsp;int)&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?fill_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?line_join:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.line_join&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?line_cap:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.line_cap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_polygon&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;coords:(int&nbsp;*&nbsp;int)&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?fill_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?line_join:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.line_join&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_bezier&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;coords:(int&nbsp;*&nbsp;int)&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?fill_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?line_cap:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.line_cap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_path&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;path:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?fill_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?line_join:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.line_join&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?line_cap:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.line_cap&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;style_type&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Undefined_Style</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Normal_Style</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Italic</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Oblique</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Any_Style</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;decoration_type&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Undefined_Decoration</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">No_Decoration</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Underline</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Overline</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">LineThrough</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;stretch_type&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Undefined_Stretch</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Normal_Stretch</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">UltraCondensed</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">ExtraCondensed</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Condensed</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">SemiCondensed</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">SemiExpanded</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Expanded</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">ExtraExpanded</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">UltraExpanded</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Any_Stretch</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;draw_text&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;text:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?font:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;point_size:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?density_x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?density_y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?style:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.style_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?weight:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?fill_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_color:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.color&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?decoration:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.decoration_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stretch:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.stretch_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?text_antialias:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?encoding:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;metrics_infos&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ascent&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;descent&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text_width&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text_height&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;max_advance&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;underline_position&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;underline_thickness&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pixels_per_em_x&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pixels_per_em_y&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bounds_x1&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bounds_y1&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bounds_x2&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bounds_y2&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_metrics&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;text:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?font:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;point_size:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?density_x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?density_y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?style:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.style_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?weight:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?decoration:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.decoration_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stretch:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.stretch_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?stroke_width:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.metrics_infos<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;transform_metrics&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;metrics:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.metrics_infos&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;affine_matrix:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.affine_matrix&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.metrics_infos<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_text_devel&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;text:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_draw_text_new1"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_mvg&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;mvg:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_draw_mvg"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_raw&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int)&nbsp;array&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_get_raw"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_raw'&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int)&nbsp;array&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_get_raw2"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_raw_opacity&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int)&nbsp;array&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_get_raw_opacity"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_raw_without_alpha&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;int&nbsp;*&nbsp;int)&nbsp;array&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_get_raw_without_alpha"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_raw_gl_indexed&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int)&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_get_raw_gl_indexed"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_raw_gl_indexed_without_alpha&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;int&nbsp;*&nbsp;int)&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_get_raw_gl_indexed_without_alpha"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_raw&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;raw:(int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int)&nbsp;array&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_raw_c&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;raw:(int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;*&nbsp;int)&nbsp;array&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;image_list_handle<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_image_list&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_new_image_list"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;no_op&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"imper_no_op"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;display_images&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"im_displayimages"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;append_image_to_list&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?delay:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;image_list_length&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_getimagelistlength"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;deconstruct_images&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_deconstructimages"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;coalesce_images&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_coalesceimages"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;flatten_images&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_flattenimages"</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;average_images&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;animate_images&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_animateimages"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;write_images&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"im_writeimage"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_last_image_in_list&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_getlastimageinlist"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_first_image_in_list&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"imper_getfirstimageinlist"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;has_link&nbsp;:&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;=&nbsp;<span class="string">"imper_has_link"</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;stack&nbsp;=&nbsp;<span class="constructor">Left_to_right</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Top_to_bottom</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;stack_dir_of_string&nbsp;:&nbsp;stack:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.stack<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;append_images&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.image_list_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;stack:<span class="constructor">Magick</span>.<span class="constructor">Imper</span>.stack&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+<span class="keyword">end</span></code></body></html>

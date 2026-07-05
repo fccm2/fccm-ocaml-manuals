@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Magick.Fun.html">
+<link rel="Up" href="Magick.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Magick" rel="Chapter" href="Magick.html"><title>Magick.Imper</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="Magick.html">Up</a>
+&nbsp;<a href="Magick.Fun.html">Next</a>
+</div>
+<center><h1>Module <a href="type_Magick.Imper.html">Magick.Imper</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Imper: <code class="code"><span class="keyword">sig</span></code> <a href="Magick.Imper.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><hr width="100%">
+<pre><span class="keyword">val</span> <a name="VALplasma_image"></a>plasma_image : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       x1:int -> y1:int -> x2:int -> y2:int -> attenuate:int -> depth:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALflip"></a>flip : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALflop"></a>flop : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmagnify"></a>magnify : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALminify"></a>minify : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALenhance"></a>enhance : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALtrim"></a>trim : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdespeckle"></a>despeckle : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALnegate"></a>negate : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> ?grayscale:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcontrast"></a>contrast : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> sharpen:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALequalize"></a>equalize : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALnormalize"></a>normalize : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALwhite_threshold"></a>white_threshold : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> threshold:string -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALblack_threshold"></a>black_threshold : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> threshold:string -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcyclecolormap"></a>cyclecolormap : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> displace:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALsolarize"></a>solarize : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> threshold:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmodulate'"></a>modulate' : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> factors:string -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmodulate"></a>modulate : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       ?brightness:int -> ?saturation:int -> ?hue:int -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALblur"></a>blur : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> ?radius:float -> sigma:float -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALgaussian_blur"></a>gaussian_blur : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> ?radius:float -> sigma:float -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmotion_blur"></a>motion_blur : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       ?radius:float -> sigma:float -> angle:float -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcharcoal"></a>charcoal : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> ?radius:float -> sigma:float -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALedge"></a>edge : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> radius:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALemboss"></a>emboss : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> ?radius:float -> sigma:float -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALimplode"></a>implode : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> amount:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmedianfilter"></a>medianfilter : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> radius:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALoilpaint"></a>oilpaint : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> radius:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALreduce_noise"></a>reduce_noise : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> radius:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALroll"></a>roll : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> x:int -> y:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALshade"></a>shade : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       ?gray:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       azimuth:float -> elevation:float -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALspread"></a>spread : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> radius:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALswirl"></a>swirl : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> degrees:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALsharpen"></a>sharpen : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> ?radius:float -> sigma:float -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALunsharpmask"></a>unsharpmask : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       radius:float -> sigma:float -> amount:float -> threshold:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALwave"></a>wave : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> amplitude:float -> wave_length:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALrotate"></a>rotate : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> degrees:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALshear"></a>shear : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> x:float -> y:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALaffine_transform"></a>affine_transform : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       ?tx:float -><br>       ?ty:float -> ?sx:float -> ?sy:float -> ?rx:float -> ?ry:float -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALadaptive_threshold"></a>adaptive_threshold : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> width:int -> height:int -> offset:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcrop"></a>crop : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> x:int -> y:int -> width:int -> height:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALchop"></a>chop : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> x:int -> y:int -> width:int -> height:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALsplice"></a>splice : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> x:int -> y:int -> width:int -> height:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcolorize"></a>colorize : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> string -> int -> int -> int -> int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALacquire_pixel"></a>acquire_pixel : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> int -> int -> int * int * int * int</code></pre><pre><span class="keyword">val</span> <a name="VALcomposite_image"></a>composite_image : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       <a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       compose:<a href="Magick.html#TYPEcomposite_operator">Magick.composite_operator</a> -> ?x:int -> ?y:int -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALtexture_image"></a>texture_image : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> <a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALbilevel_channel"></a>bilevel_channel : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> channel:<a href="Magick.html#TYPEchannel_type">Magick.channel_type</a> -> float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALblur_channel"></a>blur_channel : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       channel:<a href="Magick.html#TYPEchannel_type">Magick.channel_type</a> -> ?radius:float -> sigma:float -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALgaussian_blur_channel"></a>gaussian_blur_channel : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       channel:<a href="Magick.html#TYPEchannel_type">Magick.channel_type</a> -> ?radius:float -> sigma:float -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALradial_blur"></a>radial_blur : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> angle:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALradial_blur_channel"></a>radial_blur_channel : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> channel:<a href="Magick.html#TYPEchannel_type">Magick.channel_type</a> -> angle:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALsharpen_image_channel"></a>sharpen_image_channel : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       channel:<a href="Magick.html#TYPEchannel_type">Magick.channel_type</a> -> ?radius:float -> sigma:float -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALadd_noise"></a>add_noise : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> <a href="Magick.html#TYPEnoise_type">Magick.noise_type</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALresize"></a>resize : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       width:int -> height:int -> filter:<a href="Magick.html#TYPEresize_filter">Magick.resize_filter</a> -> blur:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALsample"></a>sample : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> width:int -> height:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALscale"></a>scale : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> width:int -> height:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALthumbnail"></a>thumbnail : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> width:int -> height:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_image_colors"></a>set_image_colors : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_compression_quality"></a>set_compression_quality : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_image_type"></a>set_image_type : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> image_type:<a href="Magick.html#TYPEimage_type">Magick.image_type</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_type"></a>set_type : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALstrip_image"></a>strip_image : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALlevel"></a>level : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> string -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALlevel_channel"></a>level_channel : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       channel:<a href="Magick.html#TYPEchannel_type">Magick.channel_type</a> -> float -> float -> float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALgamma_channel"></a>gamma_channel : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> channel:<a href="Magick.html#TYPEchannel_type">Magick.channel_type</a> -> gamma:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALnegate_channel"></a>negate_channel : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       channel:<a href="Magick.html#TYPEchannel_type">Magick.channel_type</a> -> <a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALordered_dither"></a>ordered_dither : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcompress_colormap"></a>compress_colormap : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALposterize"></a>posterize : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> levels:int -> dither:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmap_image"></a>map_image : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       map_image:<a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> dither:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALis_gray"></a>is_gray : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_monochrome"></a>is_monochrome : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_opaque"></a>is_opaque : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_palette"></a>is_palette : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_taint"></a>is_taint : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALis_equal"></a>is_equal : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> <a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> bool * float * float * float</code></pre><br><code><span class="keyword">type</span> <a name="TYPEline_cap"></a><code class="type"></code>line_cap = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">UndefinedCap</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">ButtCap</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">RoundCap</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SquareCap</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEline_join"></a><code class="type"></code>line_join = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">UndefinedJoin</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MiterJoin</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">RoundJoin</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">BevelJoin</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">type</span> <a name="TYPEcolor"></a><code class="type"></code>color = <code class="type">int * int * int * int</code> </pre>
+
+<pre><span class="keyword">val</span> <a name="VALchannels_of_color"></a>channels_of_color : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a> -> int * int * int * int</code></pre><pre><span class="keyword">val</span> <a name="VALacquire_pixel_opacity"></a>acquire_pixel_opacity : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> int -> int -> int * int * int * int</code></pre><pre><span class="keyword">val</span> <a name="VALset_image_opacity"></a>set_image_opacity : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> opacity:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcolor_of_string"></a>color_of_string : <code class="type">string -> <a href="Magick.Imper.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALcolor_of_rgbo_tuple"></a>color_of_rgbo_tuple : <code class="type">int * int * int * int -> <a href="Magick.Imper.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALrgbo_tuple_of_color"></a>rgbo_tuple_of_color : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a> -> int * int * int * int</code></pre><pre><span class="keyword">val</span> <a name="VALmax_color_map"></a>max_color_map : <code class="type">int</code></pre><pre><span class="keyword">val</span> <a name="VALadd_colors"></a>add_colors : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a> -> <a href="Magick.Imper.html#TYPEcolor">color</a> -> <a href="Magick.Imper.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALsub_colors"></a>sub_colors : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a> -> <a href="Magick.Imper.html#TYPEcolor">color</a> -> <a href="Magick.Imper.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALmul_colors"></a>mul_colors : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a> -> <a href="Magick.Imper.html#TYPEcolor">color</a> -> <a href="Magick.Imper.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALdump_color"></a>dump_color : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdiv_colors"></a>div_colors : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a> -> <a href="Magick.Imper.html#TYPEcolor">color</a> -> <a href="Magick.Imper.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALrgb_string_of_color"></a>rgb_string_of_color : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a> -> string</code></pre><pre><span class="keyword">val</span> <a name="VALrgba_string_of_color"></a>rgba_string_of_color : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a> -> string</code></pre><pre><span class="keyword">val</span> <a name="VALhexa_string_of_color"></a>hexa_string_of_color : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a> -> string</code></pre><pre><span class="keyword">val</span> <a name="VALcolor_of_hex"></a>color_of_hex : <code class="type">string -> int * int * int * int</code></pre><pre><span class="keyword">val</span> <a name="VALblack"></a>black : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a></code></pre><pre><span class="keyword">val</span> <a name="VALtransparent"></a>transparent : <code class="type"><a href="Magick.Imper.html#TYPEcolor">color</a></code></pre><br><code><span class="keyword">type</span> <a name="TYPEaffine_matrix"></a><code class="type"></code>affine_matrix = {</code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>sx&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>rx&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>ry&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>sy&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>tx&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>ty&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr></table>
+}
+
+
+<pre><span class="keyword">val</span> <a name="VALidentity_matrix"></a>identity_matrix : <code class="type"><a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a></code></pre><pre><span class="keyword">val</span> <a name="VALtuple_of_matrix"></a>tuple_of_matrix : <code class="type">affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -><br>       float * float * float * float * float * float</code></pre><pre><span class="keyword">val</span> <a name="VALset_pixel"></a>set_pixel : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       x:int -> y:int -> red:int -> green:int -> blue:int -> opacity:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_point"></a>draw_point : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> x:int -> y:int -> color:<a href="Magick.Imper.html#TYPEcolor">color</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_line"></a>draw_line : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       x0:int -><br>       y0:int -><br>       x1:int -><br>       y1:int -><br>       ?fill_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?stroke_width:float -> ?line_cap:<a href="Magick.Imper.html#TYPEline_cap">line_cap</a> -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_circle"></a>draw_circle : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       x0:int -><br>       y0:int -><br>       x1:int -><br>       y1:int -><br>       ?fill_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_width:float -><br>       ?stroke_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_rectangle"></a>draw_rectangle : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       x0:int -><br>       y0:int -><br>       x1:int -><br>       y1:int -><br>       ?fill_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_width:float -><br>       ?stroke_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?line_join:<a href="Magick.Imper.html#TYPEline_join">line_join</a> -><br>       ?affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_round_rectangle"></a>draw_round_rectangle : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       x0:int -><br>       y0:int -><br>       x1:int -><br>       y1:int -><br>       wc:int -><br>       hc:int -><br>       ?fill_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?stroke_width:float -><br>       ?affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_arc"></a>draw_arc : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       x0:int -><br>       y0:int -><br>       x1:int -><br>       y1:int -><br>       a0:int -><br>       a1:int -><br>       ?fill_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?stroke_width:float -><br>       ?line_cap:<a href="Magick.Imper.html#TYPEline_cap">line_cap</a> -><br>       ?affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_ellipse"></a>draw_ellipse : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       cx:int -><br>       cy:int -><br>       rx:int -><br>       ry:int -><br>       ?a0:int -><br>       ?a1:int -><br>       ?fill_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?stroke_width:float -><br>       ?affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_polyline"></a>draw_polyline : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       coords:(int * int) array -><br>       ?fill_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?stroke_width:float -><br>       ?line_join:<a href="Magick.Imper.html#TYPEline_join">line_join</a> -><br>       ?line_cap:<a href="Magick.Imper.html#TYPEline_cap">line_cap</a> -><br>       ?affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_polygon"></a>draw_polygon : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       coords:(int * int) array -><br>       ?fill_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?stroke_width:float -><br>       ?line_join:<a href="Magick.Imper.html#TYPEline_join">line_join</a> -><br>       ?affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_bezier"></a>draw_bezier : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       coords:(int * int) array -><br>       ?fill_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?stroke_width:float -><br>       ?line_cap:<a href="Magick.Imper.html#TYPEline_cap">line_cap</a> -><br>       ?affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_path"></a>draw_path : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       path:string -><br>       ?fill_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?stroke_width:float -><br>       ?line_join:<a href="Magick.Imper.html#TYPEline_join">line_join</a> -><br>       ?line_cap:<a href="Magick.Imper.html#TYPEline_cap">line_cap</a> -><br>       ?affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -> unit -> unit</code></pre><br><code><span class="keyword">type</span> <a name="TYPEstyle_type"></a><code class="type"></code>style_type = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Undefined_Style</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Normal_Style</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Italic</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Oblique</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Any_Style</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEdecoration_type"></a><code class="type"></code>decoration_type = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Undefined_Decoration</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">No_Decoration</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Underline</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Overline</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">LineThrough</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEstretch_type"></a><code class="type"></code>stretch_type = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Undefined_Stretch</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Normal_Stretch</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">UltraCondensed</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">ExtraCondensed</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Condensed</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SemiCondensed</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SemiExpanded</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Expanded</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">ExtraExpanded</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">UltraExpanded</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Any_Stretch</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALdraw_text"></a>draw_text : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       text:string -><br>       ?font:string -><br>       x:int -><br>       y:int -><br>       point_size:float -><br>       ?density_x:int -><br>       ?density_y:int -><br>       ?style:<a href="Magick.Imper.html#TYPEstyle_type">style_type</a> -><br>       ?weight:int -><br>       ?fill_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?stroke_color:<a href="Magick.Imper.html#TYPEcolor">color</a> -><br>       ?decoration:<a href="Magick.Imper.html#TYPEdecoration_type">decoration_type</a> -><br>       ?stretch:<a href="Magick.Imper.html#TYPEstretch_type">stretch_type</a> -><br>       ?stroke_width:float -><br>       ?stroke_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?text_antialias:<a href="Magick.html#TYPEmagick_boolean">Magick.magick_boolean</a> -><br>       ?encoding:string -> ?affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -> unit -> unit</code></pre><br><code><span class="keyword">type</span> <a name="TYPEmetrics_infos"></a><code class="type"></code>metrics_infos = {</code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>ascent&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>descent&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>text_width&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>text_height&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>max_advance&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>underline_position&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>underline_thickness&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>pixels_per_em_x&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>pixels_per_em_y&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>bounds_x1&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>bounds_y1&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>bounds_x2&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>bounds_y2&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr></table>
+}
+
+
+<pre><span class="keyword">val</span> <a name="VALget_metrics"></a>get_metrics : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -><br>       text:string -><br>       ?font:string -><br>       x:int -><br>       y:int -><br>       point_size:float -><br>       ?density_x:int -><br>       ?density_y:int -><br>       ?style:<a href="Magick.Imper.html#TYPEstyle_type">style_type</a> -><br>       ?weight:int -><br>       ?decoration:<a href="Magick.Imper.html#TYPEdecoration_type">decoration_type</a> -><br>       ?stretch:<a href="Magick.Imper.html#TYPEstretch_type">stretch_type</a> -><br>       ?stroke_width:float -> unit -> <a href="Magick.Imper.html#TYPEmetrics_infos">metrics_infos</a></code></pre><pre><span class="keyword">val</span> <a name="VALtransform_metrics"></a>transform_metrics : <code class="type">metrics:<a href="Magick.Imper.html#TYPEmetrics_infos">metrics_infos</a> -><br>       affine_matrix:<a href="Magick.Imper.html#TYPEaffine_matrix">affine_matrix</a> -> <a href="Magick.Imper.html#TYPEmetrics_infos">metrics_infos</a></code></pre><pre><span class="keyword">val</span> <a name="VALdraw_text_devel"></a>draw_text_devel : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> text:string -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_mvg"></a>draw_mvg : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> mvg:string -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_raw"></a>get_raw : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> (int * int * int * int) array array</code></pre><pre><span class="keyword">val</span> <a name="VALget_raw'"></a>get_raw' : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> (int * int * int * int) array array</code></pre><pre><span class="keyword">val</span> <a name="VALget_raw_opacity"></a>get_raw_opacity : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> (int * int * int * int) array array</code></pre><pre><span class="keyword">val</span> <a name="VALget_raw_without_alpha"></a>get_raw_without_alpha : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> (int * int * int) array array</code></pre><pre><span class="keyword">val</span> <a name="VALget_raw_gl_indexed"></a>get_raw_gl_indexed : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> (int * int * int * int) array</code></pre><pre><span class="keyword">val</span> <a name="VALget_raw_gl_indexed_without_alpha"></a>get_raw_gl_indexed_without_alpha : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> (int * int * int) array</code></pre><pre><span class="keyword">val</span> <a name="VALset_raw"></a>set_raw : <code class="type">raw:(int * int * int * int) array array -> <a href="Magick.html#TYPEimage_handle">Magick.image_handle</a></code></pre><pre><span class="keyword">val</span> <a name="VALset_raw_c"></a>set_raw_c : <code class="type">raw:(int * int * int * int) array array -> <a href="Magick.html#TYPEimage_handle">Magick.image_handle</a></code></pre><pre><span class="keyword">type</span> <a name="TYPEimage_list_handle"></a><code class="type"></code>image_list_handle </pre>
+
+<pre><span class="keyword">val</span> <a name="VALnew_image_list"></a>new_image_list : <code class="type">unit -> <a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a></code></pre><pre><span class="keyword">val</span> <a name="VALno_op"></a>no_op : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdisplay_images"></a>display_images : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALappend_image_to_list"></a>append_image_to_list : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -><br>       <a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> ?delay:int -> unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALimage_list_length"></a>image_list_length : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALdeconstruct_images"></a>deconstruct_images : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcoalesce_images"></a>coalesce_images : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALflatten_images"></a>flatten_images : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALaverage_images"></a>average_images : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -> <a href="Magick.html#TYPEimage_handle">Magick.image_handle</a></code></pre><pre><span class="keyword">val</span> <a name="VALanimate_images"></a>animate_images : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALwrite_images"></a>write_images : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -> string -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_last_image_in_list"></a>get_last_image_in_list : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -> <a href="Magick.html#TYPEimage_handle">Magick.image_handle</a></code></pre><pre><span class="keyword">val</span> <a name="VALget_first_image_in_list"></a>get_first_image_in_list : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -> <a href="Magick.html#TYPEimage_handle">Magick.image_handle</a></code></pre><pre><span class="keyword">val</span> <a name="VALhas_link"></a>has_link : <code class="type"><a href="Magick.html#TYPEimage_handle">Magick.image_handle</a> -> bool</code></pre><br><code><span class="keyword">type</span> <a name="TYPEstack"></a><code class="type"></code>stack = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Left_to_right</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Top_to_bottom</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALstack_dir_of_string"></a>stack_dir_of_string : <code class="type">stack:string -> <a href="Magick.Imper.html#TYPEstack">stack</a></code></pre><pre><span class="keyword">val</span> <a name="VALappend_images"></a>append_images : <code class="type"><a href="Magick.Imper.html#TYPEimage_list_handle">image_list_handle</a> -><br>       stack:<a href="Magick.Imper.html#TYPEstack">stack</a> -> <a href="Magick.html#TYPEimage_handle">Magick.image_handle</a></code></pre></body></html>

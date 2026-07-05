@@ -1,0 +1,869 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Magick" rel="Chapter" href="Magick.html"><title>Magick</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="index.html">Up</a>
+&nbsp;</div>
+<center><h1>Module <a href="type_Magick.html">Magick</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Magick: <code class="code"><span class="keyword">sig</span></code> <a href="Magick.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><hr width="100%">
+<pre><span class="keyword">val</span> <a name="VALsizeof_quantum"></a>sizeof_quantum : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALsizeof_quantum_bit"></a>sizeof_quantum_bit : <code class="type">unit -> int</code></pre><pre><span class="keyword">type</span> <a name="TYPEimage_handle"></a><code class="type"></code>image_handle </pre>
+
+<pre><span class="keyword">val</span> <a name="VALread_image"></a>read_image : <code class="type">filename:string -> <a href="Magick.html#TYPEimage_handle">image_handle</a></code></pre><pre><span class="keyword">val</span> <a name="VALget_canvas"></a>get_canvas : <code class="type">width:int -> height:int -> color:string -> <a href="Magick.html#TYPEimage_handle">image_handle</a></code></pre><pre><span class="keyword">val</span> <a name="VALcreate_image"></a>create_image : <code class="type">width:int -> height:int -> pseudo_format:string -> <a href="Magick.html#TYPEimage_handle">image_handle</a></code></pre><pre><span class="keyword">val</span> <a name="VALclone_image"></a>clone_image : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> <a href="Magick.html#TYPEimage_handle">image_handle</a></code></pre><pre><span class="keyword">val</span> <a name="VALwrite_image"></a>write_image : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> filename:string -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdisplay"></a>display : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALimage_to_stdout"></a>image_to_stdout : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALblob_of_image"></a>blob_of_image : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> int list</code></pre><pre><span class="keyword">val</span> <a name="VALdump_to_stdout"></a>dump_to_stdout : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALget_image_width"></a>get_image_width : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_image_height"></a>get_image_height : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_image_depth"></a>get_image_depth : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_image_quality"></a>get_image_quality : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_image_mimetype"></a>get_image_mimetype : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> string</code></pre><pre><span class="keyword">val</span> <a name="VALget_image_size"></a>get_image_size : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> string</code></pre><pre><span class="keyword">val</span> <a name="VALget_image_colors"></a>get_image_colors : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_image_colorspace"></a>get_image_colorspace : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALping_image_infos"></a>ping_image_infos : <code class="type">string -> int * int * int * int * int * string</code></pre><pre><span class="keyword">val</span> <a name="VALping_image"></a>ping_image : <code class="type">string -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALget_number_colors"></a>get_number_colors : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_image_histogram"></a>get_image_histogram : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> histogram_file:string -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget_max_colormap"></a>get_max_colormap : <code class="type">unit -> int</code></pre><br><code><span class="keyword">type</span> <a name="TYPEimage_type"></a><code class="type"></code>image_type = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Undefined_image_type</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Bilevel</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Grayscale</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GrayscaleMatte</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Palette</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">PaletteMatte</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">TrueColor</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">TrueColorMatte</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">ColorSeparation</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">ColorSeparationMatte</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Optimize</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALget_image_type"></a>get_image_type : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -> <a href="Magick.html#TYPEimage_type">image_type</a></code></pre><pre><span class="keyword">val</span> <a name="VALstring_of_image_type"></a>string_of_image_type : <code class="type"><a href="Magick.html#TYPEimage_type">image_type</a> -> string</code></pre><br><code><span class="keyword">type</span> <a name="TYPEmagick_boolean"></a><code class="type"></code>magick_boolean = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MagickFalse</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MagickTrue</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALmagick_boolean_of_string"></a>magick_boolean_of_string : <code class="type">string -> <a href="Magick.html#TYPEmagick_boolean">magick_boolean</a></code></pre><br><code><span class="keyword">type</span> <a name="TYPEnoise_type"></a><code class="type"></code>noise_type = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">UndefinedNoise</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">UniformNoise</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GaussianNoise</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MultiplicativeGaussianNoise</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">ImpulseNoise</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">LaplacianNoise</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">PoissonNoise</span></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEresize_filter"></a><code class="type"></code>resize_filter = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Undefined_resize_filter</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Point</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Box</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Triangle</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Hermite</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Hanning</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Hamming</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Blackman</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Gaussian</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Quadratic</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Cubic</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Catrom</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Mitchell</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Lanczos</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Bessel</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Sinc</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALresize_filter_of_string"></a>resize_filter_of_string : <code class="type">string -> <a href="Magick.html#TYPEresize_filter">resize_filter</a></code></pre><pre><span class="keyword">val</span> <a name="VALresize_filter_of_string'"></a>resize_filter_of_string' : <code class="type">string -> <a href="Magick.html#TYPEresize_filter">resize_filter</a></code></pre><pre><span class="keyword">val</span> <a name="VALstring_of_resize_filter"></a>string_of_resize_filter : <code class="type"><a href="Magick.html#TYPEresize_filter">resize_filter</a> -> string</code></pre><br><code><span class="keyword">type</span> <a name="TYPEchannel_type"></a><code class="type"></code>channel_type = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Undefined_Channel</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Red</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Gray</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Cyan</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Green</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Magenta</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Blue</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Yellow</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Alpha</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Opacity</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Black</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Index</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">All_Channels</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Default_Channels</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALchannel_type_of_string"></a>channel_type_of_string : <code class="type">string -> <a href="Magick.html#TYPEchannel_type">channel_type</a></code></pre><pre><span class="keyword">val</span> <a name="VALchannel_type_of_string'"></a>channel_type_of_string' : <code class="type">string -> <a href="Magick.html#TYPEchannel_type">channel_type</a></code></pre><pre><span class="keyword">val</span> <a name="VALstring_of_channel_type"></a>string_of_channel_type : <code class="type"><a href="Magick.html#TYPEchannel_type">channel_type</a> -> string</code></pre><br><code><span class="keyword">type</span> <a name="TYPEcomposite_operator"></a><code class="type"></code>composite_operator = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Undefined_composite_operator</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">No_composite_operator</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Add</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Atop</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Blend</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Bumpmap</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Clear</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">ColorBurn</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">ColorDodge</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Colorize</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CopyBlack</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CopyBlue</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Copy</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CopyCyan</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CopyGreen</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CopyMagenta</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CopyOpacity</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CopyRed</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">CopyYellow</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Darken</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DstAtop</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Dst</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DstIn</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DstOut</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">DstOver</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Difference</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Displace</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Dissolve</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Exclusion</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">HardLight</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Hue</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">In</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Lighten</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Luminize</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Minus</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Modulate</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Multiply</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Out</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Over</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Overlay</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Plus</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Replace</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Saturate</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Screen</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SoftLight</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SrcAtop</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Src</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SrcIn</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SrcOut</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">SrcOver</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Subtract</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Threshold</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Xor</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALcomposite_operator_of_string"></a>composite_operator_of_string : <code class="type">string -> <a href="Magick.html#TYPEcomposite_operator">composite_operator</a></code></pre><pre><span class="keyword">val</span> <a name="VALcomposite_operator_of_string'"></a>composite_operator_of_string' : <code class="type">string -> <a href="Magick.html#TYPEcomposite_operator">composite_operator</a></code></pre><pre><span class="keyword">val</span> <a name="VALstring_of_composite_operator"></a>string_of_composite_operator : <code class="type"><a href="Magick.html#TYPEcomposite_operator">composite_operator</a> -> string</code></pre><pre><span class="keyword">module</span> <a href="Magick.Imper.html">Imper</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Magick.Imper.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">module</span> <a href="Magick.Fun.html">Fun</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Magick.Fun.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">val</span> <a name="VALget_magick_copyright"></a>get_magick_copyright : <code class="type">unit -> string</code></pre><pre><span class="keyword">val</span> <a name="VALget_magick_home_url"></a>get_magick_home_url : <code class="type">unit -> string</code></pre><pre><span class="keyword">val</span> <a name="VALget_magick_release_date"></a>get_magick_release_date : <code class="type">unit -> string</code></pre><pre><span class="keyword">val</span> <a name="VALget_magick_version"></a>get_magick_version : <code class="type">unit -> int * string</code></pre><pre><span class="keyword">val</span> <a name="VALget_magick_quantum_depth"></a>get_magick_quantum_depth : <code class="type">unit -> int * string</code></pre><pre><span class="keyword">val</span> <a name="VALget_magick_quantum_range"></a>get_magick_quantum_range : <code class="type">unit -> int * string</code></pre><pre><span class="keyword">val</span> <a name="VALget_binding_version"></a>get_binding_version : <code class="type">unit -> string</code></pre><br><code><span class="keyword">type</span> <a name="TYPEshared_data"></a><code class="type"></code>shared_data = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">UI8</span> <span class="keyword">of</span> <code class="type">(int, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Array3.t</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">UI16</span> <span class="keyword">of</span> <code class="type">(int, Bigarray.int16_unsigned_elt, Bigarray.c_layout) Bigarray.Array3.t</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">UI32</span> <span class="keyword">of</span> <code class="type">(int, Bigarray.int32_elt, Bigarray.c_layout) Bigarray.Array3.t</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">UI64</span> <span class="keyword">of</span> <code class="type">(int, Bigarray.int64_elt, Bigarray.c_layout) Bigarray.Array3.t</code></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VALinspect_big_array"></a>inspect_big_array : <code class="type">('a, 'b, 'c) Bigarray.Array2.t -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALselect"></a>select : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALbig_array2_dump"></a>big_array2_dump : <code class="type">(int, 'a, 'b) Bigarray.Array2.t -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALimage_of_bigarray"></a>image_of_bigarray : <code class="type">('a, 'b, 'c) Bigarray.Array3.t -> <a href="Magick.html#TYPEimage_handle">image_handle</a></code></pre><br><code><span class="keyword">type</span> <a name="TYPEcoords_2d"></a><code class="type"></code>coords_2d = {</code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>x&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>y&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr></table>
+}
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEdimentions"></a><code class="type"></code>dimentions = {</code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>width&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>height&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr></table>
+}
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEbounding_box"></a><code class="type"></code>bounding_box = {</code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>pos&nbsp;: <code class="type"><a href="Magick.html#TYPEcoords_2d">coords_2d</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>dims&nbsp;: <code class="type"><a href="Magick.html#TYPEdimentions">dimentions</a></code>;</code></td>
+
+</tr></table>
+}
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEgradient_spreadMethod"></a><code class="type"></code>gradient_spreadMethod = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Pad_spread</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Repeat_spread</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Reflect_spread</span></code></td>
+
+</tr></table>
+
+
+<pre><span class="keyword">val</span> <a name="VAL_linear_gradient"></a>_linear_gradient : <code class="type">width:int -><br>       height:int -><br>       a:<a href="Magick.html#TYPEcoords_2d">coords_2d</a> -><br>       b:<a href="Magick.html#TYPEcoords_2d">coords_2d</a> -><br>       ?spread_method:<a href="Magick.html#TYPEgradient_spreadMethod">gradient_spreadMethod</a> -><br>       ?bounding_box:<a href="Magick.html#TYPEbounding_box">bounding_box</a> -> unit -> <a href="Magick.html#TYPEimage_handle">image_handle</a></code></pre><pre><span class="keyword">val</span> <a name="VALlinear_gradient"></a>linear_gradient : <code class="type"><a href="Magick.html#TYPEimage_handle">image_handle</a> -><br>       a:<a href="Magick.html#TYPEcoords_2d">coords_2d</a> -><br>       b:<a href="Magick.html#TYPEcoords_2d">coords_2d</a> -><br>       stop:(float * string) list -><br>       ?matrix:(float * float * float) * (float * float * float) *<br>               (float * float * float) -><br>       ?spread_method:<a href="Magick.html#TYPEgradient_spreadMethod">gradient_spreadMethod</a> -><br>       ?bounding_box:<a href="Magick.html#TYPEbounding_box">bounding_box</a> -> unit -> unit</code></pre></body></html>

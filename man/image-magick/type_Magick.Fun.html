@@ -1,0 +1,175 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Magick" rel="Chapter" href="Magick.html"><title>Magick.Fun</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create_image&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;pseudo_format:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_canvas&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;read_image&nbsp;:&nbsp;filename:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;blur&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;radial_blur&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;radial_blur_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;charcoal&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;edge&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;emboss&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;gaussian_blur&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;implode&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;amount:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;medianfilter&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;motion_blur&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;oilpaint&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;reduce_noise&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;roll&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;shade&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?gray:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;azimuth:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;elevation:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;sharpen&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;spread&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;swirl&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;unsharpmask&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;amount:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;threshold:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;wave&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;amplitude:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;wave_length:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;rotate&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;shear&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;sample&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;scale&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;thumbnail&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;adaptive_threshold&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;offset:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;blur_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;gaussian_blur_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?radius:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;sigma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_noise&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;noise_type:<span class="constructor">Magick</span>.noise_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;resize&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;filter:<span class="constructor">Magick</span>.resize_filter&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;blur:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;enhance&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;despeckle&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;minify&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;magnify&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;flip&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;flop&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;splice&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;crop&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;affine_transform&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?tx:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?ty:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?sx:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?sy:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?rx:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?ry:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;negate&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?grayscale:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;contrast&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sharpen:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;equalize&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;normalize&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;black_threshold&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;threshold:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;white_threshold&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;threshold:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;cyclecolormap&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;displace:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;solarize&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;threshold:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;strip&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;gamma_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;gamma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;level&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;levels:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;level_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;black_point:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;white_point:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;gamma:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;negate_channel&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:<span class="constructor">Magick</span>.channel_type&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;grayscale:<span class="constructor">Magick</span>.magick_boolean&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;ordered_dither&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;composite_image&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;compose:<span class="constructor">Magick</span>.composite_operator&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?x:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?y:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;img_below:<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;img_above:<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;texture_image&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;img:<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;tex_img:<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;modulate&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?brightness:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?saturation:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?hue:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;modulate'&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;factors:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;view&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image_handle<br>
+<span class="keyword">end</span></code></body></html>

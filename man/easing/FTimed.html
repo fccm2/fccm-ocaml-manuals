@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="FEase.html">
+<link rel="next" href="IEase.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="FEase" rel="Chapter" href="FEase.html">
+<link title="FTimed" rel="Chapter" href="FTimed.html">
+<link title="IEase" rel="Chapter" href="IEase.html">
+<link title="ITimed" rel="Chapter" href="ITimed.html"><link title="Timeline types" rel="Section" href="#3_Timelinetypes">
+<link title="Value types" rel="Section" href="#3_Valuetypes">
+<link title="Interpolation functions" rel="Section" href="#3_Interpolationfunctions">
+<link title="Timeline functions" rel="Section" href="#3_Timelinefunctions">
+<link title="Labeled functions" rel="Section" href="#3_Labeledfunctions">
+<title>FTimed</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="FEase.html" title="FEase">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="IEase.html" title="IEase">Next</a>
+</div>
+<h1>Module <a href="type_FTimed.html">FTimed</a></h1>
+<pre><span class="keyword">module</span> FTimed: <code class="code">sig</code> <a href="FTimed.html">..</a> <code class="code">end</code></pre><div class="info">
+Timeline<br>
+</div>
+<hr width="100%">
+<br>
+<h3 id="3_Timelinetypes">Timeline types</h3><br>
+<pre><span id="TYPEtime"><span class="keyword">type</span> <code class="type"></code>time</span> = <code class="type">float</code> </pre>
+
+<pre><span id="TYPEease_func"><span class="keyword">type</span> <code class="type"></code>ease_func</span> = <code class="type"><a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a></code> </pre>
+
+<pre><span id="TYPEanimated"><span class="keyword">type</span> <code class="type">'a</code> animated</span> = <code class="type">[ `At of <a href="FTimed.html#TYPEtime">time</a> * 'a<br>       | `Change of <a href="FTimed.html#TYPEtime">time</a> * <a href="FTimed.html#TYPEtime">time</a> * <a href="FTimed.html#TYPEease_func">ease_func</a> * 'a * 'a ]</code> </pre>
+
+<pre><span id="TYPEtimed"><span class="keyword">type</span> <code class="type">'a</code> timed</span> = <code class="type">[ `Animated of 'a <a href="FTimed.html#TYPEanimated">animated</a> list | `Static of 'a ]</code> </pre>
+
+<br>
+<h3 id="3_Valuetypes">Value types</h3><br>
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type">float</code> </pre>
+
+<pre><span id="TYPEt_x1"><span class="keyword">type</span> <code class="type"></code>t_x1</span> = <code class="type"><a href="FTimed.html#TYPEt">t</a></code> </pre>
+
+<pre><span id="TYPEt_x2"><span class="keyword">type</span> <code class="type"></code>t_x2</span> = <code class="type"><a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a></code> </pre>
+
+<pre><span id="TYPEt_x3"><span class="keyword">type</span> <code class="type"></code>t_x3</span> = <code class="type"><a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a></code> </pre>
+
+<pre><span id="TYPEt_x4"><span class="keyword">type</span> <code class="type"></code>t_x4</span> = <code class="type"><a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a></code> </pre>
+
+<pre><span id="TYPEt_x5"><span class="keyword">type</span> <code class="type"></code>t_x5</span> = <code class="type"><a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a></code> </pre>
+
+<pre><span id="TYPEt_x6"><span class="keyword">type</span> <code class="type"></code>t_x6</span> = <code class="type"><a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a></code> </pre>
+
+<pre><span id="TYPEt_x7"><span class="keyword">type</span> <code class="type"></code>t_x7</span> = <code class="type"><a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a></code> </pre>
+
+<pre><span id="TYPEt_x8"><span class="keyword">type</span> <code class="type"></code>t_x8</span> = <code class="type"><a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> *<br>       <a href="FTimed.html#TYPEt">t</a></code> </pre>
+
+<pre><span id="TYPEt_x9"><span class="keyword">type</span> <code class="type"></code>t_x9</span> = <code class="type"><a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a> *<br>       <a href="FTimed.html#TYPEt">t</a> * <a href="FTimed.html#TYPEt">t</a></code> </pre>
+
+<pre><span id="TYPEt_xa"><span class="keyword">type</span> <code class="type"></code>t_xa</span> = <code class="type"><a href="FTimed.html#TYPEt">t</a> array</code> </pre>
+
+<pre><span id="TYPEt1"><span class="keyword">type</span> <code class="type"></code>t1</span> = <code class="type"><a href="FTimed.html#TYPEt_x1">t_x1</a> <a href="FTimed.html#TYPEtimed">timed</a></code> </pre>
+
+<pre><span id="TYPEt2"><span class="keyword">type</span> <code class="type"></code>t2</span> = <code class="type"><a href="FTimed.html#TYPEt_x2">t_x2</a> <a href="FTimed.html#TYPEtimed">timed</a></code> </pre>
+
+<pre><span id="TYPEt3"><span class="keyword">type</span> <code class="type"></code>t3</span> = <code class="type"><a href="FTimed.html#TYPEt_x3">t_x3</a> <a href="FTimed.html#TYPEtimed">timed</a></code> </pre>
+
+<pre><span id="TYPEt4"><span class="keyword">type</span> <code class="type"></code>t4</span> = <code class="type"><a href="FTimed.html#TYPEt_x4">t_x4</a> <a href="FTimed.html#TYPEtimed">timed</a></code> </pre>
+
+<pre><span id="TYPEt5"><span class="keyword">type</span> <code class="type"></code>t5</span> = <code class="type"><a href="FTimed.html#TYPEt_x5">t_x5</a> <a href="FTimed.html#TYPEtimed">timed</a></code> </pre>
+
+<pre><span id="TYPEt6"><span class="keyword">type</span> <code class="type"></code>t6</span> = <code class="type"><a href="FTimed.html#TYPEt_x6">t_x6</a> <a href="FTimed.html#TYPEtimed">timed</a></code> </pre>
+
+<pre><span id="TYPEt7"><span class="keyword">type</span> <code class="type"></code>t7</span> = <code class="type"><a href="FTimed.html#TYPEt_x7">t_x7</a> <a href="FTimed.html#TYPEtimed">timed</a></code> </pre>
+
+<pre><span id="TYPEt8"><span class="keyword">type</span> <code class="type"></code>t8</span> = <code class="type"><a href="FTimed.html#TYPEt_x8">t_x8</a> <a href="FTimed.html#TYPEtimed">timed</a></code> </pre>
+
+<pre><span id="TYPEt9"><span class="keyword">type</span> <code class="type"></code>t9</span> = <code class="type"><a href="FTimed.html#TYPEt_x9">t_x9</a> <a href="FTimed.html#TYPEtimed">timed</a></code> </pre>
+
+<pre><span id="TYPEta"><span class="keyword">type</span> <code class="type"></code>ta</span> = <code class="type"><a href="FTimed.html#TYPEt_xa">t_xa</a> <a href="FTimed.html#TYPEtimed">timed</a></code> </pre>
+
+<br>
+<h3 id="3_Interpolationfunctions">Interpolation functions</h3><br>
+<pre><span id="VALinter1"><span class="keyword">val</span> inter1</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -><br>       <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt_x1">t_x1</a> -> <a href="FTimed.html#TYPEt_x1">t_x1</a> -> <a href="FTimed.html#TYPEt_x1">t_x1</a></code></pre><pre><span id="VALinter2"><span class="keyword">val</span> inter2</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -><br>       <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt_x2">t_x2</a> -> <a href="FTimed.html#TYPEt_x2">t_x2</a> -> <a href="FTimed.html#TYPEt_x2">t_x2</a></code></pre><pre><span id="VALinter3"><span class="keyword">val</span> inter3</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -><br>       <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt_x3">t_x3</a> -> <a href="FTimed.html#TYPEt_x3">t_x3</a> -> <a href="FTimed.html#TYPEt_x3">t_x3</a></code></pre><pre><span id="VALinter4"><span class="keyword">val</span> inter4</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -><br>       <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt_x4">t_x4</a> -> <a href="FTimed.html#TYPEt_x4">t_x4</a> -> <a href="FTimed.html#TYPEt_x4">t_x4</a></code></pre><pre><span id="VALinter5"><span class="keyword">val</span> inter5</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -><br>       <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt_x5">t_x5</a> -> <a href="FTimed.html#TYPEt_x5">t_x5</a> -> <a href="FTimed.html#TYPEt_x5">t_x5</a></code></pre><pre><span id="VALinter6"><span class="keyword">val</span> inter6</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -><br>       <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt_x6">t_x6</a> -> <a href="FTimed.html#TYPEt_x6">t_x6</a> -> <a href="FTimed.html#TYPEt_x6">t_x6</a></code></pre><pre><span id="VALinter7"><span class="keyword">val</span> inter7</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -><br>       <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt_x7">t_x7</a> -> <a href="FTimed.html#TYPEt_x7">t_x7</a> -> <a href="FTimed.html#TYPEt_x7">t_x7</a></code></pre><pre><span id="VALinter8"><span class="keyword">val</span> inter8</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -><br>       <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt_x8">t_x8</a> -> <a href="FTimed.html#TYPEt_x8">t_x8</a> -> <a href="FTimed.html#TYPEt_x8">t_x8</a></code></pre><pre><span id="VALinter9"><span class="keyword">val</span> inter9</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -><br>       <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt_x9">t_x9</a> -> <a href="FTimed.html#TYPEt_x9">t_x9</a> -> <a href="FTimed.html#TYPEt_x9">t_x9</a></code></pre><pre><span id="VALintera"><span class="keyword">val</span> intera</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -><br>       <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt_xa">t_xa</a> -> <a href="FTimed.html#TYPEt_xa">t_xa</a> -> <a href="FTimed.html#TYPEt_xa">t_xa</a></code></pre><br>
+<h3 id="3_Timelinefunctions">Timeline functions</h3><br>
+<pre><span id="VALval_at"><span class="keyword">val</span> val_at</span> : <code class="type">(<a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> 'a -> 'a -> 'a) -><br>       <a href="FTimed.html#TYPEtime">time</a> -> 'a <a href="FTimed.html#TYPEanimated">animated</a> list -> 'a</code></pre><pre><span id="VALget_val"><span class="keyword">val</span> get_val</span> : <code class="type">(<a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEtime">time</a> -> 'a -> 'a -> 'a) -><br>       <a href="FTimed.html#TYPEtime">time</a> -> 'a <a href="FTimed.html#TYPEtimed">timed</a> -> 'a</code></pre><pre><span id="VALget_val1"><span class="keyword">val</span> get_val1</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt1">t1</a> -> <a href="FTimed.html#TYPEt_x1">t_x1</a></code></pre><pre><span id="VALget_val2"><span class="keyword">val</span> get_val2</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt2">t2</a> -> <a href="FTimed.html#TYPEt_x2">t_x2</a></code></pre><pre><span id="VALget_val3"><span class="keyword">val</span> get_val3</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt3">t3</a> -> <a href="FTimed.html#TYPEt_x3">t_x3</a></code></pre><pre><span id="VALget_val4"><span class="keyword">val</span> get_val4</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt4">t4</a> -> <a href="FTimed.html#TYPEt_x4">t_x4</a></code></pre><pre><span id="VALget_val5"><span class="keyword">val</span> get_val5</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt5">t5</a> -> <a href="FTimed.html#TYPEt_x5">t_x5</a></code></pre><pre><span id="VALget_val6"><span class="keyword">val</span> get_val6</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt6">t6</a> -> <a href="FTimed.html#TYPEt_x6">t_x6</a></code></pre><pre><span id="VALget_val7"><span class="keyword">val</span> get_val7</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt7">t7</a> -> <a href="FTimed.html#TYPEt_x7">t_x7</a></code></pre><pre><span id="VALget_val8"><span class="keyword">val</span> get_val8</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt8">t8</a> -> <a href="FTimed.html#TYPEt_x8">t_x8</a></code></pre><pre><span id="VALget_val9"><span class="keyword">val</span> get_val9</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEt9">t9</a> -> <a href="FTimed.html#TYPEt_x9">t_x9</a></code></pre><pre><span id="VALget_vala"><span class="keyword">val</span> get_vala</span> : <code class="type"><a href="FTimed.html#TYPEtime">time</a> -> <a href="FTimed.html#TYPEta">ta</a> -> <a href="FTimed.html#TYPEt_xa">t_xa</a></code></pre><br>
+<h3 id="3_Labeledfunctions">Labeled functions</h3><br>
+<pre><span class="keyword">module</span> <a href="FTimed.Labels.html">Labels</a>: <code class="code">sig</code> <a href="FTimed.Labels.html">..</a> <code class="code">end</code></pre></body></html>

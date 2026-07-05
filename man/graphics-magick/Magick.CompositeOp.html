@@ -1,0 +1,373 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Magick.Filter.html">
+<link rel="next" href="Magick.ImgList.html">
+<link rel="Up" href="Magick.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Magick" rel="Chapter" href="Magick.html"><link title="Composite Operator" rel="Section" href="#4_CompositeOperator">
+<title>Magick.CompositeOp</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Magick.Filter.html" title="Magick.Filter">Previous</a>
+&nbsp;<a class="up" href="Magick.html" title="Magick">Up</a>
+&nbsp;<a class="post" href="Magick.ImgList.html" title="Magick.ImgList">Next</a>
+</div>
+<h1>Module <a href="type_Magick.CompositeOp.html">Magick.CompositeOp</a></h1>
+
+<pre><span id="MODULECompositeOp"><span class="keyword">module</span> CompositeOp</span>: <code class="code">sig</code> <a href="Magick.CompositeOp.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<h5 id="4_CompositeOperator">Composite Operator</h5>
+<pre><code><span id="TYPEcomposite_operator"><span class="keyword">type</span> <code class="type"></code>composite_operator</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Undefined"><span class="constructor">Undefined</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Over"><span class="constructor">Over</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.In"><span class="constructor">In</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Out"><span class="constructor">Out</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Atop"><span class="constructor">Atop</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Xor"><span class="constructor">Xor</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Plus"><span class="constructor">Plus</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Minus"><span class="constructor">Minus</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Add"><span class="constructor">Add</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Subtract"><span class="constructor">Subtract</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Difference"><span class="constructor">Difference</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Multiply"><span class="constructor">Multiply</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Bumpmap"><span class="constructor">Bumpmap</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Copy"><span class="constructor">Copy</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.CopyRed"><span class="constructor">CopyRed</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.CopyGreen"><span class="constructor">CopyGreen</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.CopyBlue"><span class="constructor">CopyBlue</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.CopyOpacity"><span class="constructor">CopyOpacity</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Clear"><span class="constructor">Clear</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Dissolve"><span class="constructor">Dissolve</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Displace"><span class="constructor">Displace</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Modulate"><span class="constructor">Modulate</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Threshold"><span class="constructor">Threshold</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.No"><span class="constructor">No</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Darken"><span class="constructor">Darken</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Lighten"><span class="constructor">Lighten</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Hue"><span class="constructor">Hue</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Saturate"><span class="constructor">Saturate</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Colorize"><span class="constructor">Colorize</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Luminize"><span class="constructor">Luminize</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Screen"><span class="constructor">Screen</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Overlay"><span class="constructor">Overlay</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.CopyCyan"><span class="constructor">CopyCyan</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.CopyMagenta"><span class="constructor">CopyMagenta</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.CopyYellow"><span class="constructor">CopyYellow</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.CopyBlack"><span class="constructor">CopyBlack</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Divide"><span class="constructor">Divide</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.HardLight"><span class="constructor">HardLight</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.Exclusion"><span class="constructor">Exclusion</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.ColorDodge"><span class="constructor">ColorDodge</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.ColorBurn"><span class="constructor">ColorBurn</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.SoftLight"><span class="constructor">SoftLight</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.LinearBurn"><span class="constructor">LinearBurn</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.LinearDodge"><span class="constructor">LinearDodge</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.LinearLight"><span class="constructor">LinearLight</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.VividLight"><span class="constructor">VividLight</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.PinLight"><span class="constructor">PinLight</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcomposite_operator.HardMix"><span class="constructor">HardMix</span></span></code></td>
+
+</tr></table>
+
+<div class="info ">
+<div class="info-desc">
+<p><a href="http://www.graphicsmagick.org/api/types.html#compositeoperator">
+       composite-operator api doc</a></p>
+</div>
+</div>
+
+
+<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Magick.CompositeOp.html#TYPEcomposite_operator">composite_operator</a> -&gt; string</code></pre>
+<pre><span id="VALof_string"><span class="keyword">val</span> of_string</span> : <code class="type">string -&gt; <a href="Magick.CompositeOp.html#TYPEcomposite_operator">composite_operator</a></code></pre></body></html>

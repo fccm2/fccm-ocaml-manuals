@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Magick.CompositeOp.html">
+<link rel="next" href="Magick.Draw.html">
+<link rel="Up" href="Magick.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Magick" rel="Chapter" href="Magick.html"><link title="Image Lists" rel="Section" href="#3_ImageLists">
+<title>Magick.ImgList</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Magick.CompositeOp.html" title="Magick.CompositeOp">Previous</a>
+&nbsp;<a class="up" href="Magick.html" title="Magick">Up</a>
+&nbsp;<a class="post" href="Magick.Draw.html" title="Magick.Draw">Next</a>
+</div>
+<h1>Module <a href="type_Magick.ImgList.html">Magick.ImgList</a></h1>
+
+<pre><span id="MODULEImgList"><span class="keyword">module</span> ImgList</span>: <code class="code">sig</code> <a href="Magick.ImgList.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<h4 id="3_ImageLists">Image Lists</h4><p><a href="http://www.graphicsmagick.org/api/list.html">api doc</a></p>
+
+<pre><span id="TYPEimg_list"><span class="keyword">type</span> <code class="type"></code>img_list</span> = <code class="type"><a href="Magick.html#TYPEimages">Magick.images</a></code> </pre>
+
+
+<pre><span id="VALnew_image_list"><span class="keyword">val</span> new_image_list</span> : <code class="type">unit -&gt; <a href="Magick.ImgList.html#TYPEimg_list">img_list</a></code></pre>
+<pre><span id="VALdestroy_image_list"><span class="keyword">val</span> destroy_image_list</span> : <code class="type"><a href="Magick.ImgList.html#TYPEimg_list">img_list</a> -&gt; unit</code></pre>
+<pre><span id="VALappend_image"><span class="keyword">val</span> append_image</span> : <code class="type"><a href="Magick.ImgList.html#TYPEimg_list">img_list</a> -&gt; <a href="Magick.html#TYPEimage">Magick.image</a> -&gt; <a href="Magick.ImgList.html#TYPEimg_list">img_list</a></code></pre>
+<pre><span id="VALprepend_image"><span class="keyword">val</span> prepend_image</span> : <code class="type"><a href="Magick.ImgList.html#TYPEimg_list">img_list</a> -&gt; <a href="Magick.html#TYPEimage">Magick.image</a> -&gt; <a href="Magick.ImgList.html#TYPEimg_list">img_list</a></code></pre>
+<pre><span id="VALget_first_image"><span class="keyword">val</span> get_first_image</span> : <code class="type"><a href="Magick.ImgList.html#TYPEimg_list">img_list</a> -&gt; <a href="Magick.html#TYPEimage">Magick.image</a></code></pre>
+<pre><span id="VALget_image"><span class="keyword">val</span> get_image</span> : <code class="type"><a href="Magick.ImgList.html#TYPEimg_list">img_list</a> -&gt; offset:int -&gt; <a href="Magick.html#TYPEimage">Magick.image</a></code></pre>
+<pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="Magick.ImgList.html#TYPEimg_list">img_list</a> -&gt; int</code></pre>
+<pre><span id="VALget_index"><span class="keyword">val</span> get_index</span> : <code class="type"><a href="Magick.ImgList.html#TYPEimg_list">img_list</a> -&gt; int</code></pre></body></html>

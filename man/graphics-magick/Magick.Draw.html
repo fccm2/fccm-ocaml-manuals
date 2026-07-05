@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Magick.ImgList.html">
+<link rel="Up" href="Magick.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Magick" rel="Chapter" href="Magick.html"><link title="Draw" rel="Section" href="#3_Draw">
+<title>Magick.Draw</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Magick.ImgList.html" title="Magick.ImgList">Previous</a>
+&nbsp;<a class="up" href="Magick.html" title="Magick">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Magick.Draw.html">Magick.Draw</a></h1>
+
+<pre><span id="MODULEDraw"><span class="keyword">module</span> Draw</span>: <code class="code">sig</code> <a href="Magick.Draw.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<h4 id="3_Draw">Draw</h4><p><a href="http://www.graphicsmagick.org/api/draw.html">api doc</a></p>
+
+<pre><span id="TYPEcontext"><span class="keyword">type</span> <code class="type"></code>context</span> </pre>
+
+
+<pre><span id="VALallocate_context"><span class="keyword">val</span> allocate_context</span> : <code class="type"><a href="Magick.html#TYPEimage">Magick.image</a> -&gt; <a href="Magick.Draw.html#TYPEcontext">context</a></code></pre>
+<pre><span id="VALdestroy_context"><span class="keyword">val</span> destroy_context</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt; unit</code></pre>
+<pre><span id="VALstroke_color_string"><span class="keyword">val</span> stroke_color_string</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt; string -&gt; unit</code></pre>
+<pre><span id="VALfill_color_string"><span class="keyword">val</span> fill_color_string</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt; string -&gt; unit</code></pre>
+<pre><span id="VALstroke_width"><span class="keyword">val</span> stroke_width</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt; float -&gt; unit</code></pre>
+<pre><span id="VALcircle"><span class="keyword">val</span> circle</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt; ox:float -&gt; oy:float -&gt; px:float -&gt; py:float -&gt; unit</code></pre>
+<pre><span id="VALline"><span class="keyword">val</span> line</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt; x1:float -&gt; y1:float -&gt; x2:float -&gt; y2:float -&gt; unit</code></pre>
+<pre><span id="VALrectangle"><span class="keyword">val</span> rectangle</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt; x1:float -&gt; y1:float -&gt; x2:float -&gt; y2:float -&gt; unit</code></pre>
+<pre><span id="VALround_rectangle"><span class="keyword">val</span> round_rectangle</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt;<br>       p1:float * float -&gt; p2:float * float -&gt; r:float * float -&gt; unit</code></pre>
+<pre><span id="VALarc"><span class="keyword">val</span> arc</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt;<br>       p1:float * float -&gt; p2:float * float -&gt; rot:float * float -&gt; unit</code></pre>
+<pre><span id="VALellipse"><span class="keyword">val</span> ellipse</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt;<br>       o:float * float -&gt; r:float * float -&gt; rot:float * float -&gt; unit</code></pre>
+<pre><span id="VALbezier"><span class="keyword">val</span> bezier</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt; coords:(float * float) array -&gt; unit</code></pre>
+<pre><span id="VALrender"><span class="keyword">val</span> render</span> : <code class="type"><a href="Magick.Draw.html#TYPEcontext">context</a> -&gt; unit</code></pre></body></html>

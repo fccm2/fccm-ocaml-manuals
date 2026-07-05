@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Magick" rel="Chapter" href="Magick.html"><link title="Effects" rel="Section" href="#3_Effects">
+<link title="FX" rel="Section" href="#3_FX">
+<link title="Enhance" rel="Section" href="#3_Enhance">
+<link title="Transform" rel="Section" href="#3_Transform">
+<link title="Resize" rel="Section" href="#3_Resize">
+<link title="Composite" rel="Section" href="#3_Composite">
+<link title="Image Lists" rel="Section" href="#3_ImageLists">
+<link title="Draw" rel="Section" href="#3_Draw">
+<link title="Describe" rel="Section" href="#3_Describe">
+<link title="Attributes" rel="Section" href="#3_Attributes">
+<title>Magick</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Magick.html">Magick</a></h1>
+
+<pre><span id="MODULEMagick"><span class="keyword">module</span> Magick</span>: <code class="code">sig</code> <a href="Magick.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>GraphicsMagick bindings for OCaml</p>
+</div>
+</div>
+<hr width="100%">
+<p><a href="http://www.graphicsmagick.org/api/api.html">
+     GraphicsMagick API documentation</a></p>
+
+<pre><span id="VALinitialize"><span class="keyword">val</span> initialize</span> : <code class="type">unit -&gt; unit</code></pre>
+<pre><span id="VALdestroy"><span class="keyword">val</span> destroy</span> : <code class="type">unit -&gt; unit</code></pre>
+<pre><span id="TYPEimage"><span class="keyword">type</span> <code class="type"></code>image</span> </pre>
+
+
+<pre><span id="TYPEimages"><span class="keyword">type</span> <code class="type"></code>images</span> </pre>
+
+
+<pre><span id="VALread_image"><span class="keyword">val</span> read_image</span> : <code class="type">filename:string -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALwrite_image"><span class="keyword">val</span> write_image</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; filename:string -&gt; unit</code></pre>
+<pre><span id="VALblob_to_image"><span class="keyword">val</span> blob_to_image</span> : <code class="type">blob:string -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALget_canvas"><span class="keyword">val</span> get_canvas</span> : <code class="type">width:int -&gt; height:int -&gt; color:string -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALclone"><span class="keyword">val</span> clone</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALimage_width"><span class="keyword">val</span> image_width</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; int</code></pre>
+<pre><span id="VALimage_height"><span class="keyword">val</span> image_height</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; int</code></pre>
+<pre><span id="VALdisplay"><span class="keyword">val</span> display</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; unit</code></pre>
+<pre><span id="VALdestroy_image"><span class="keyword">val</span> destroy_image</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; unit</code></pre><h4 id="3_Effects">Effects</h4><p><a href="http://www.graphicsmagick.org/api/effect.html">api doc</a></p>
+
+<pre><span id="VALblur"><span class="keyword">val</span> blur</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; ?radius:float -&gt; sigma:float -&gt; unit -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALmotion_blur"><span class="keyword">val</span> motion_blur</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; radius:float -&gt; sigma:float -&gt; angle:float -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALemboss"><span class="keyword">val</span> emboss</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; radius:float -&gt; sigma:float -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALsharpen"><span class="keyword">val</span> sharpen</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; radius:float -&gt; sigma:float -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALedge"><span class="keyword">val</span> edge</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; radius:float -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALenhance"><span class="keyword">val</span> enhance</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALshade"><span class="keyword">val</span> shade</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; gray:int -&gt; azimuth:float -&gt; elevation:float -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre><h4 id="3_FX">FX</h4><p><a href="http://www.graphicsmagick.org/api/fx.html">api doc</a></p>
+
+<pre><span id="VALcharcoal"><span class="keyword">val</span> charcoal</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; radius:float -&gt; sigma:float -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALimplode"><span class="keyword">val</span> implode</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; amount:float -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALmorph"><span class="keyword">val</span> morph</span> : <code class="type"><a href="Magick.html#TYPEimages">images</a> -&gt; frames:int -&gt; <a href="Magick.html#TYPEimages">images</a></code></pre>
+<pre><span id="VALoil_paint"><span class="keyword">val</span> oil_paint</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; radius:float -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALswirl"><span class="keyword">val</span> swirl</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; degrees:float -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALwave"><span class="keyword">val</span> wave</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; amplitude:float -&gt; length:float -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre><h4 id="3_Enhance">Enhance</h4><p><a href="http://www.graphicsmagick.org/api/enhance.html">api doc</a></p>
+
+<pre><span id="VALcontrast"><span class="keyword">val</span> contrast</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; sharpen:int -&gt; unit</code></pre>
+<pre><span id="VALequalize"><span class="keyword">val</span> equalize</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; unit</code></pre>
+<pre><span id="VALgamma"><span class="keyword">val</span> gamma</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; level:string -&gt; unit</code></pre>
+<pre><span id="VALlevel"><span class="keyword">val</span> level</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; level:string -&gt; unit</code></pre>
+<pre><span id="MODULEChannel"><span class="keyword">module</span> <a href="Magick.Channel.html">Channel</a></span>: <code class="code">sig</code> <a href="Magick.Channel.html">..</a> <code class="code">end</code></pre>
+<pre><span id="VALlevel_channel"><span class="keyword">val</span> level_channel</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt;<br>       channel:<a href="Magick.Channel.html#TYPEchannel_type">Channel.channel_type</a> -&gt;<br>       black_point:float -&gt; mid_point:float -&gt; white_point:float -&gt; unit</code></pre>
+<pre><span id="VALmodulate"><span class="keyword">val</span> modulate</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; string -&gt; unit</code></pre>
+<pre><span id="VALnegate"><span class="keyword">val</span> negate</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; int -&gt; unit</code></pre>
+<pre><span id="VALnormalize"><span class="keyword">val</span> normalize</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; unit</code></pre><h4 id="3_Transform">Transform</h4><p><a href="http://www.graphicsmagick.org/api/transform.html">api doc</a></p>
+
+<pre><span id="VALflip"><span class="keyword">val</span> flip</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALflop"><span class="keyword">val</span> flop</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><code><span id="TYPErectangle_info"><span class="keyword">type</span> <code class="type"></code>rectangle_info</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrectangle_info.x">x</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrectangle_info.y">y</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrectangle_info.width">width</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrectangle_info.height">height</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr></table>
+<code>}</code>
+
+
+
+<pre><span id="VALcrop"><span class="keyword">val</span> crop</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; <a href="Magick.html#TYPErectangle_info">rectangle_info</a> -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALshave"><span class="keyword">val</span> shave</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; int * int -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALroll"><span class="keyword">val</span> roll</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; x_offset:int -&gt; y_offset:int -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre><h4 id="3_Resize">Resize</h4><p><a href="http://www.graphicsmagick.org/api/resize.html">api doc</a></p>
+
+<pre><span id="VALsample"><span class="keyword">val</span> sample</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; width:int -&gt; height:int -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALscale"><span class="keyword">val</span> scale</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; width:int -&gt; height:int -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALthumbnail"><span class="keyword">val</span> thumbnail</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; width:int -&gt; height:int -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALmagnify"><span class="keyword">val</span> magnify</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="VALminify"><span class="keyword">val</span> minify</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre>
+<pre><span id="MODULEFilter"><span class="keyword">module</span> <a href="Magick.Filter.html">Filter</a></span>: <code class="code">sig</code> <a href="Magick.Filter.html">..</a> <code class="code">end</code></pre>
+<pre><span id="VALresize"><span class="keyword">val</span> resize</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt;<br>       width:int -&gt;<br>       height:int -&gt;<br>       ?filter:<a href="Magick.Filter.html#TYPEfilter_type">Filter.filter_type</a> -&gt; ?blur:float -&gt; unit -&gt; <a href="Magick.html#TYPEimage">image</a></code></pre><h4 id="3_Composite">Composite</h4>
+<pre><span id="MODULECompositeOp"><span class="keyword">module</span> <a href="Magick.CompositeOp.html">CompositeOp</a></span>: <code class="code">sig</code> <a href="Magick.CompositeOp.html">..</a> <code class="code">end</code></pre>
+<pre><span id="VALcomposite"><span class="keyword">val</span> composite</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt;<br>       compose:<a href="Magick.CompositeOp.html#TYPEcomposite_operator">CompositeOp.composite_operator</a> -&gt;<br>       <a href="Magick.html#TYPEimage">image</a> -&gt; ?x_offset:int -&gt; ?y_offset:int -&gt; unit -&gt; unit</code></pre><div class="info ">
+<div class="info-desc">
+<p><a href="http://www.graphicsmagick.org/api/composite.html">api doc</a></p>
+</div>
+</div>
+<h4 id="3_ImageLists">Image Lists</h4>
+<pre><span id="MODULEImgList"><span class="keyword">module</span> <a href="Magick.ImgList.html">ImgList</a></span>: <code class="code">sig</code> <a href="Magick.ImgList.html">..</a> <code class="code">end</code></pre><h4 id="3_Draw">Draw</h4>
+<pre><span id="MODULEDraw"><span class="keyword">module</span> <a href="Magick.Draw.html">Draw</a></span>: <code class="code">sig</code> <a href="Magick.Draw.html">..</a> <code class="code">end</code></pre><h4 id="3_Describe">Describe</h4>
+<pre><span id="VALdescribe"><span class="keyword">val</span> describe</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; unit</code></pre><div class="info ">
+<div class="info-desc">
+<p><a href="http://www.graphicsmagick.org/api/describe.html">api doc</a></p>
+</div>
+</div>
+<h4 id="3_Attributes">Attributes</h4><p><a href="http://www.graphicsmagick.org/api/attribute.html">api doc</a></p>
+
+<pre><span id="VALset_image_attribute"><span class="keyword">val</span> set_image_attribute</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; key:string -&gt; value:string -&gt; unit</code></pre>
+<pre><span id="VALget_image_attribute"><span class="keyword">val</span> get_image_attribute</span> : <code class="type"><a href="Magick.html#TYPEimage">image</a> -&gt; key:string -&gt; string</code></pre></body></html>

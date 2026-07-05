@@ -1,0 +1,32 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Magick" rel="Chapter" href="Magick.html"><title>Magick.ImgList</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;img_list&nbsp;=&nbsp;<span class="constructor">Magick</span>.images<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_image_list&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">ImgList</span>.img_list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"caml_NewImageList"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy_image_list&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">ImgList</span>.img_list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"caml_DestroyImageList"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;append_image&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.<span class="constructor">ImgList</span>.img_list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">ImgList</span>.img_list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"caml_AppendImageToList"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;prepend_image&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Magick</span>.<span class="constructor">ImgList</span>.img_list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.<span class="constructor">ImgList</span>.img_list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"caml_PrependImageToList"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_first_image&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">ImgList</span>.img_list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"caml_GetFirstImageInList"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_image&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">ImgList</span>.img_list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;offset:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Magick</span>.image<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"caml_GetImageFromList"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;length&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">ImgList</span>.img_list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"caml_GetImageListLength"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_index&nbsp;:&nbsp;<span class="constructor">Magick</span>.<span class="constructor">ImgList</span>.img_list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"caml_GetImageIndexInList"</span><br>
+<span class="keyword">end</span></code></body></html>

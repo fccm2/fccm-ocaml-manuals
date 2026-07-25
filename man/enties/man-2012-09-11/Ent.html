@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ent" rel="Chapter" href="Ent.html"><link title="Entities" rel="Section" href="#3_Entities">
+<link title="Components" rel="Section" href="#3_Components">
+<link title="World" rel="Section" href="#3_World">
+<link title="Systems" rel="Section" href="#3_Systems">
+<title>Ent</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Ent.html">Ent</a></h1>
+
+<pre><span class="keyword">module</span> Ent: <code class="code">sig</code> <a href="Ent.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Entity/Component Oriented Game Framework<br>
+</div>
+<hr width="100%">
+<br>
+<h3 id="3_Entities">Entities</h3><br>
+
+<pre><span id="TYPEentity"><span class="keyword">type</span> <code class="type">('component_type, 'component)</code> entity</span> </pre>
+<div class="info ">
+('component_type, 'component) entity<br>
+</div>
+
+
+<pre><span id="VALnew_entity"><span class="keyword">val</span> new_entity</span> : <code class="type">unit -> ('a, 'b) <a href="Ent.html#TYPEentity">entity</a></code></pre><div class="info ">
+generic game element<br>
+</div>
+
+<pre><span id="VALget_id"><span class="keyword">val</span> get_id</span> : <code class="type">('a, 'b) <a href="Ent.html#TYPEentity">entity</a> -> int</code></pre><div class="info ">
+raises an exception if the entity has not been added to the world<br>
+</div>
+
+<pre><span id="VALget_id_opt"><span class="keyword">val</span> get_id_opt</span> : <code class="type">('a, 'b) <a href="Ent.html#TYPEentity">entity</a> -> int option</code></pre><div class="info ">
+same than <code class="code">get_id</code> but returns None instead of raising an exception<br>
+</div>
+<br>
+<h3 id="3_Components">Components</h3><br>
+
+<pre><span id="VALadd_component"><span class="keyword">val</span> add_component</span> : <code class="type">('component_type, 'component) <a href="Ent.html#TYPEentity">entity</a> -><br>       'component_type * 'component -> ('component_type, 'component) <a href="Ent.html#TYPEentity">entity</a></code></pre><div class="info ">
+<code class="code">add_component e (component_type, component_data)</code><br>
+</div>
+
+<pre><span id="VALreplace_component"><span class="keyword">val</span> replace_component</span> : <code class="type">('component_type, 'component) <a href="Ent.html#TYPEentity">entity</a> -><br>       'component_type -> 'component -> ('component_type, 'component) <a href="Ent.html#TYPEentity">entity</a></code></pre><div class="info ">
+<code class="code">replace_component e component_type component_data</code><br>
+</div>
+
+<pre><span id="VALhas_component"><span class="keyword">val</span> has_component</span> : <code class="type">('component_type, 'component) <a href="Ent.html#TYPEentity">entity</a> -> 'component_type -> bool</code></pre>
+<pre><span id="VALget_component"><span class="keyword">val</span> get_component</span> : <code class="type">('component_type, 'component) <a href="Ent.html#TYPEentity">entity</a> -> 'component_type -> 'component</code></pre><div class="info ">
+raises Not_found if none found<br>
+</div>
+
+<pre><span id="VALget_component_opt"><span class="keyword">val</span> get_component_opt</span> : <code class="type">('component_type, 'component) <a href="Ent.html#TYPEentity">entity</a> -><br>       'component_type -> 'component option</code></pre><br>
+<h3 id="3_World">World</h3><br>
+
+<pre><span id="TYPEworld"><span class="keyword">type</span> <code class="type">('a, 'b)</code> world</span> </pre>
+
+
+<pre><span id="TYPEdelta"><span class="keyword">type</span> <code class="type"></code>delta</span> = <code class="type">float</code> </pre>
+
+
+<pre><span id="VALnew_world"><span class="keyword">val</span> new_world</span> : <code class="type">unit -> ('a, 'b) <a href="Ent.html#TYPEworld">world</a></code></pre>
+<pre><span id="VALadd_entity"><span class="keyword">val</span> add_entity</span> : <code class="type">('a, 'b) <a href="Ent.html#TYPEworld">world</a> -> ('a, 'b) <a href="Ent.html#TYPEentity">entity</a> -> ('a, 'b) <a href="Ent.html#TYPEworld">world</a></code></pre>
+<pre><span id="VALadd_entities"><span class="keyword">val</span> add_entities</span> : <code class="type">('a, 'b) <a href="Ent.html#TYPEworld">world</a> -> ('a, 'b) <a href="Ent.html#TYPEentity">entity</a> list -> ('a, 'b) <a href="Ent.html#TYPEworld">world</a></code></pre>
+<pre><span id="VALadd_entity_id"><span class="keyword">val</span> add_entity_id</span> : <code class="type">('a, 'b) <a href="Ent.html#TYPEworld">world</a> -> ('a, 'b) <a href="Ent.html#TYPEentity">entity</a> -> ('a, 'b) <a href="Ent.html#TYPEworld">world</a> * int</code></pre><div class="info ">
+same than <code class="code">add_entity</code> but also return the id that was given to this entity<br>
+</div>
+
+<pre><span id="VALworld_step"><span class="keyword">val</span> world_step</span> : <code class="type">('a, 'b) <a href="Ent.html#TYPEworld">world</a> -> <a href="Ent.html#TYPEdelta">delta</a> -> ('a, 'b) <a href="Ent.html#TYPEworld">world</a></code></pre><div class="info ">
+<code class="code">delta</code> is the amount of time spent since last call to <code class="code">world_step</code><br>
+</div>
+
+<pre><span id="VALiter_entities"><span class="keyword">val</span> iter_entities</span> : <code class="type">(('a, 'b) <a href="Ent.html#TYPEentity">entity</a> -> unit) -> ('a, 'b) <a href="Ent.html#TYPEworld">world</a> -> unit</code></pre>
+<pre><span id="VALfold_entities"><span class="keyword">val</span> fold_entities</span> : <code class="type">(('a, 'b) <a href="Ent.html#TYPEentity">entity</a> -> 'c -> 'c) -> ('a, 'b) <a href="Ent.html#TYPEworld">world</a> -> 'c -> 'c</code></pre>
+<pre><span id="VALnum_entities"><span class="keyword">val</span> num_entities</span> : <code class="type">('a, 'b) <a href="Ent.html#TYPEworld">world</a> -> int</code></pre>
+<pre><span id="VALget_entity"><span class="keyword">val</span> get_entity</span> : <code class="type">('a, 'b) <a href="Ent.html#TYPEworld">world</a> -> int -> ('a, 'b) <a href="Ent.html#TYPEentity">entity</a></code></pre>
+<pre><span id="VALget_entity_opt"><span class="keyword">val</span> get_entity_opt</span> : <code class="type">('a, 'b) <a href="Ent.html#TYPEworld">world</a> -> int -> ('a, 'b) <a href="Ent.html#TYPEentity">entity</a> option</code></pre><div class="info ">
+get an entity by its id<br>
+</div>
+<br>
+<h3 id="3_Systems">Systems</h3><br>
+<br>
+a <code class="code">system</code> may update or remove entities, or create new ones, each time
+    <code class="code">world_step</code> is called<br>
+
+<pre><code><span id="TYPEupdate"><span class="keyword">type</span> <code class="type">'a</code> update</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTupdate.Updated"><span class="constructor">Updated</span></span> <span class="keyword">of</span> <code class="type">'a</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTupdate.Unchanged"><span class="constructor">Unchanged</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTupdate.Removed"><span class="constructor">Removed</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="TYPEsystem"><span class="keyword">type</span> <code class="type">('a, 'b)</code> system</span> = <code class="type">('a, 'b) <a href="Ent.html#TYPEentity">entity</a> -><br>       ('a, 'b) <a href="Ent.html#TYPEworld">world</a> -><br>       <a href="Ent.html#TYPEdelta">delta</a> -> ('a, 'b) <a href="Ent.html#TYPEentity">entity</a> <a href="Ent.html#TYPEupdate">update</a> * ('a, 'b) <a href="Ent.html#TYPEentity">entity</a> list</code> </pre>
+<div class="info ">
+the first returned value should be the input entity with eventual changes
+    and the second returned value is eventual new entities that should be added
+    to the world<br>
+</div>
+
+
+<pre><span id="VALadd_system"><span class="keyword">val</span> add_system</span> : <code class="type">('a, 'b) <a href="Ent.html#TYPEworld">world</a> -> ('a, 'b) <a href="Ent.html#TYPEsystem">system</a> -> ('a, 'b) <a href="Ent.html#TYPEworld">world</a></code></pre></body></html>

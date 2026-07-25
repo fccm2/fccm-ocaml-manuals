@@ -1,0 +1,46 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="SWF" rel="Chapter" href="SWF.html"><title>SWF.OO.swfShape</title>
+</head>
+<body>
+<code class="code">?shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span><br>
+unit&nbsp;<span class="keywordsign">-&gt;</span><br>
+<span class="keyword">object</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;shape&nbsp;:&nbsp;<span class="constructor">SWF</span>.shape<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_fill&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_linear_gradient_fill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gradient:<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfGradient&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_radial_gradient_fill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gradient:<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfGradient&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_solid_fill&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_arc&nbsp;:&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;start_angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;end_angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_circle&nbsp;:&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_curve&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlx:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;controly:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchorx:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchory:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_curve_to&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlx:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;controly:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchorx:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchory:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_glyph&nbsp;:&nbsp;font:<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFont&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;c:char&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_line&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_line_to&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_block&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.block<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_shape&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.shape<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;hide_line&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;move_pen&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;move_pen_to&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_left_fill&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_left_fill_style&nbsp;:&nbsp;fill_style:<span class="constructor">SWF</span>.fill_style&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_line&nbsp;:&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_line_style&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_right_fill&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_right_fill_style&nbsp;:&nbsp;fill_style:<span class="constructor">SWF</span>.fill_style&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+<span class="keyword">end</span></code></body></html>

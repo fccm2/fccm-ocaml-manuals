@@ -1,0 +1,43 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="Start" href="index.html">
+<link rel="previous" href="SWF.LineStyle.html">
+<link rel="next" href="SWF.Morph.html">
+<link rel="Up" href="SWF.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="SWF" rel="Chapter" href="SWF.html"><title>SWF.Shape</title>
+</head>
+<body>
+<div class="navbar"><a href="SWF.LineStyle.html">Previous</a>
+&nbsp;<a href="SWF.html">Up</a>
+&nbsp;<a href="SWF.Morph.html">Next</a>
+</div>
+<center><h1>Module <a href="type_SWF.Shape.html">SWF.Shape</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Shape: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Shape.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><hr width="100%">
+<pre><span class="keyword">val</span> <a name="VALnew_shape"></a>new_shape : <code class="type">unit -> <a href="SWF.html#TYPEshape">SWF.shape</a></code></pre><pre><span class="keyword">val</span> <a name="VALdestroy"></a>destroy : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALadd_solid_fill"></a>add_solid_fill : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> r:int -> g:int -> b:int -> a:int -> <a href="SWF.html#TYPEfill">SWF.fill</a></code></pre><pre><span class="keyword">val</span> <a name="VALset_line"></a>set_line : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> width:int -> r:int -> g:int -> b:int -> a:int -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_line_style"></a>set_line_style : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> width:int -> r:int -> g:int -> b:int -> a:int -> unit</code></pre><div class="info">
+Sets the shape's line style. <code class="code">width</code> is the line's width.
+    If <code class="code">width</code> is 0, the line's style is removed (then, all other arguments are ignor).
+    If <code class="code">width</code> &gt; 0, then line's color is set to <code class="code">r</code>, <code class="code">g</code>, <code class="code">b</code>, <code class="code">a</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALhide_line"></a>hide_line : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmove_pen"></a>move_pen : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> x:float -> y:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmove_pen_to"></a>move_pen_to : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> x:float -> y:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_line"></a>draw_line : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> x:float -> y:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_line_to"></a>draw_line_to : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> x:float -> y:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_curve"></a>draw_curve : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -><br>       controlx:float -> controly:float -> anchorx:float -> anchory:float -> unit</code></pre><div class="info">
+Draws a quadratic curve (using the current line style, set by
+    <a href="SWF.Shape.html#VALset_line"><code class="code"><span class="constructor">SWF</span>.<span class="constructor">Shape</span>.set_line</code></a>) from the current pen position to the relative position
+    <code class="code">(anchorx,anchory)</code> using relative control point <code class="code">(controlx,controly)</code>. That is,
+    head towards the control point, then smoothly turn to the anchor point.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALdraw_curve_to"></a>draw_curve_to : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -><br>       controlx:float -> controly:float -> anchorx:float -> anchory:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_circle"></a>draw_circle : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> r:float -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdraw_arc"></a>draw_arc : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> r:float -> start_angle:float -> end_angle:float -> unit</code></pre><div class="info">
+Draws an arc of radius <code class="code">r</code> center at the current location, from angle
+    <code class="code">start_angle</code> to angle <code class="code">end_angle</code> measur clockwise from 12 o'clock<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALdraw_glyph"></a>draw_glyph : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> font:<a href="SWF.html#TYPEfont">SWF.font</a> -> c:char -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_right_fill_style"></a>set_right_fill_style : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> fill_style:<a href="SWF.html#TYPEfill_style">SWF.fill_style</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_left_fill_style"></a>set_left_fill_style : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> fill_style:<a href="SWF.html#TYPEfill_style">SWF.fill_style</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_right_fill"></a>set_right_fill : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> fill:<a href="SWF.html#TYPEfill">SWF.fill</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_left_fill"></a>set_left_fill : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> fill:<a href="SWF.html#TYPEfill">SWF.fill</a> -> unit</code></pre><div class="info">
+Sets the fill on the left side of the edge- that is, on the interior if
+    you're defining the outline of the shape in a counter-clockwise fashion.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALadd_linear_gradient_fill"></a>add_linear_gradient_fill : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> gradient:<a href="SWF.html#TYPEgradient">SWF.gradient</a> -> <a href="SWF.html#TYPEfill">SWF.fill</a></code></pre><pre><span class="keyword">val</span> <a name="VALadd_radial_gradient_fill"></a>add_radial_gradient_fill : <code class="type">shape:<a href="SWF.html#TYPEshape">SWF.shape</a> -> gradient:<a href="SWF.html#TYPEgradient">SWF.gradient</a> -> <a href="SWF.html#TYPEfill">SWF.fill</a></code></pre></body></html>

@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="SWF" rel="Chapter" href="SWF.html"><title>SWF</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="index.html">Up</a>
+&nbsp;</div>
+<center><h1>Module <a href="type_SWF.html">SWF</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> SWF: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><a name="3_Ming"></a>
+<h3>Ming</h3><br>
+<hr width="100%">
+<br>
+The comments of this documentation have been taken from the
+    <a href="http://www.php.net/manual/en/ref.ming.php">Ming section of the PHP documentation</a>,
+    which is released under the
+    <a href="http://www.opencontent.org/openpub/">OPL licence</a>.
+<p>
+
+<ul>
+<li><a href="http://ming.sourceforge.net/examples/">ming exemples</a></li>
+</ul>
+<br>
+<pre><span class="keyword">module</span> <a href="SWF.Ming.html">Ming</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Ming.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Ming general functions
+</div>
+<pre><span class="keyword">val</span> <a name="VALget_content_type"></a>get_content_type : <code class="type">unit -> string</code></pre><div class="info">
+provides the content-type string to use for CGIs.<br>
+</div>
+<pre><span class="keyword">type</span> <a name="TYPEinput"></a><code class="type"></code>input </pre>
+
+<pre><span class="keyword">module</span> <a href="SWF.Input.html">Input</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Input.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPEcharacter"></a><code class="type"></code>character </pre>
+<div class="info">
+a <code class="code">character</code> is any sort of asset that's referenced later-
+    <a href="SWF.html#TYPEbitmap"><code class="code"><span class="constructor">SWF</span>.bitmap</code></a>, <a href="SWF.html#TYPEshape"><code class="code"><span class="constructor">SWF</span>.shape</code></a>, <a href="SWF.html#TYPEmorph"><code class="code"><span class="constructor">SWF</span>.morph</code></a>, <a href="SWF.html#TYPEsound"><code class="code"><span class="constructor">SWF</span>.sound</code></a>, <a href="SWF.html#TYPEsprite"><code class="code"><span class="constructor">SWF</span>.sprite</code></a>
+    are all characters<br>
+</div>
+
+<pre><span class="keyword">module</span> <a href="SWF.Character.html">Character</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Character.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPEbitmap"></a><code class="type"></code>bitmap </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEshape"></a><code class="type"></code>shape </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEmorph"></a><code class="type"></code>morph </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEsound"></a><code class="type"></code>sound </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEsprite"></a><code class="type"></code>sprite </pre>
+
+<pre><span class="keyword">val</span> <a name="VALbitmap_of_character"></a>bitmap_of_character : <code class="type"><a href="SWF.html#TYPEcharacter">character</a> -> <a href="SWF.html#TYPEbitmap">bitmap</a></code></pre><pre><span class="keyword">val</span> <a name="VALshape_of_character"></a>shape_of_character : <code class="type"><a href="SWF.html#TYPEcharacter">character</a> -> <a href="SWF.html#TYPEshape">shape</a></code></pre><pre><span class="keyword">val</span> <a name="VALmorph_of_character"></a>morph_of_character : <code class="type"><a href="SWF.html#TYPEcharacter">character</a> -> <a href="SWF.html#TYPEmorph">morph</a></code></pre><pre><span class="keyword">val</span> <a name="VALsound_of_character"></a>sound_of_character : <code class="type"><a href="SWF.html#TYPEcharacter">character</a> -> <a href="SWF.html#TYPEsound">sound</a></code></pre><pre><span class="keyword">val</span> <a name="VALsprite_of_character"></a>sprite_of_character : <code class="type"><a href="SWF.html#TYPEcharacter">character</a> -> <a href="SWF.html#TYPEsprite">sprite</a></code></pre><pre><span class="keyword">val</span> <a name="VALcharacter_of_bitmap"></a>character_of_bitmap : <code class="type"><a href="SWF.html#TYPEbitmap">bitmap</a> -> <a href="SWF.html#TYPEcharacter">character</a></code></pre><pre><span class="keyword">val</span> <a name="VALcharacter_of_shape"></a>character_of_shape : <code class="type"><a href="SWF.html#TYPEshape">shape</a> -> <a href="SWF.html#TYPEcharacter">character</a></code></pre><pre><span class="keyword">val</span> <a name="VALcharacter_of_morph"></a>character_of_morph : <code class="type"><a href="SWF.html#TYPEmorph">morph</a> -> <a href="SWF.html#TYPEcharacter">character</a></code></pre><pre><span class="keyword">val</span> <a name="VALcharacter_of_sound"></a>character_of_sound : <code class="type"><a href="SWF.html#TYPEsound">sound</a> -> <a href="SWF.html#TYPEcharacter">character</a></code></pre><pre><span class="keyword">val</span> <a name="VALcharacter_of_sprite"></a>character_of_sprite : <code class="type"><a href="SWF.html#TYPEsprite">sprite</a> -> <a href="SWF.html#TYPEcharacter">character</a></code></pre><pre><span class="keyword">module</span> <a href="SWF.Bitmap.html">Bitmap</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Bitmap.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPEjpeg_bitmap"></a><code class="type"></code>jpeg_bitmap </pre>
+
+<pre><span class="keyword">module</span> <a href="SWF.JpegBitmap.html">JpegBitmap</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.JpegBitmap.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPEgradient"></a><code class="type"></code>gradient </pre>
+
+<pre><span class="keyword">module</span> <a href="SWF.Gradient.html">Gradient</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Gradient.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPEfill_style"></a><code class="type"></code>fill_style </pre>
+
+<pre><span class="keyword">module</span> <a href="SWF.FillStyle.html">FillStyle</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.FillStyle.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPEline_style"></a><code class="type"></code>line_style </pre>
+
+<pre><span class="keyword">module</span> <a href="SWF.LineStyle.html">LineStyle</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.LineStyle.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPEfill"></a><code class="type"></code>fill </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEfont"></a><code class="type"></code>font </pre>
+
+<pre><span class="keyword">module</span> <a href="SWF.Shape.html">Shape</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Shape.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">module</span> <a href="SWF.Morph.html">Morph</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Morph.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">module</span> <a href="SWF.Font.html">Font</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Font.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPEaction"></a><code class="type"></code>action </pre>
+
+<pre><span class="keyword">module</span> <a href="SWF.Action.html">Action</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Action.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPEdisplay_item"></a><code class="type"></code>display_item </pre>
+
+<pre><span class="keyword">module</span> <a href="SWF.DisplayItem.html">DisplayItem</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.DisplayItem.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">module</span> <a href="SWF.Fill.html">Fill</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Fill.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPEmovie_clip"></a><code class="type"></code>movie_clip </pre>
+
+<pre><span class="keyword">type</span> <a name="TYPEblock"></a><code class="type"></code>block </pre>
+
+<pre><span class="keyword">val</span> <a name="VALblock_of_shape"></a>block_of_shape : <code class="type">shape:<a href="SWF.html#TYPEshape">shape</a> -> <a href="SWF.html#TYPEblock">block</a></code></pre><pre><span class="keyword">val</span> <a name="VALblock_of_morph"></a>block_of_morph : <code class="type">morph:<a href="SWF.html#TYPEmorph">morph</a> -> <a href="SWF.html#TYPEblock">block</a></code></pre><pre><span class="keyword">module</span> <a href="SWF.MovieClip.html">MovieClip</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.MovieClip.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">type</span> <a name="TYPEmovie"></a><code class="type"></code>movie </pre>
+
+<pre><span class="keyword">val</span> <a name="VALblock_of_movie_clip"></a>block_of_movie_clip : <code class="type">movie_clip:<a href="SWF.html#TYPEmovie_clip">movie_clip</a> -> <a href="SWF.html#TYPEblock">block</a></code></pre><pre><span class="keyword">module</span> <a href="SWF.Movie.html">Movie</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Movie.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><pre><span class="keyword">module</span> <a href="SWF.OO.html">OO</a>: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.OO.html">..</a> <code class="code"><span class="keyword">end</span></code></pre></body></html>

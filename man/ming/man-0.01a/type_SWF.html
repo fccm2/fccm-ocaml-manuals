@@ -1,0 +1,411 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="SWF" rel="Chapter" href="SWF.html"><title>SWF</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Ming</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;init&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_ming_init"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;cleanup&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_ming_cleanup"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;collect_garbage&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_ming_collectgarbage"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_cubic_threshold&nbsp;:&nbsp;num:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_ming_setcubicthreshold"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_scale&nbsp;:&nbsp;scale:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_ming_setscale"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_scale&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;=&nbsp;<span class="string">"ml_ming_getscale"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;use_swf_version&nbsp;:&nbsp;version:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_ming_useswfversion"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_swf_compression&nbsp;:&nbsp;level:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_ming_setswfcompression"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_content_type&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;input<br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Input</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_from_file&nbsp;:&nbsp;filename:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;modes:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.input<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_newswfinput_file"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy&nbsp;:&nbsp;input:<span class="constructor">SWF</span>.input&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroyswfinput"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_length&nbsp;:&nbsp;input:<span class="constructor">SWF</span>.input&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_swfinput_length"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;character<br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Character</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_width&nbsp;:&nbsp;<span class="constructor">SWF</span>.character&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfcharacter_getwidth"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_height&nbsp;:&nbsp;<span class="constructor">SWF</span>.character&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfcharacter_getheight"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;bitmap<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;shape<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;morph<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;sound<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;sprite<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;bitmap_of_character&nbsp;:&nbsp;<span class="constructor">SWF</span>.character&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.bitmap&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;shape_of_character&nbsp;:&nbsp;<span class="constructor">SWF</span>.character&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.shape&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;morph_of_character&nbsp;:&nbsp;<span class="constructor">SWF</span>.character&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.morph&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;sound_of_character&nbsp;:&nbsp;<span class="constructor">SWF</span>.character&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.sound&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;sprite_of_character&nbsp;:&nbsp;<span class="constructor">SWF</span>.character&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.sprite&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;character_of_bitmap&nbsp;:&nbsp;<span class="constructor">SWF</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.character&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;character_of_shape&nbsp;:&nbsp;<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.character&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;character_of_morph&nbsp;:&nbsp;<span class="constructor">SWF</span>.morph&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.character&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;character_of_sound&nbsp;:&nbsp;<span class="constructor">SWF</span>.sound&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.character&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;character_of_sprite&nbsp;:&nbsp;<span class="constructor">SWF</span>.sprite&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.character&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Bitmap</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_from_input&nbsp;:&nbsp;input:<span class="constructor">SWF</span>.input&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_newswfbitmap_frominput"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy&nbsp;:&nbsp;bitmap:<span class="constructor">SWF</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroyswfbitmap"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_width&nbsp;:&nbsp;bitmap:<span class="constructor">SWF</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;=&nbsp;<span class="string">"ml_swfbitmap_getwidth"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_height&nbsp;:&nbsp;bitmap:<span class="constructor">SWF</span>.bitmap&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfbitmap_getheight"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;jpeg_bitmap<br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">JpegBitmap</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_from_file&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filename:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;modes:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.jpeg_bitmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_newswfjpegbitmap"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;gradient<br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Gradient</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_gradient&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.gradient&nbsp;=&nbsp;<span class="string">"ml_newswfgradient"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy&nbsp;:&nbsp;gradient:<span class="constructor">SWF</span>.gradient&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_destroyswfgradient"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;add_entry&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gradient:<span class="constructor">SWF</span>.gradient&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ratio:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfgradient_addentry_bytecode"</span>&nbsp;<span class="string">"ml_swfgradient_addentry_native"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;fill_style<br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">FillStyle</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_solid&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.fill_style<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_newswfsolidfillstyle"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;line_style<br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">LineStyle</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_line_style&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.line_style<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_newswflinestyle"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;fill<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;font<br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Shape</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_shape&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.shape&nbsp;=&nbsp;<span class="string">"ml_newswfshape"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy&nbsp;:&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroyswfshape"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;add_solid_fill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.fill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_addsolidfill"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_line&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_setline_bytecode"</span>&nbsp;<span class="string">"ml_swfshape_setline_native"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_line_style&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_setlinestyle_bytecode"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"ml_swfshape_setlinestyle_native"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;hide_line&nbsp;:&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_swfshape_hideline"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;move_pen&nbsp;:&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_movepen"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;move_pen_to&nbsp;:&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_movepento"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_line&nbsp;:&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_drawline"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_line_to&nbsp;:&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_drawlineto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_curve&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controlx:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controly:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchorx:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchory:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_drawcurve"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_curve_to&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controlx:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controly:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchorx:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchory:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_drawcurveto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_circle&nbsp;:&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_drawcircle"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_arc&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;start_angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;end_angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_drawarc"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;draw_glyph&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;font:<span class="constructor">SWF</span>.font&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;c:char&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_drawglyph"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_right_fill_style&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;fill_style:<span class="constructor">SWF</span>.fill_style&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_setrightfillstyle"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_left_fill_style&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;fill_style:<span class="constructor">SWF</span>.fill_style&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_setleftfillstyle"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_right_fill&nbsp;:&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_setrightfill"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_left_fill&nbsp;:&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_setleftfill"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;add_linear_gradient_fill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gradient:<span class="constructor">SWF</span>.gradient&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.fill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_addgradientfill_linear"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;add_radial_gradient_fill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gradient:<span class="constructor">SWF</span>.gradient&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.fill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfshape_addgradientfill_radial"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Morph</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_morph&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.morph&nbsp;=&nbsp;<span class="string">"ml_newswfmorphshape"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy&nbsp;:&nbsp;morph:<span class="constructor">SWF</span>.morph&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroyswfmorph"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_shape1&nbsp;:&nbsp;morph:<span class="constructor">SWF</span>.morph&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.shape<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmorph_getshape1"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_shape2&nbsp;:&nbsp;morph:<span class="constructor">SWF</span>.morph&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.shape<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmorph_getshape2"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Font</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_font&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.font&nbsp;=&nbsp;<span class="string">"ml_newswffont"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;load_from_file&nbsp;:&nbsp;filename:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.font<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_loadswffontfromfile"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy&nbsp;:&nbsp;font:<span class="constructor">SWF</span>.font&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroyswffont"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_string_width&nbsp;:&nbsp;font:<span class="constructor">SWF</span>.font&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffont_getstringwidth"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_ascent&nbsp;:&nbsp;font:<span class="constructor">SWF</span>.font&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;=&nbsp;<span class="string">"ml_swffont_getascent"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_descent&nbsp;:&nbsp;font:<span class="constructor">SWF</span>.font&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;=&nbsp;<span class="string">"ml_swffont_getdescent"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;get_leading&nbsp;:&nbsp;font:<span class="constructor">SWF</span>.font&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;=&nbsp;<span class="string">"ml_swffont_getleading"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;action<br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Action</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;compile_code&nbsp;:&nbsp;script:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.action<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_compileswfactioncode"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy&nbsp;:&nbsp;action:<span class="constructor">SWF</span>.action&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroyswfaction"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;display_item<br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">DisplayItem</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_color_mult&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfdisplayitem_setcolormult"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;move&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfdisplayitem_move"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;move_to&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfdisplayitem_moveto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rotate&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfdisplayitem_rotate"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rotate_to&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfdisplayitem_rotateto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scale&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfdisplayitem_scale"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scale_to&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfdisplayitem_scaleto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;skew_x&nbsp;:&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfdisplayitem_skewx"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;skew_x_to&nbsp;:&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfdisplayitem_skewxto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_ratio&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;ratio:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfdisplayitem_setratio"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Fill</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_fill&nbsp;:&nbsp;fill_style:<span class="constructor">SWF</span>.fill_style&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.fill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_newswffill"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroyswffill"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scale_xy_to&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_scalexyto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scale_xy&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_scalexy"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scale_x_to&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_scalexto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scale_x&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_scalex"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scale_y_to&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_scaleyto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;scale_y&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_scaley"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;skew_x_to&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_skewxto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;skew_x&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_swffill_skewx"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;skew_y_to&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_skewyto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;skew_y&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_swffill_skewy"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;move_to&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_moveto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;move&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_move"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rotate_to&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_rotateto"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;rotate&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swffill_rotate"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;movie_clip<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;block<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;block_of_shape&nbsp;:&nbsp;shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.block&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;block_of_morph&nbsp;:&nbsp;morph:<span class="constructor">SWF</span>.morph&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.block&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">MovieClip</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_movie_clip&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.movie_clip&nbsp;=&nbsp;<span class="string">"ml_newswfmovieclip"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy&nbsp;:&nbsp;movie_clip:<span class="constructor">SWF</span>.movie_clip&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_destroyswfmovieclip"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;add&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;movie_clip:<span class="constructor">SWF</span>.movie_clip&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;block:<span class="constructor">SWF</span>.block&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.display_item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmovieclip_add"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;next_frame&nbsp;:&nbsp;movie_clip:<span class="constructor">SWF</span>.movie_clip&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmovieclip_nextframe"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;movie<br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;block_of_movie_clip&nbsp;:&nbsp;movie_clip:<span class="constructor">SWF</span>.movie_clip&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.block<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_id"</span><br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Movie</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_movie&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.movie&nbsp;=&nbsp;<span class="string">"ml_newswfmovie"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy&nbsp;:&nbsp;movie:<span class="constructor">SWF</span>.movie&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_destroyswfmovie"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;add&nbsp;:&nbsp;movie:<span class="constructor">SWF</span>.movie&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;block:<span class="constructor">SWF</span>.block&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.display_item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmovie_add"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;remove&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;movie:<span class="constructor">SWF</span>.movie&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmovie_remove"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_background&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;movie:<span class="constructor">SWF</span>.movie&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmovie_setbackground"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_dimension&nbsp;:&nbsp;movie:<span class="constructor">SWF</span>.movie&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmovie_setdimension"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;save&nbsp;:&nbsp;movie:<span class="constructor">SWF</span>.movie&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;filename:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmovie_save"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;set_rate&nbsp;:&nbsp;movie:<span class="constructor">SWF</span>.movie&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;rate:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmovie_setrate"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;next_frame&nbsp;:&nbsp;movie:<span class="constructor">SWF</span>.movie&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;=&nbsp;<span class="string">"ml_swfmovie_nextframe"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">OO</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">class</span>&nbsp;swfFill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fill:<span class="constructor">SWF</span>.fill&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">object</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;fill&nbsp;:&nbsp;<span class="constructor">SWF</span>.fill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_fill&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.fill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;move&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;move_to&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;rotate&nbsp;:&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;rotate_to&nbsp;:&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;scale&nbsp;:&nbsp;scale:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;scale_to&nbsp;:&nbsp;scale:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;scale_x&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;scale_x_to&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;scale_xy&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;scale_xy_to&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;scale_y&nbsp;:&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;scale_y_to&nbsp;:&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;skew_x&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;skew_x_to&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;skew_y&nbsp;:&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;skew_y_to&nbsp;:&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">class</span>&nbsp;swfGradient&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">object</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;gradient&nbsp;:&nbsp;<span class="constructor">SWF</span>.gradient<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_entry&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ratio:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_gradient&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.gradient<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">class</span>&nbsp;swfFont&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filename:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">object</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;font&nbsp;:&nbsp;<span class="constructor">SWF</span>.font<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_ascent&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_descent&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_font&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.font<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_leading&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_width&nbsp;:&nbsp;string:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">class</span>&nbsp;swfDisplayItem&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display_item:<span class="constructor">SWF</span>.display_item&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">object</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;display_item&nbsp;:&nbsp;<span class="constructor">SWF</span>.display_item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;move&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;move_to&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;rotate&nbsp;:&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;rotate_to&nbsp;:&nbsp;degrees:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;scale&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;scale_to&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_color_mult&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_ratio&nbsp;:&nbsp;ratio:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;skew_x&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;skew_x_to&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">class</span>&nbsp;swfShape&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?shape:<span class="constructor">SWF</span>.shape&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">object</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;shape&nbsp;:&nbsp;<span class="constructor">SWF</span>.shape<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_fill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_linear_gradient_fill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gradient:<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfGradient&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_radial_gradient_fill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gradient:<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfGradient&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_solid_fill&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_arc&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;start_angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;end_angle:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_circle&nbsp;:&nbsp;r:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_curve&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controlx:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controly:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchorx:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchory:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_curve_to&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controlx:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controly:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchorx:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;anchory:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_glyph&nbsp;:&nbsp;font:<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFont&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;c:char&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_line&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw_line_to&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_block&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.block<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_shape&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.shape<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;hide_line&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;move_pen&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;move_pen_to&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_left_fill&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_left_fill_style&nbsp;:&nbsp;fill_style:<span class="constructor">SWF</span>.fill_style&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_line&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_line_style&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;a:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_right_fill&nbsp;:&nbsp;fill:<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfFill&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_right_fill_style&nbsp;:&nbsp;fill_style:<span class="constructor">SWF</span>.fill_style&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">class</span>&nbsp;swfMorph&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">object</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;morph&nbsp;:&nbsp;<span class="constructor">SWF</span>.morph<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_morph&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.morph<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_shape1&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfShape<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_shape2&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfShape<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;item&nbsp;=&nbsp;<span class="constructor">SWFShape</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfShape&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">SWFMorph</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfMorph<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">class</span>&nbsp;swfMovie&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">object</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;filesize&nbsp;:&nbsp;int&nbsp;option<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;movie&nbsp;:&nbsp;<span class="constructor">SWF</span>.movie<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add&nbsp;:&nbsp;block:<span class="constructor">SWF</span>.<span class="constructor">OO</span>.item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.<span class="constructor">OO</span>.swfDisplayItem<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_filesize&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;option<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;next_frame&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;save&nbsp;:&nbsp;filename:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_background&nbsp;:&nbsp;r:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;g:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_dimension&nbsp;:&nbsp;x:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;y:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_rate&nbsp;:&nbsp;rate:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+<span class="keyword">end</span></code></body></html>

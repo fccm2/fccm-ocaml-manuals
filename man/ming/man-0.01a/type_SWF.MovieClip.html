@@ -1,0 +1,22 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="SWF" rel="Chapter" href="SWF.html"><title>SWF.MovieClip</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;new_movie_clip&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.movie_clip&nbsp;=&nbsp;<span class="string">"ml_newswfmovieclip"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;destroy&nbsp;:&nbsp;movie_clip:<span class="constructor">SWF</span>.movie_clip&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_destroyswfmovieclip"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;add&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;movie_clip:<span class="constructor">SWF</span>.movie_clip&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;block:<span class="constructor">SWF</span>.block&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">SWF</span>.display_item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmovieclip_add"</span><br>
+&nbsp;&nbsp;<span class="keyword">external</span>&nbsp;next_frame&nbsp;:&nbsp;movie_clip:<span class="constructor">SWF</span>.movie_clip&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="string">"ml_swfmovieclip_nextframe"</span><br>
+<span class="keyword">end</span></code></body></html>

@@ -1,0 +1,38 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="Start" href="index.html">
+<link rel="next" href="SWF.Input.html">
+<link rel="Up" href="SWF.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="SWF" rel="Chapter" href="SWF.html"><title>SWF.Ming</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="SWF.html">Up</a>
+&nbsp;<a href="SWF.Input.html">Next</a>
+</div>
+<center><h1>Module <a href="type_SWF.Ming.html">SWF.Ming</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Ming: <code class="code"><span class="keyword">sig</span></code> <a href="SWF.Ming.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>Ming general functions<br>
+<hr width="100%">
+<br>
+this module contains the general functions<br>
+<pre><span class="keyword">val</span> <a name="VALinit"></a>init : <code class="type">unit -> int</code></pre><pre><span class="keyword">val</span> <a name="VALcleanup"></a>cleanup : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALcollect_garbage"></a>collect_garbage : <code class="type">unit -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALset_cubic_threshold"></a>set_cubic_threshold : <code class="type">num:int -> unit</code></pre><div class="info">
+Sets the threshold error for drawing cubic beziers.  Lower is more
+    accurate, hence larger file size.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALset_scale"></a>set_scale : <code class="type">scale:float -> unit</code></pre><div class="info">
+Sets the overall scale, default is 20.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALget_scale"></a>get_scale : <code class="type">unit -> float</code></pre><pre><span class="keyword">val</span> <a name="VALuse_swf_version"></a>use_swf_version : <code class="type">version:int -> unit</code></pre><div class="info">
+Sets the version number to use.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALset_swf_compression"></a>set_swf_compression : <code class="type">level:int -> int</code></pre><div class="info">
+Sets output compression level. Returns previous value.<br>
+</div>
+</body></html>

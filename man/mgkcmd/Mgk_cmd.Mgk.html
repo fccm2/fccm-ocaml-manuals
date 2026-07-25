@@ -1,0 +1,483 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="Up" href="Mgk_cmd.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Mgk_cmd" rel="Chapter" href="Mgk_cmd.html"><link title="Main" rel="Section" href="#5_Main">
+<link title="Draw" rel="Section" href="#5_Draw">
+<link title="Layers" rel="Section" href="#5_Layers">
+<link title="Filters" rel="Section" href="#5_Filters">
+<link title="Convolution" rel="Section" href="#5_Convolution">
+<link title="Color Quantization and Dithering" rel="Section" href="#5_ColorQuantizationandDithering">
+<link title="Clones" rel="Section" href="#5_Clones">
+<title>Mgk_cmd.Mgk</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Mgk_cmd.html" title="Mgk_cmd">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Mgk_cmd.Mgk.html">Mgk_cmd.Mgk</a></h1>
+
+<pre><span id="MODULEMgk"><span class="keyword">module</span> Mgk</span>: <code class="code">sig</code> <a href="Mgk_cmd.Mgk.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<p>Interface for image-magick commands</p>
+<h6 id="5_Main">Main</h6><p>main functions</p>
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>holds the command in progress</p>
+</div>
+</div>
+
+
+<pre><span id="VALnew_genesis"><span class="keyword">val</span> new_genesis</span> : <code class="type">unit -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>initialise the command for a set of operations</p>
+</div>
+</div>
+
+<pre><span id="VALinput_image"><span class="keyword">val</span> input_image</span> : <code class="type">string -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>filename of an image to load</p>
+</div>
+</div>
+
+<pre><span id="VALset_size"><span class="keyword">val</span> set_size</span> : <code class="type">wh:int * int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>set dimensions of an image, a canvas, or a layer</p>
+</div>
+</div>
+
+<pre><span id="VALinit_canvas"><span class="keyword">val</span> init_canvas</span> : <code class="type">string -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>you can initialise a transparent image with: <code class="code">"canvas:none"</code></p>
+</div>
+</div>
+
+<pre><span id="VALset_filename"><span class="keyword">val</span> set_filename</span> : <code class="type">string -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>set the filename of the image containing the result</p>
+</div>
+</div>
+
+<pre><span id="VALwrite_command"><span class="keyword">val</span> write_command</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>output the resulting command on stdout to produce the requested operations</p>
+</div>
+</div>
+
+<pre><span id="VALdisplay"><span class="keyword">val</span> display</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>pipes the output to the display command</p>
+</div>
+</div>
+
+<pre><span id="VALnew_genesis7"><span class="keyword">val</span> new_genesis7</span> : <code class="type">unit -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>equivalent of <code class="code">new_genesis</code>, but for IM-7 (not-tested)</p>
+</div>
+</div>
+<h6 id="5_Draw">Draw</h6><p>draw commands</p>
+
+<pre><span id="VALdraw_line"><span class="keyword">val</span> draw_line</span> : <code class="type">int * int -> int * int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>draw operation with a line command</p>
+</div>
+</div>
+
+<pre><span id="VALdraw_point"><span class="keyword">val</span> draw_point</span> : <code class="type">int * int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>draw operation with a point command</p>
+</div>
+</div>
+
+<pre><span id="VALdraw_rectangle"><span class="keyword">val</span> draw_rectangle</span> : <code class="type">int * int -> int * int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>draw operation with a rectangle command</p>
+</div>
+</div>
+
+<pre><span id="VALdraw_circle"><span class="keyword">val</span> draw_circle</span> : <code class="type">int * int -> int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>draw operation with a circle command</p>
+</div>
+</div>
+
+<pre><span id="VALdraw_ellipse"><span class="keyword">val</span> draw_ellipse</span> : <code class="type">int * int -> int * int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>draw operation with a ellipse command</p>
+</div>
+</div>
+
+<pre><span id="VALdraw_qbcurve"><span class="keyword">val</span> draw_qbcurve</span> : <code class="type">int * int -> int * int -> int * int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>draw operation with a quadratic bezier curve command</p>
+</div>
+</div>
+
+<pre><span id="VALdraw_cbcurve"><span class="keyword">val</span> draw_cbcurve</span> : <code class="type">int * int -> int * int -> int * int -> int * int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>draw operation with a cubic bezier curve command</p>
+</div>
+</div>
+
+<pre><span id="VALdraw_polygon"><span class="keyword">val</span> draw_polygon</span> : <code class="type">(int * int) list -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>draw operation with a rectangle command</p>
+</div>
+</div>
+
+<pre><span id="VALdraw_text"><span class="keyword">val</span> draw_text</span> : <code class="type">int * int -> string -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>draw operation with a text command</p>
+</div>
+</div>
+
+<pre><span id="VALset_font"><span class="keyword">val</span> set_font</span> : <code class="type">string -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>set the font for the draw-text operation</p>
+</div>
+</div>
+
+<pre><span id="VALset_pointsize"><span class="keyword">val</span> set_pointsize</span> : <code class="type">int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>set the size of the text in points</p>
+</div>
+</div>
+
+<pre><span id="VALset_strokewidth"><span class="keyword">val</span> set_strokewidth</span> : <code class="type">float -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>set the stroke-width for the draw operations</p>
+</div>
+</div>
+
+<pre><span id="VALset_fill"><span class="keyword">val</span> set_fill</span> : <code class="type">string -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>set the fill color for the draw operations</p>
+</div>
+</div>
+
+<pre><span id="VALset_stroke"><span class="keyword">val</span> set_stroke</span> : <code class="type">string -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>set the stroke color for the draw operations</p>
+</div>
+</div>
+
+<pre><code><span id="TYPEpath"><span class="keyword">type</span> <code class="type"></code>path</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpath.M"><span class="constructor">M</span></span> <span class="keyword">of</span> <code class="type">int * int</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>move-to</p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpath.L"><span class="constructor">L</span></span> <span class="keyword">of</span> <code class="type">int * int</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>line-to</p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpath.Q"><span class="constructor">Q</span></span> <span class="keyword">of</span> <code class="type">(int * int) * (int * int)</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>quatratic-curve</p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpath.C"><span class="constructor">C</span></span> <span class="keyword">of</span> <code class="type">(int * int) * (int * int) * (int * int)</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>cubic-curve</p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpath.A"><span class="constructor">A</span></span> <span class="keyword">of</span> <code class="type">(int * int) * int * (int * int) * (int * int)</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>arcs</p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpath.Z"><span class="constructor">Z</span></span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>close path</p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+
+<div class="info ">
+<div class="info-desc">
+<p>svg commands</p>
+</div>
+</div>
+
+
+<pre><span id="VALdraw_path"><span class="keyword">val</span> draw_path</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEpath">path</a> list -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>draw path with svg commands</p>
+</div>
+</div>
+<h6 id="5_Layers">Layers</h6><p>combine different layers</p>
+
+<pre><span id="TYPEcomp_op"><span class="keyword">type</span> <code class="type"></code>comp_op</span> = <code class="type">string</code> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>composite operator</p>
+</div>
+</div>
+
+
+<pre><span id="VALover"><span class="keyword">val</span> over</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>default operator, overlays the source image over the destination image</p>
+</div>
+</div>
+
+<pre><span id="VALmultiply"><span class="keyword">val</span> multiply</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>multiplies the source image with the destination image</p>
+</div>
+</div>
+
+<pre><span id="VALscreen"><span class="keyword">val</span> screen</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>multiplies the inverse of the images and then inverses the result</p>
+</div>
+</div>
+
+<pre><span id="VALoverlay"><span class="keyword">val</span> overlay</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>combines Multiply and Screen</p>
+</div>
+</div>
+
+<pre><span id="VALdarken"><span class="keyword">val</span> darken</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>takes the darker pixel value</p>
+</div>
+</div>
+
+<pre><span id="VALlighten"><span class="keyword">val</span> lighten</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>takes the lighter pixel value</p>
+</div>
+</div>
+
+<pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>adds pixel values</p>
+</div>
+</div>
+
+<pre><span id="VALsubtract"><span class="keyword">val</span> subtract</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>subtracts pixel values</p>
+</div>
+</div>
+<p>most common composite operators</p>
+
+<pre><span id="VALplus"><span class="keyword">val</span> plus</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALxor"><span class="keyword">val</span> xor</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALatop"><span class="keyword">val</span> atop</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALout"><span class="keyword">val</span> out</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALsrc"><span class="keyword">val</span> src</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALsrc_in"><span class="keyword">val</span> src_in</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALsrc_out"><span class="keyword">val</span> src_out</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALsrc_over"><span class="keyword">val</span> src_over</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALsrc_atop"><span class="keyword">val</span> src_atop</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALdst_in"><span class="keyword">val</span> dst_in</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALdst_out"><span class="keyword">val</span> dst_out</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALdst_over"><span class="keyword">val</span> dst_over</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALdst_atop"><span class="keyword">val</span> dst_atop</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALdivide_src"><span class="keyword">val</span> divide_src</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALdivide_dst"><span class="keyword">val</span> divide_dst</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALminus_src"><span class="keyword">val</span> minus_src</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALminus_dst"><span class="keyword">val</span> minus_dst</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALdissolve"><span class="keyword">val</span> dissolve</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALdifference"><span class="keyword">val</span> difference</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALcolor_burn"><span class="keyword">val</span> color_burn</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALcolor_dodge"><span class="keyword">val</span> color_dodge</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALlinear_burn"><span class="keyword">val</span> linear_burn</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALlinear_dodge"><span class="keyword">val</span> linear_dodge</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALhard_light"><span class="keyword">val</span> hard_light</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALsoft_light"><span class="keyword">val</span> soft_light</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALcopy_opacity"><span class="keyword">val</span> copy_opacity</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre>
+<pre><span id="VALseamless_blend"><span class="keyword">val</span> seamless_blend</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>more composite operators</p>
+</div>
+</div>
+
+<pre><span id="VALcompositeop_of_string"><span class="keyword">val</span> compositeop_of_string</span> : <code class="type">string -> <a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>get a composite operator parameter from a string</p>
+
+<p>(read the image-magick documentation for a list of composite-operators)</p>
+</div>
+</div>
+
+<pre><span id="VALset_composite_op"><span class="keyword">val</span> set_composite_op</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEcomp_op">comp_op</a> -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>select a composite operator</p>
+</div>
+</div>
+
+<pre><span id="VALcomposite"><span class="keyword">val</span> composite</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>composite operation</p>
+</div>
+</div>
+
+<pre><span id="VALopen_layer"><span class="keyword">val</span> open_layer</span> : <code class="type">(<a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit) -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>open a new layer</p>
+</div>
+</div>
+
+<pre><span id="VALset_geometry"><span class="keyword">val</span> set_geometry</span> : <code class="type">int * int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>sets the position for the composition of a layer</p>
+</div>
+</div>
+
+<pre><span id="VALbase_layer"><span class="keyword">val</span> base_layer</span> : <code class="type">(<a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit) -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>no-op, just for esthetic use</p>
+</div>
+</div>
+
+<pre><span id="VALlist_compose"><span class="keyword">val</span> list_compose</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>list all composite operators</p>
+</div>
+</div>
+<h6 id="5_Filters">Filters</h6>
+<pre><span id="VALnegate"><span class="keyword">val</span> negate</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALblur"><span class="keyword">val</span> blur</span> : <code class="type">int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALnormalize"><span class="keyword">val</span> normalize</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALcharcoal"><span class="keyword">val</span> charcoal</span> : <code class="type">int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALgrayscale"><span class="keyword">val</span> grayscale</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALsharpen"><span class="keyword">val</span> sharpen</span> : <code class="type">int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALshade"><span class="keyword">val</span> shade</span> : <code class="type">int * int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALmodulate"><span class="keyword">val</span> modulate</span> : <code class="type">int * int * int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>modulate, with brightness, saturation, and hue parameters</p>
+</div>
+</div>
+
+<pre><span id="VALresize"><span class="keyword">val</span> resize</span> : <code class="type">string -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>to resize half the size, use <code class="code">resize "50%" mgk</code></p>
+</div>
+</div>
+
+<pre><span id="VALflip"><span class="keyword">val</span> flip</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALflop"><span class="keyword">val</span> flop</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALposterize"><span class="keyword">val</span> posterize</span> : <code class="type">int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>posterize command</p>
+</div>
+</div>
+
+<pre><span id="VALpaint"><span class="keyword">val</span> paint</span> : <code class="type">int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>simulate painting</p>
+</div>
+</div>
+
+<pre><span id="VALmonochrome"><span class="keyword">val</span> monochrome</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>binary colors</p>
+</div>
+</div>
+
+<pre><span id="VALemboss"><span class="keyword">val</span> emboss</span> : <code class="type">int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>emboss the image</p>
+</div>
+</div>
+
+<pre><span id="VALedge"><span class="keyword">val</span> edge</span> : <code class="type">int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>edge filter</p>
+</div>
+</div>
+
+<pre><span id="VALauto_level"><span class="keyword">val</span> auto_level</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>adjust color levels</p>
+</div>
+</div>
+<h6 id="5_Convolution">Convolution</h6>
+<pre><span id="VALconvolve_sobel"><span class="keyword">val</span> convolve_sobel</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>sobel convolution</p>
+</div>
+</div>
+<h6 id="5_ColorQuantizationandDithering">Color Quantization and Dithering</h6>
+<pre><span id="TYPEdither_method"><span class="keyword">type</span> <code class="type"></code>dither_method</span> = <code class="type">string</code> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>type for dither-methods</p>
+</div>
+</div>
+
+
+<pre><span id="VALdither_riemersma"><span class="keyword">val</span> dither_riemersma</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEdither_method">dither_method</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>dither-method: "Riemersma"</p>
+</div>
+</div>
+
+<pre><span id="VALdither"><span class="keyword">val</span> dither</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEdither_method">dither_method</a> -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>dither operation</p>
+</div>
+</div>
+
+<pre><span id="VALcolors"><span class="keyword">val</span> colors</span> : <code class="type">int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>number of colors</p>
+</div>
+</div>
+<h6 id="5_Clones">Clones</h6>
+<pre><span id="VALclone_last"><span class="keyword">val</span> clone_last</span> : <code class="type"><a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALclone"><span class="keyword">val</span> clone</span> : <code class="type">int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALclone_range"><span class="keyword">val</span> clone_range</span> : <code class="type">int * int -> <a href="Mgk_cmd.Mgk.html#TYPEt">t</a> -> unit</code></pre></body></html>

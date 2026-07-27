@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Povray.Desc.html">
+<link rel="next" href="Povray.Int.html">
+<link rel="Up" href="Povray.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Povray" rel="Chapter" href="Povray.html"><title>Povray.Float</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Povray.Desc.html" title="Povray.Desc">Previous</a>
+&nbsp;<a class="up" href="Povray.html" title="Povray">Up</a>
+&nbsp;<a class="post" href="Povray.Int.html" title="Povray.Int">Next</a>
+</div>
+<h1>Module <a href="type_Povray.Float.html">Povray.Float</a></h1>
+
+<pre><span id="MODULEFloat"><span class="keyword">module</span> Float</span>: <code class="code">sig</code> <a href="Povray.Float.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="VALadd_camera"><span class="keyword">val</span> add_camera</span> : <code class="type"><a href="Povray.html#TYPEscene">Povray.scene</a> -><br>       location:float * float * float -><br>       look_at:float * float * float -><br>       ?kind:<a href="Povray.Camera.html#TYPEt">Povray.Camera.t</a> -> ?angle:int -> unit -> <a href="Povray.html#TYPEscene">Povray.scene</a></code></pre>
+<pre><span id="VALget_camera"><span class="keyword">val</span> get_camera</span> : <code class="type">location:float * float * float -><br>       look_at:float * float * float -><br>       ?kind:<a href="Povray.Camera.html#TYPEt">Povray.Camera.t</a> -> ?angle:int -> unit -> string</code></pre>
+<pre><span id="VALadd_plane"><span class="keyword">val</span> add_plane</span> : <code class="type"><a href="Povray.html#TYPEscene">Povray.scene</a> -><br>       norm:float * float * float -><br>       dist:float -> ?texture:<a href="Povray.html#TYPEtexture">Povray.texture</a> -> unit -> <a href="Povray.html#TYPEscene">Povray.scene</a></code></pre>
+<pre><span id="VALget_plane"><span class="keyword">val</span> get_plane</span> : <code class="type">norm:float * float * float -> dist:float -> ?texture:string -> unit -> string</code></pre></body></html>

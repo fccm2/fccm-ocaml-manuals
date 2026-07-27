@@ -1,0 +1,326 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Povray" rel="Chapter" href="Povray.html"><link title="CSG: Constructive Solid Geometry" rel="Section" href="#3_CSGConstructiveSolidGeometry">
+<link title="Official POV-Ray Documentation" rel="Section" href="#3_OfficialPOVRayDocumentation">
+<link title="Scene Description" rel="Subsection" href="#4_SceneDescription">
+<link title="Adds to a Scene" rel="Subsection" href="#4_AddstoaScene">
+<link title="Adds Shapes to a Scene" rel="Subsection" href="#4_AddsShapestoaScene">
+<link title="Print to Screen" rel="Subsection" href="#4_PrinttoScreen">
+<link title="Prints shapes to the Screen" rel="Subsection" href="#4_PrintsshapestotheScreen">
+<link title="Description Conv" rel="Subsection" href="#4_DescriptionConv">
+<link title="Selecting Floats or Ints" rel="Subsection" href="#4_SelectingFloatsorInts">
+<link title="Meshes" rel="Subsection" href="#4_Meshes">
+<title>Povray</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Povray.html">Povray</a></h1>
+
+<pre><span id="MODULEPovray"><span class="keyword">module</span> Povray</span>: <code class="code">sig</code> <a href="Povray.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<h3 id="2_APovRaymodule">A PovRay module</h3></div>
+</div>
+<hr width="100%">
+<p>There are 3 different ways to create a <code class="code">povray</code> scene:</p>
+
+<p>with the description type <code class="code">scene_desc</code>,
+    accumulating to the <code class="code">scene</code> type,
+    or with a type that we can print to a screen.</p>
+<h5 id="4_SceneDescription">Scene Description</h5>
+<pre><span id="TYPElocation"><span class="keyword">type</span> <code class="type"></code>location</span> = <code class="type">float * float * float</code> </pre>
+
+
+<pre><span id="MODULECamera"><span class="keyword">module</span> <a href="Povray.Camera.html">Camera</a></span>: <code class="code">sig</code> <a href="Povray.Camera.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEColor"><span class="keyword">module</span> <a href="Povray.Color.html">Color</a></span>: <code class="code">sig</code> <a href="Povray.Color.html">..</a> <code class="code">end</code></pre>
+<pre><span id="TYPEcolor"><span class="keyword">type</span> <code class="type"></code>color</span> = <code class="type"><a href="Povray.Color.html#TYPEt">Color.t</a></code> </pre>
+
+
+<pre><span id="TYPEtexture"><span class="keyword">type</span> <code class="type"></code>texture</span> </pre>
+
+
+<pre><span id="TYPEfinish"><span class="keyword">type</span> <code class="type"></code>finish</span> </pre>
+
+
+<pre><span id="TYPEtriangle"><span class="keyword">type</span> <code class="type"></code>triangle</span> = <code class="type"><a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPElocation">location</a></code> </pre>
+
+
+<pre><span id="TYPEtriangle_c"><span class="keyword">type</span> <code class="type"></code>triangle_c</span> = <code class="type"><a href="Povray.html#TYPEtriangle">triangle</a> * <a href="Povray.Color.html#TYPEt">Color.t</a></code> </pre>
+
+
+<pre><span id="TYPEuv"><span class="keyword">type</span> <code class="type"></code>uv</span> = <code class="type">float * float</code> </pre>
+
+
+<pre><span id="TYPEtriangle_2d"><span class="keyword">type</span> <code class="type"></code>triangle_2d</span> = <code class="type"><a href="Povray.html#TYPEuv">uv</a> * <a href="Povray.html#TYPEuv">uv</a> * <a href="Povray.html#TYPEuv">uv</a></code> </pre>
+
+
+<pre><span id="TYPEtriangle_uv"><span class="keyword">type</span> <code class="type"></code>triangle_uv</span> = <code class="type"><a href="Povray.html#TYPEtriangle">triangle</a> * <a href="Povray.html#TYPEtriangle_2d">triangle_2d</a></code> </pre>
+
+
+<pre><span id="TYPEface_indice"><span class="keyword">type</span> <code class="type"></code>face_indice</span> = <code class="type">int * int * int</code> </pre>
+
+
+<pre><span id="TYPEface_indices"><span class="keyword">type</span> <code class="type"></code>face_indices</span> = <code class="type"><a href="Povray.html#TYPEface_indice">face_indice</a> array</code> </pre>
+
+
+<pre><code><span id="TYPEscene_desc"><span class="keyword">type</span> <code class="type"></code>scene_desc</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Include"><span class="constructor">Include</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Background"><span class="constructor">Background</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPEcolor">color</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Light_source"><span class="constructor">Light_source</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPEcolor">color</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Ambient_light"><span class="constructor">Ambient_light</span></span> <span class="keyword">of</span> <code class="type">float * float * float</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Camera"><span class="constructor">Camera</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPElocation">location</a> * <a href="Povray.Camera.html#TYPEt">Camera.t</a> option</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Sphere"><span class="constructor">Sphere</span></span> <span class="keyword">of</span> <code class="type">float * <a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPEtexture">texture</a> * <a href="Povray.html#TYPElocation">location</a> option<br>        * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p><code class="code">radius</code> / <code class="code">center</code> / <code class="code">texture</code> / <code class="code">translate</code> / <code class="code">rotate</code> / <code class="code">scale</code></p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Cone"><span class="constructor">Cone</span></span> <span class="keyword">of</span> <code class="type">float * float * <a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPEtexture">texture</a><br>        * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p><code class="code">radius1</code> / <code class="code">radius2</code> / <code class="code">center1</code> / <code class="code">center2</code> / <code class="code">texture</code> /
+         <code class="code">translate</code> / <code class="code">rotate</code> / <code class="code">scale</code></p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Box"><span class="constructor">Box</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPEtexture">texture</a> * <a href="Povray.html#TYPElocation">location</a> option<br>        * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p><code class="code">corner1</code> / <code class="code">corner2</code> / <code class="code">texture</code> / <code class="code">translate</code> / <code class="code">rotate</code> / <code class="code">scale</code></p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Cylinder"><span class="constructor">Cylinder</span></span> <span class="keyword">of</span> <code class="type">float * <a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPEtexture">texture</a><br>        * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p><code class="code">radius</code> / <code class="code">center1</code> / <code class="code">center2</code> / <code class="code">texture</code> /
+         <code class="code">translate</code> / <code class="code">rotate</code> / <code class="code">scale</code></p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Torus"><span class="constructor">Torus</span></span> <span class="keyword">of</span> <code class="type">float * float * <a href="Povray.html#TYPEtexture">texture</a> * <a href="Povray.html#TYPElocation">location</a> option<br>        * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p><code class="code">major</code> / <code class="code">minor</code> / <code class="code">texture</code> / <code class="code">translate</code> / <code class="code">rotate</code> / <code class="code">scale</code></p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Mesh"><span class="constructor">Mesh</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPEtriangle">triangle</a> list * <a href="Povray.html#TYPEtexture">texture</a> * <a href="Povray.html#TYPElocation">location</a> option<br>        * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p><code class="code">triangles</code> / <code class="code">texture</code> / <code class="code">translate</code> / <code class="code">rotate</code> / <code class="code">scale</code></p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.MeshC"><span class="constructor">MeshC</span></span> <span class="keyword">of</span> <code class="type">(<a href="Povray.html#TYPEtriangle">triangle</a> * <a href="Povray.html#TYPEcolor">color</a>) list * <a href="Povray.html#TYPElocation">location</a> option<br>        * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>(<code class="code">triangles</code> / <code class="code">colors</code>) / <code class="code">translate</code> / <code class="code">rotate</code> / <code class="code">scale</code></p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.MeshD"><span class="constructor">MeshD</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPElocation">location</a> array * <a href="Povray.html#TYPEface_indice">face_indice</a> array * <a href="Povray.html#TYPEtexture">texture</a><br>        * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p><code class="code">points</code> / <code class="code">faces</code> / <code class="code">texture</code> / <code class="code">translate</code> / <code class="code">rotate</code> / <code class="code">scale</code></p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.MeshD2"><span class="constructor">MeshD2</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPElocation">location</a> array * (<a href="Povray.html#TYPEface_indice">face_indice</a> * int) array<br>        * <a href="Povray.html#TYPEtexture">texture</a> array * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option<br>        * <a href="Povray.html#TYPElocation">location</a> option</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p><code class="code">points</code> / <code class="code">faces</code> / <code class="code">textures</code> / <code class="code">translate</code> / <code class="code">rotate</code> / <code class="code">scale</code></p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.MeshUV"><span class="constructor">MeshUV</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPEtriangle_uv">triangle_uv</a> list * string * <a href="Povray.html#TYPElocation">location</a> option<br>        * <a href="Povray.html#TYPElocation">location</a> option * <a href="Povray.html#TYPElocation">location</a> option</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p><code class="code">triangles + uv</code> / <code class="code">image-file-name</code> / <code class="code">translate</code> / <code class="code">rotate</code> / <code class="code">scale</code></p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+
+
+
+<pre><span id="MODULETextures"><span class="keyword">module</span> <a href="Povray.Textures.html">Textures</a></span>: <code class="code">sig</code> <a href="Povray.Textures.html">..</a> <code class="code">end</code></pre><h5 id="4_AddstoaScene">Adds to a Scene</h5>
+<pre><span id="TYPEscene"><span class="keyword">type</span> <code class="type"></code>scene</span> </pre>
+
+
+<pre><span id="VALnew_scene"><span class="keyword">val</span> new_scene</span> : <code class="type">unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALstring_of_scene"><span class="keyword">val</span> string_of_scene</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> string</code></pre>
+<pre><span id="VALprint_scene"><span class="keyword">val</span> print_scene</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> unit</code></pre>
+<pre><span id="MODULEInc_file"><span class="keyword">module</span> <a href="Povray.Inc_file.html">Inc_file</a></span>: <code class="code">sig</code> <a href="Povray.Inc_file.html">..</a> <code class="code">end</code></pre>
+<pre><span id="TYPEinc_file"><span class="keyword">type</span> <code class="type"></code>inc_file</span> = <code class="type"><a href="Povray.Inc_file.html#TYPEt">Inc_file.t</a></code> </pre>
+
+
+<pre><span id="VALstring_of_inc_file"><span class="keyword">val</span> string_of_inc_file</span> : <code class="type">inc:<a href="Povray.html#TYPEinc_file">inc_file</a> -> string</code></pre>
+<pre><span id="VALinc_file_of_string"><span class="keyword">val</span> inc_file_of_string</span> : <code class="type">inc:string -> <a href="Povray.html#TYPEinc_file">inc_file</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">string_of_inc_file</code> is equivalent to <code class="code">Inc_file.to_string</code></p>
+
+<p><code class="code">inc_file_of_string</code> is equivalent to <code class="code">Inc_file.of_string</code></p>
+</div>
+</div>
+
+<pre><span id="VALadd_include"><span class="keyword">val</span> add_include</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> inc:<a href="Povray.html#TYPEinc_file">inc_file</a> -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_comment"><span class="keyword">val</span> add_comment</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> com:string -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_background"><span class="keyword">val</span> add_background</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> color:<a href="Povray.html#TYPEcolor">color</a> -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_light_source"><span class="keyword">val</span> add_light_source</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       location:float * float * float -> color:<a href="Povray.html#TYPEcolor">color</a> -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_camera"><span class="keyword">val</span> add_camera</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       location:float * float * float -><br>       look_at:float * float * float -><br>       ?kind:<a href="Povray.Camera.html#TYPEt">Camera.t</a> -> ?angle:int -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_ambient_light"><span class="keyword">val</span> add_ambient_light</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> color:float * float * float -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="TYPEnormal"><span class="keyword">type</span> <code class="type"></code>normal</span> </pre>
+
+
+<pre><span id="MODULENormal"><span class="keyword">module</span> <a href="Povray.Normal.html">Normal</a></span>: <code class="code">sig</code> <a href="Povray.Normal.html">..</a> <code class="code">end</code></pre>
+<pre><span id="VALnew_finish"><span class="keyword">val</span> new_finish</span> : <code class="type">?ambient:float -> ?diffuse:float -> ?specular:float -> unit -> <a href="Povray.html#TYPEfinish">finish</a></code></pre>
+<pre><span id="VALnew_texture"><span class="keyword">val</span> new_texture</span> : <code class="type">?color:<a href="Povray.html#TYPEcolor">color</a> -><br>       ?scale:int -><br>       ?def:<a href="Povray.Textures.html#TYPEtexture_def">Textures.texture_def</a> -><br>       ?normal:<a href="Povray.html#TYPEnormal">normal</a> -> ?finish:<a href="Povray.html#TYPEfinish">finish</a> -> unit -> <a href="Povray.html#TYPEtexture">texture</a></code></pre>
+<pre><span id="VALnew_checker"><span class="keyword">val</span> new_checker</span> : <code class="type">color1:<a href="Povray.html#TYPEcolor">color</a> -><br>       color2:<a href="Povray.html#TYPEcolor">color</a> -><br>       ?scale:float -> ?finish:<a href="Povray.html#TYPEfinish">finish</a> -> unit -> <a href="Povray.html#TYPEtexture">texture</a></code></pre>
+<pre><span id="VALnew_hexagon"><span class="keyword">val</span> new_hexagon</span> : <code class="type">color1:<a href="Povray.html#TYPEcolor">color</a> -><br>       color2:<a href="Povray.html#TYPEcolor">color</a> -><br>       color3:<a href="Povray.html#TYPEcolor">color</a> -><br>       ?scale:float -> ?finish:<a href="Povray.html#TYPEfinish">finish</a> -> unit -> <a href="Povray.html#TYPEtexture">texture</a></code></pre>
+<pre><span id="TYPEpattern"><span class="keyword">type</span> <code class="type"></code>pattern</span> = <code class="type">[ `agate of float<br>       | `bozo<br>       | `crackle<br>       | `dents<br>       | `granite<br>       | `ripples<br>       | `waves<br>       | `wrinkles ]</code> </pre>
+
+
+<pre><span id="VALstring_of_pattern"><span class="keyword">val</span> string_of_pattern</span> : <code class="type"><a href="Povray.html#TYPEpattern">pattern</a> -> string</code></pre>
+<pre><span id="VALnew_color_pattern"><span class="keyword">val</span> new_color_pattern</span> : <code class="type">pat:<a href="Povray.html#TYPEpattern">pattern</a> -><br>       color_map:(float * <a href="Povray.Color.html#TYPEt">Color.t</a>) list -><br>       ?scale:float -> ?finish:string -> unit -> <a href="Povray.html#TYPEtexture">texture</a></code></pre><h5 id="4_AddsShapestoaScene">Adds Shapes to a Scene</h5>
+<pre><span id="VALadd_sphere"><span class="keyword">val</span> add_sphere</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       center:float * float * float -><br>       radius:float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -><br>       ?texture:<a href="Povray.html#TYPEtexture">texture</a> -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_cylinder"><span class="keyword">val</span> add_cylinder</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       center1:float * float * float -><br>       center2:float * float * float -><br>       radius:float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -><br>       ?texture:<a href="Povray.html#TYPEtexture">texture</a> -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_box"><span class="keyword">val</span> add_box</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       corner1:float * float * float -><br>       corner2:float * float * float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -><br>       ?texture:<a href="Povray.html#TYPEtexture">texture</a> -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_cone"><span class="keyword">val</span> add_cone</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       center1:float * float * float -><br>       radius1:float -><br>       center2:float * float * float -><br>       radius2:float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -><br>       ?texture:<a href="Povray.html#TYPEtexture">texture</a> -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_torus"><span class="keyword">val</span> add_torus</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       major:float -><br>       minor:float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -><br>       ?texture:<a href="Povray.html#TYPEtexture">texture</a> -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">major-radius</code> / <code class="code">minor-radius</code></p>
+</div>
+</div>
+
+<pre><span id="VALadd_polygon"><span class="keyword">val</span> add_polygon</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       pnts:(float * float) list -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -><br>       ?texture:<a href="Povray.html#TYPEtexture">texture</a> -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_plane"><span class="keyword">val</span> add_plane</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       norm:int * int * int -><br>       dist:int -> ?texture:<a href="Povray.html#TYPEtexture">texture</a> -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_text"><span class="keyword">val</span> add_text</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       font:string -><br>       text:string -><br>       ?thickness:float -><br>       ?offset:float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -><br>       ?texture:<a href="Povray.html#TYPEtexture">texture</a> -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre><h5 id="4_PrinttoScreen">Print to Screen</h5>
+<pre><span id="VALget_color"><span class="keyword">val</span> get_color</span> : <code class="type">color:<a href="Povray.html#TYPEcolor">color</a> -> string</code></pre>
+<pre><span id="VALget_include"><span class="keyword">val</span> get_include</span> : <code class="type">inc:<a href="Povray.html#TYPEinc_file">inc_file</a> -> string</code></pre>
+<pre><span id="VALget_comment"><span class="keyword">val</span> get_comment</span> : <code class="type">com:string -> string</code></pre>
+<pre><span id="VALget_background"><span class="keyword">val</span> get_background</span> : <code class="type">color:<a href="Povray.html#TYPEcolor">color</a> -> string</code></pre>
+<pre><span id="VALget_light_source"><span class="keyword">val</span> get_light_source</span> : <code class="type">location:float * float * float -> color:<a href="Povray.html#TYPEcolor">color</a> -> string</code></pre>
+<pre><span id="VALget_camera"><span class="keyword">val</span> get_camera</span> : <code class="type">location:float * float * float -><br>       look_at:float * float * float -><br>       ?kind:<a href="Povray.Camera.html#TYPEt">Camera.t</a> -> ?angle:int -> unit -> string</code></pre>
+<pre><span id="VALget_ambient_light"><span class="keyword">val</span> get_ambient_light</span> : <code class="type">color:float * float * float -> string</code></pre>
+<pre><span id="VALget_finish"><span class="keyword">val</span> get_finish</span> : <code class="type">?ambient:float -> ?diffuse:float -> ?specular:float -> unit -> string</code></pre>
+<pre><span id="VALget_texture"><span class="keyword">val</span> get_texture</span> : <code class="type">?color:<a href="Povray.Color.html#TYPEt">Color.t</a> -><br>       ?scale:int -><br>       ?def:<a href="Povray.Textures.html#TYPEtexture_def">Textures.texture_def</a> -><br>       ?normal:<a href="Povray.html#TYPEnormal">normal</a> -> ?finish:string -> unit -> string</code></pre>
+<pre><span id="VALget_checker"><span class="keyword">val</span> get_checker</span> : <code class="type">color1:<a href="Povray.html#TYPEcolor">color</a> -><br>       color2:<a href="Povray.html#TYPEcolor">color</a> -> ?scale:float -> ?finish:string -> unit -> string</code></pre>
+<pre><span id="VALget_hexagon"><span class="keyword">val</span> get_hexagon</span> : <code class="type">color1:<a href="Povray.html#TYPEcolor">color</a> -><br>       color2:<a href="Povray.html#TYPEcolor">color</a> -><br>       color3:<a href="Povray.html#TYPEcolor">color</a> -> ?scale:float -> ?finish:string -> unit -> string</code></pre>
+<pre><span id="VALget_color_pattern"><span class="keyword">val</span> get_color_pattern</span> : <code class="type">pat:<a href="Povray.html#TYPEpattern">pattern</a> -><br>       color_map:(float * <a href="Povray.Color.html#TYPEt">Color.t</a>) list -><br>       ?scale:float -> ?finish:string -> unit -> string</code></pre><h5 id="4_PrintsshapestotheScreen">Prints shapes to the Screen</h5>
+<pre><span id="VALget_sphere"><span class="keyword">val</span> get_sphere</span> : <code class="type">center:float * float * float -><br>       radius:float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALget_cylinder"><span class="keyword">val</span> get_cylinder</span> : <code class="type">center1:float * float * float -><br>       center2:float * float * float -><br>       radius:float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALget_box"><span class="keyword">val</span> get_box</span> : <code class="type">corner1:float * float * float -><br>       corner2:float * float * float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALget_cone"><span class="keyword">val</span> get_cone</span> : <code class="type">center1:float * float * float -><br>       radius1:float -><br>       center2:float * float * float -><br>       radius2:float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALget_torus"><span class="keyword">val</span> get_torus</span> : <code class="type">major:float -><br>       minor:float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALget_polygon"><span class="keyword">val</span> get_polygon</span> : <code class="type">pnts:(float * float) list -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALget_plane"><span class="keyword">val</span> get_plane</span> : <code class="type">norm:int * int * int -> dist:int -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALget_text"><span class="keyword">val</span> get_text</span> : <code class="type">font:string -><br>       text:string -><br>       ?thickness:float -><br>       ?offset:float -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -> ?texture:string -> unit -> string</code></pre><h4 id="3_CSGConstructiveSolidGeometry">CSG: Constructive Solid Geometry</h4><h6 id="5_Groups">Groups</h6>
+<pre><span id="VALget_union"><span class="keyword">val</span> get_union</span> : <code class="type">group:string -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -> unit -> string</code></pre>
+<pre><span id="VALadd_union"><span class="keyword">val</span> add_union</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       group:(<a href="Povray.html#TYPEscene">scene</a> -> <a href="Povray.html#TYPEscene">scene</a>) -><br>       ?translate:float * float * float -><br>       ?rotate:float * float * float -><br>       ?scale:float * float * float -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre><h6 id="5_CSGDiff">CSG-Diff</h6>
+<pre><span id="VALget_difference"><span class="keyword">val</span> get_difference</span> : <code class="type">elem1:string -> elem2:string -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALadd_difference"><span class="keyword">val</span> add_difference</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       elem1:string -><br>       elem2:string -> ?texture:<a href="Povray.html#TYPEtexture">texture</a> -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_elem"><span class="keyword">val</span> add_elem</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> elem:string -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre><h6 id="5_Intersection">Intersection</h6>
+<pre><span id="VALget_intersection"><span class="keyword">val</span> get_intersection</span> : <code class="type">elem1:string -> elem2:string -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALadd_intersection"><span class="keyword">val</span> add_intersection</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       elem1:string -><br>       elem2:string -> ?texture:<a href="Povray.html#TYPEtexture">texture</a> -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre><h5 id="4_DescriptionConv">Description Conv</h5>
+<pre><span id="MODULEDesc"><span class="keyword">module</span> <a href="Povray.Desc.html">Desc</a></span>: <code class="code">sig</code> <a href="Povray.Desc.html">..</a> <code class="code">end</code></pre><h5 id="4_SelectingFloatsorInts">Selecting Floats or Ints</h5>
+<pre><span id="MODULEFloat"><span class="keyword">module</span> <a href="Povray.Float.html">Float</a></span>: <code class="code">sig</code> <a href="Povray.Float.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEInt"><span class="keyword">module</span> <a href="Povray.Int.html">Int</a></span>: <code class="code">sig</code> <a href="Povray.Int.html">..</a> <code class="code">end</code></pre><h5 id="4_Meshes">Meshes</h5>
+<pre><span id="MODULEMesh"><span class="keyword">module</span> <a href="Povray.Mesh.html">Mesh</a></span>: <code class="code">sig</code> <a href="Povray.Mesh.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEMeshC"><span class="keyword">module</span> <a href="Povray.MeshC.html">MeshC</a></span>: <code class="code">sig</code> <a href="Povray.MeshC.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEMeshD"><span class="keyword">module</span> <a href="Povray.MeshD.html">MeshD</a></span>: <code class="code">sig</code> <a href="Povray.MeshD.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEMeshD2"><span class="keyword">module</span> <a href="Povray.MeshD2.html">MeshD2</a></span>: <code class="code">sig</code> <a href="Povray.MeshD2.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEMeshUV"><span class="keyword">module</span> <a href="Povray.MeshUV.html">MeshUV</a></span>: <code class="code">sig</code> <a href="Povray.MeshUV.html">..</a> <code class="code">end</code></pre><h4 id="3_OfficialPOVRayDocumentation">Official POV-Ray Documentation</h4><p><a href="https://www.povray.org/documentation/">
+       https://www.povray.org/documentation/</a></p>
+<p>You can also find examples and documentation in:
+    <code class="code">"/usr/share/doc/povray"</code></p>
+</body></html>

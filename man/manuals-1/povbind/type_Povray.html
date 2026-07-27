@@ -1,0 +1,149 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Povray" rel="Chapter" href="Povray.html"><title>Povray</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;location&nbsp;=&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;color&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Red</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Green</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Blue</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Yellow</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">White</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Black</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Cyan</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">RGB</span>&nbsp;<span class="keyword">of</span>&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">RGBT</span>&nbsp;<span class="keyword">of</span>&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;*&nbsp;float<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;scene_desc&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Background</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Povray</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Camera</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Povray</span>.location&nbsp;*&nbsp;<span class="constructor">Povray</span>.location<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Light_source</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Povray</span>.location&nbsp;*&nbsp;<span class="constructor">Povray</span>.color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Sphere</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Povray</span>.location&nbsp;*&nbsp;float&nbsp;*&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Cone</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Povray</span>.location&nbsp;*&nbsp;float&nbsp;*&nbsp;<span class="constructor">Povray</span>.location&nbsp;*&nbsp;float&nbsp;*&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Box</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Povray</span>.location&nbsp;*&nbsp;<span class="constructor">Povray</span>.location&nbsp;*&nbsp;string&nbsp;*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Povray</span>.location&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;new_scene&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_scene&nbsp;:&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;print_scene&nbsp;:&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;inc_file&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Arrays</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Chars</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Colors</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Consts</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Debug</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Finish</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Functions</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Glass</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Glass_old</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Golds</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Logo</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Math</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Metals</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Rad_def</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Rand</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Textures</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Transforms</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Screen</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Shapes</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Shapes2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Shapes_old</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Shapesq</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Skies</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stage1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stars</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stdcam</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stdinc</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stoneold</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stones</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stones1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stones2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Strings</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Sunpos</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Woodmaps</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Woods</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_inc_file&nbsp;:&nbsp;inc:<span class="constructor">Povray</span>.inc_file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_include&nbsp;:&nbsp;inc:<span class="constructor">Povray</span>.inc_file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_include&nbsp;:&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;inc:<span class="constructor">Povray</span>.inc_file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_color&nbsp;:&nbsp;color:<span class="constructor">Povray</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_camera&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;location:int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;look_at:int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_camera&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;location:int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;look_at:int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_background&nbsp;:&nbsp;color:<span class="constructor">Povray</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_background&nbsp;:&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Povray</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_light_source&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;location:int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Povray</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_light_source&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;location:int&nbsp;*&nbsp;int&nbsp;*&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:<span class="constructor">Povray</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_ambient_light&nbsp;:&nbsp;color:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_ambient_light&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;color:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_texture&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?color:<span class="constructor">Povray</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?scale:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?def:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_sphere&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;center:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_cone&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;center1:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius1:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;center2:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius2:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_box&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corner1:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;corner2:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?rotate:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_cylinder&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;center1:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;center2:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_torus&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;major:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;minor:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?translate:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_text&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;text:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?thickness:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?offset:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_sphere&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;center:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_cone&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;center1:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius1:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;center2:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius2:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_box&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;corner1:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;corner2:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?rotate:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_cylinder&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;center1:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;center2:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_torus&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;major:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;minor:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?translate:float&nbsp;*&nbsp;float&nbsp;*&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_text&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Povray</span>.scene&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;font:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;text:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?thickness:float&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?offset:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?texture:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Povray</span>.scene<br>
+<span class="keyword">end</span></code></body></html>

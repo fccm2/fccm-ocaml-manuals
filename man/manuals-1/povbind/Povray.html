@@ -1,0 +1,416 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Povray" rel="Chapter" href="Povray.html"><title>Povray</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Povray.html">Povray</a></h1>
+
+<pre><span id="MODULEPovray"><span class="keyword">module</span> Povray</span>: <code class="code">sig</code> <a href="Povray.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="TYPElocation"><span class="keyword">type</span> <code class="type"></code>location</span> = <code class="type">float * float * float</code> </pre>
+
+
+<pre><code><span id="TYPEcolor"><span class="keyword">type</span> <code class="type"></code>color</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Red"><span class="constructor">Red</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Green"><span class="constructor">Green</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Blue"><span class="constructor">Blue</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Yellow"><span class="constructor">Yellow</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.White"><span class="constructor">White</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Black"><span class="constructor">Black</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Cyan"><span class="constructor">Cyan</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.RGB"><span class="constructor">RGB</span></span> <span class="keyword">of</span> <code class="type">float * float * float</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.RGBT"><span class="constructor">RGBT</span></span> <span class="keyword">of</span> <code class="type">float * float * float * float</code></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEscene_desc"><span class="keyword">type</span> <code class="type"></code>scene_desc</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Background"><span class="constructor">Background</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPEcolor">color</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Camera"><span class="constructor">Camera</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPElocation">location</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Light_source"><span class="constructor">Light_source</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPEcolor">color</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Sphere"><span class="constructor">Sphere</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPElocation">location</a> * float * string</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Cone"><span class="constructor">Cone</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPElocation">location</a> * float * <a href="Povray.html#TYPElocation">location</a> * float * string</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTscene_desc.Box"><span class="constructor">Box</span></span> <span class="keyword">of</span> <code class="type"><a href="Povray.html#TYPElocation">location</a> * <a href="Povray.html#TYPElocation">location</a> * string * <a href="Povray.html#TYPElocation">location</a> option</code></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="TYPEscene"><span class="keyword">type</span> <code class="type"></code>scene</span> </pre>
+
+
+<pre><span id="VALnew_scene"><span class="keyword">val</span> new_scene</span> : <code class="type">unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALstring_of_scene"><span class="keyword">val</span> string_of_scene</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> string</code></pre>
+<pre><span id="VALprint_scene"><span class="keyword">val</span> print_scene</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> unit</code></pre>
+<pre><code><span id="TYPEinc_file"><span class="keyword">type</span> <code class="type"></code>inc_file</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Arrays"><span class="constructor">Arrays</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Chars"><span class="constructor">Chars</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Colors"><span class="constructor">Colors</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Consts"><span class="constructor">Consts</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Debug"><span class="constructor">Debug</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Finish"><span class="constructor">Finish</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Functions"><span class="constructor">Functions</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Glass"><span class="constructor">Glass</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Glass_old"><span class="constructor">Glass_old</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Golds"><span class="constructor">Golds</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Logo"><span class="constructor">Logo</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Math"><span class="constructor">Math</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Metals"><span class="constructor">Metals</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Rad_def"><span class="constructor">Rad_def</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Rand"><span class="constructor">Rand</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Textures"><span class="constructor">Textures</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Transforms"><span class="constructor">Transforms</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Screen"><span class="constructor">Screen</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Shapes"><span class="constructor">Shapes</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Shapes2"><span class="constructor">Shapes2</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Shapes_old"><span class="constructor">Shapes_old</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Shapesq"><span class="constructor">Shapesq</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Skies"><span class="constructor">Skies</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Stage1"><span class="constructor">Stage1</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Stars"><span class="constructor">Stars</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Stdcam"><span class="constructor">Stdcam</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Stdinc"><span class="constructor">Stdinc</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Stoneold"><span class="constructor">Stoneold</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Stones"><span class="constructor">Stones</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Stones1"><span class="constructor">Stones1</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Stones2"><span class="constructor">Stones2</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Strings"><span class="constructor">Strings</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Sunpos"><span class="constructor">Sunpos</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Woodmaps"><span class="constructor">Woodmaps</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTinc_file.Woods"><span class="constructor">Woods</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="VALstring_of_inc_file"><span class="keyword">val</span> string_of_inc_file</span> : <code class="type">inc:<a href="Povray.html#TYPEinc_file">inc_file</a> -> string</code></pre>
+<pre><span id="VALget_include"><span class="keyword">val</span> get_include</span> : <code class="type">inc:<a href="Povray.html#TYPEinc_file">inc_file</a> -> string</code></pre>
+<pre><span id="VALadd_include"><span class="keyword">val</span> add_include</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> inc:<a href="Povray.html#TYPEinc_file">inc_file</a> -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALget_color"><span class="keyword">val</span> get_color</span> : <code class="type">color:<a href="Povray.html#TYPEcolor">color</a> -> string</code></pre>
+<pre><span id="VALget_camera"><span class="keyword">val</span> get_camera</span> : <code class="type">location:int * int * int -> look_at:int * int * int -> string</code></pre>
+<pre><span id="VALadd_camera"><span class="keyword">val</span> add_camera</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       location:int * int * int -> look_at:int * int * int -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALget_background"><span class="keyword">val</span> get_background</span> : <code class="type">color:<a href="Povray.html#TYPEcolor">color</a> -> string</code></pre>
+<pre><span id="VALadd_background"><span class="keyword">val</span> add_background</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> color:<a href="Povray.html#TYPEcolor">color</a> -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALget_light_source"><span class="keyword">val</span> get_light_source</span> : <code class="type">location:int * int * int -> color:<a href="Povray.html#TYPEcolor">color</a> -> string</code></pre>
+<pre><span id="VALadd_light_source"><span class="keyword">val</span> add_light_source</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       location:int * int * int -> color:<a href="Povray.html#TYPEcolor">color</a> -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALget_ambient_light"><span class="keyword">val</span> get_ambient_light</span> : <code class="type">color:float * float * float -> string</code></pre>
+<pre><span id="VALadd_ambient_light"><span class="keyword">val</span> add_ambient_light</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -> color:float * float * float -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALget_texture"><span class="keyword">val</span> get_texture</span> : <code class="type">?color:<a href="Povray.html#TYPEcolor">color</a> -> ?scale:int -> ?def:string -> unit -> string</code></pre>
+<pre><span id="VALget_sphere"><span class="keyword">val</span> get_sphere</span> : <code class="type">center:float * float * float -><br>       radius:float -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALget_cone"><span class="keyword">val</span> get_cone</span> : <code class="type">center1:float * float * float -><br>       radius1:float -><br>       center2:float * float * float -><br>       radius2:float -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALget_box"><span class="keyword">val</span> get_box</span> : <code class="type">corner1:float * float * float -><br>       corner2:float * float * float -><br>       ?texture:string -> ?rotate:float * float * float -> unit -> string</code></pre>
+<pre><span id="VALget_cylinder"><span class="keyword">val</span> get_cylinder</span> : <code class="type">center1:float * float * float -><br>       center2:float * float * float -><br>       radius:float -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALget_torus"><span class="keyword">val</span> get_torus</span> : <code class="type">major:float -><br>       minor:float -><br>       ?texture:string -> ?translate:float * float * float -> unit -> string</code></pre>
+<pre><span id="VALget_text"><span class="keyword">val</span> get_text</span> : <code class="type">font:string -><br>       text:string -><br>       ?thickness:float -> ?offset:float -> ?texture:string -> unit -> string</code></pre>
+<pre><span id="VALadd_sphere"><span class="keyword">val</span> add_sphere</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       center:float * float * float -><br>       radius:float -> ?texture:string -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_cone"><span class="keyword">val</span> add_cone</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       center1:float * float * float -><br>       radius1:float -><br>       center2:float * float * float -><br>       radius2:float -> ?texture:string -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_box"><span class="keyword">val</span> add_box</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       corner1:float * float * float -><br>       corner2:float * float * float -><br>       ?texture:string -> ?rotate:float * float * float -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_cylinder"><span class="keyword">val</span> add_cylinder</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       center1:float * float * float -><br>       center2:float * float * float -><br>       radius:float -> ?texture:string -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_torus"><span class="keyword">val</span> add_torus</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       major:float -><br>       minor:float -><br>       ?texture:string -> ?translate:float * float * float -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre>
+<pre><span id="VALadd_text"><span class="keyword">val</span> add_text</span> : <code class="type"><a href="Povray.html#TYPEscene">scene</a> -><br>       font:string -><br>       text:string -><br>       ?thickness:float -> ?offset:float -> ?texture:string -> unit -> <a href="Povray.html#TYPEscene">scene</a></code></pre></body></html>
